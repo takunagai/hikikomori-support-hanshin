@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2015", // es5
+    "target": "ES2020",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true, // 型定義ファイル(*.d.ts)のチェックをスキップ。精度は下がるが、コンパイル時間を削減
@@ -10,12 +10,16 @@
     "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve", // jsxのコンパイルをtscではなくBabelなど他に任せたい場合に使用, "react"
-    // "types": ["react/next", "react-dom/next"], // ★★Temp 2022-04-20 v18用 もう不要・
-    "sourceMap": true // Add
+    "sourceMap": true, // Add
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "exclude": ["node_modules", ".next", "out"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
