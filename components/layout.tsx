@@ -8,11 +8,11 @@ import Header from "./Header"
 import BreadCrumbs from "./BreadCrumbs"
 import Footer from "./Footer"
 
-import { Yomogi } from "@next/font/google"
+import { Yomogi } from "next/font/google"
 const yomogi = Yomogi({
   variable: "--yomogi-font",
   weight: "400", // バリアブルフォントでないので必要
-  subsets: ["japanese"],
+  subsets: ["latin"],
   fallback: ["cursive", "system-ui", "-apple-system", "sans-serif"],
 })
 
