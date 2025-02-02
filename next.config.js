@@ -1,16 +1,32 @@
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   images: {
-    // URL のホスト名を images.domains 構成に追加
-    domains: [
-      "picsum.photos",
-      "images.microcms-assets.io",
-      "vercel.app",
-      "hanshin-branch.org",
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.microcms-assets.io',
+      },
+      {
+        protocol: 'https',
+        hostname: 'vercel.app',
+      },
+      {
+        protocol: 'https',
+        hostname: 'hanshin-branch.org',
+      },
     ],
-    // unoptimized: true, // 画像最適化の無効化。Vercel なら不要
-    // https://nextjs.org/docs/messages/export-image-api
+  },
+  // Next.js 15の新機能を有効化
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
   },
 }
 
-module.exports = {}
+module.exports = nextConfig
