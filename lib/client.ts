@@ -5,6 +5,6 @@
 import { createClient } from "microcms-js-sdk"
 
 export const client = createClient({
-  serviceDomain: process.env.SERVICE!, // TS に undefined の可能性があるように見えても、そうではないことを信頼できることを伝える
-  apiKey: process.env.APIKEY!,
+  serviceDomain: process.env.SERVICE as string,
+  apiKey: process.env.APIKEY as string,
 })
