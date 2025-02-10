@@ -1,34 +1,65 @@
-const NavbarCollapseButton = () => {
+import { motion } from "framer-motion"
+
+type Props = {
+  isOpen: boolean
+  onClick: () => void
+}
+
+const NavbarCollapseButton = ({ isOpen, onClick }: Props) => {
   return (
-    <button
+    <motion.button
       type="button"
-      className="hs-collapse-toggle inline-flex items-center justify-center gap-2 rounded bg-white p-2 align-middle text-primary shadow-sm transition-all hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-secondary-200 focus:ring-offset-2 focus:ring-offset-white dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-slate-800 dark:hover:text-white dark:focus:ring-offset-gray-800"
-      data-hs-collapse="#navbar-collapse"
+      onClick={onClick}
+      className="inline-flex items-center justify-center gap-2 rounded bg-white p-2 align-middle text-primary shadow-sm transition-all hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-secondary-200 focus:ring-offset-2 focus:ring-offset-white dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-slate-800 dark:hover:text-white dark:focus:ring-offset-gray-800"
       aria-controls="navbar-collapse"
       aria-label="Toggle navigation"
+      aria-expanded={isOpen}
+      whileTap={{ scale: 0.95 }}
     >
-      <svg
-        className="h-5 w-5 hs-collapse-open:hidden"
-        width="16"
-        height="16"
-        fill="currentColor"
-        viewBox="0 0 16 16"
+      <motion.div
+        animate={isOpen ? "open" : "closed"}
+        variants={{
+          open: {
+            rotate: 45,
+            y: 2,
+          },
+          closed: {
+            rotate: 0,
+            y: 0,
+          },
+        }}
+        transition={{ duration: 0.2 }}
+        className="relative h-5 w-5"
       >
-        <path
-          fillRule="evenodd"
-          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+        <motion.span
+          className="absolute block h-0.5 w-5 bg-current"
+          variants={{
+            open: { opacity: 1 },
+            closed: { opacity: 1 },
+          }}
         />
-      </svg>
-      <svg
-        className="hidden h-5 w-5 hs-collapse-open:block"
-        width="16"
-        height="16"
-        fill="currentColor"
-        viewBox="0 0 16 16"
-      >
-        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-      </svg>
-    </button>
+        <motion.span
+          className="absolute top-2 block h-0.5 w-5 bg-current"
+          variants={{
+            open: { opacity: 0 },
+            closed: { opacity: 1 },
+          }}
+        />
+        <motion.span
+          className="absolute top-4 block h-0.5 w-5 bg-current"
+          variants={{
+            open: {
+              rotate: 90,
+              y: -8,
+            },
+            closed: {
+              rotate: 0,
+              y: 0,
+            },
+          }}
+        />
+      </motion.div>
+    </motion.button>
   )
 }
 

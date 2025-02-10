@@ -1,17 +1,48 @@
 import Link from "next/link"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import NavbarCollapseButton from "./NavbarCollapseButton"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
   return (
-    <>
-      <div
-        id="navbar-collapse"
-        className="mx-10 hidden grow basis-full text-sm lg:block"
+    <nav className="relative">
+      {/* モバイルメニューボタン */}
+      <div className="lg:hidden">
+        <NavbarCollapseButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
+      </div>
+
+      {/* メインナビゲーション */}
+      <motion.div
+        className={`${
+          isOpen ? "block" : "hidden"
+        } lg:block lg:grow lg:basis-full`}
+        initial={false}
+        animate={isOpen ? "open" : "closed"}
+        variants={{
+          open: {
+            opacity: 1,
+            height: "auto",
+            transition: {
+              type: "spring",
+              stiffness: 300,
+              damping: 30,
+            },
+          },
+          closed: {
+            opacity: 0,
+            height: 0,
+            transition: {
+              type: "spring",
+              stiffness: 300,
+              damping: 30,
+            },
+          },
+        }}
       >
-        <div className="mt-5 flex flex-col gap-5 lg:mt-0 lg:flex-row lg:items-center lg:justify-end lg:pl-5">
+        <div className="mx-4 mt-5 flex flex-col gap-5 lg:mx-10 lg:mt-0 lg:flex-row lg:items-center lg:justify-end lg:pl-5">
           <Link
             href="/"
             className="group relative font-medium text-primary-700 dark:text-gray-400"
@@ -38,7 +69,7 @@ const Navbar = () => {
           </Link>
           <div className="relative">
             <motion.button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               className="flex w-full items-center font-medium text-primary-700 dark:text-gray-400"
               whileHover={{ color: "var(--tw-text-primary-400)" }}
               whileTap={{ scale: 0.98 }}
@@ -51,7 +82,7 @@ const Navbar = () => {
                 viewBox="0 0 16 16"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                animate={{ rotate: isOpen ? 180 : 0 }}
+                animate={{ rotate: isDropdownOpen ? 180 : 0 }}
                 transition={{ duration: 0.2 }}
               >
                 <path
@@ -64,13 +95,13 @@ const Navbar = () => {
             </motion.button>
 
             <AnimatePresence>
-              {isOpen && (
+              {isDropdownOpen && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute top-full z-10 mt-2 w-48 rounded-md bg-white p-2 shadow-lg dark:bg-gray-800"
+                  className="absolute top-full z-10 mt-2 w-48 rounded-md bg-white p-2 shadow-lg dark:bg-gray-800 lg:right-0"
                 >
                   <Link
                     href="/places-and-groups"
@@ -136,8 +167,8 @@ const Navbar = () => {
             />
           </Link>
         </div>
-      </div>
-    </>
+      </motion.div>
+    </nav>
   )
 }
 
