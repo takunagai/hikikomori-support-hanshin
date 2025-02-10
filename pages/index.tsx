@@ -74,7 +74,7 @@ const Home: NextPage = ({ newsItems }: any) => {
         <div className="alignfull bg-tertiary-100 py-8 px-4 text-center sm:px-6 lg:py-24 lg:px-8">
           <div className="container flex flex-col items-center justify-center lg:flex-row">
             <div className="order-2 mx-auto max-w-lg lg:px-8">
-              <div className="mx-auto max-w-fit rounded-xl border border-2 border-dashed border-primary-300 bg-white/75 p-4 shadow ring ring-white/75">
+              <div className="mx-auto max-w-fit rounded-xl border-2 border-dashed border-primary-300 bg-white/75 p-4 shadow ring ring-white/75">
                 <p className="text-sm font-bold text-secondary">
                   相談 / セミナー / 居場所 / 訪問支援
                 </p>
@@ -197,7 +197,7 @@ const Home: NextPage = ({ newsItems }: any) => {
             このような方、ご相談ください
           </h3>
           <div className="mx-auto mt-6 flex max-w-fit flex-col gap-4 md:flex-row">
-            <div className="rounded-lg border border-4 border-dotted border-secondary-300 p-3">
+            <div className="rounded-lg border-4 border-dotted border-secondary-300 p-3">
               <h4 className="text-primary">ご本人</h4>
               <ul className="mt-2 list-square pl-5 marker:text-secondary-400">
                 <li>このままではいけないと思ってはいるが…</li>
@@ -205,7 +205,7 @@ const Home: NextPage = ({ newsItems }: any) => {
                 <li>働くのは難しいが、このままではいけない</li>
               </ul>
             </div>
-            <div className="rounded-lg border border-4 border-dotted border-secondary-300 p-3">
+            <div className="rounded-lg border-4 border-dotted border-secondary-300 p-3">
               <h4 className="text-primary">ご家族さま</h4>
               <ul className="mt-2 list-square pl-5 marker:text-secondary-400">
                 <li>ひきこもったままの、子どもの将来が心配</li>
@@ -222,7 +222,7 @@ const Home: NextPage = ({ newsItems }: any) => {
           </h3>
           <div className="container">
             <ul className="mt-6 flex flex-wrap">
-              <li className="flex-basis basis-1/2 rounded-xl border-4 border border-white bg-tertiary-100 p-6 text-center md:basis-1/4">
+              <li className="flex-basis basis-1/2 rounded-xl border-4 border-white bg-tertiary-100 p-6 text-center md:basis-1/4">
                 <p>
                   <FaUserFriends className="inline text-[50px] text-primary-200" />
                 </p>
@@ -230,7 +230,7 @@ const Home: NextPage = ({ newsItems }: any) => {
                   ご本人はもちろん、ご家族からのご相談もお受けします
                 </p>
               </li>
-              <li className="flex-basis basis-1/2 rounded-xl border-4 border border-white bg-tertiary-100 p-6 text-center md:basis-1/4">
+              <li className="flex-basis basis-1/2 rounded-xl border-4 border-white bg-tertiary-100 p-6 text-center md:basis-1/4">
                 <p className="">
                   <FaHandshake className="inline text-[50px] text-primary-200" />
                 </p>
@@ -238,7 +238,7 @@ const Home: NextPage = ({ newsItems }: any) => {
                   相談内容に応じ、適切な関係機関を紹介します
                 </p>
               </li>
-              <li className="flex-basis basis-1/2 rounded-xl border-4 border border-white bg-tertiary-100 p-6 text-center md:basis-1/4">
+              <li className="flex-basis basis-1/2 rounded-xl border-4 border-white bg-tertiary-100 p-6 text-center md:basis-1/4">
                 <p className="">
                   <FaLock className="inline text-[50px] text-primary-200" />
                 </p>
@@ -246,7 +246,7 @@ const Home: NextPage = ({ newsItems }: any) => {
                   秘密を守ります。同意なしに相談内容を口外しません
                 </p>
               </li>
-              <li className="flex-basis basis-1/2 rounded-xl border-4 border border-white bg-tertiary-100 p-6 text-center md:basis-1/4">
+              <li className="flex-basis basis-1/2 rounded-xl border-4 border-white bg-tertiary-100 p-6 text-center md:basis-1/4">
                 <p className="">
                   <FaHandHoldingHeart className="inline text-[50px] text-primary-200" />
                 </p>
@@ -258,7 +258,7 @@ const Home: NextPage = ({ newsItems }: any) => {
           </div>
 
           <h3 className="marker-underlined mt-10">利用してるのはどんな人？</h3>
-          <div className="mx-auto mt-6 max-w-fit border border-primary-200 py-3 px-5 font-bold text-primary-700">
+          <div className="mx-auto mt-6 max-w-fit border-primary-200 py-3 px-5 font-bold text-primary-700">
             <p>
               利用人数：１日２〜８名程度
               <br />

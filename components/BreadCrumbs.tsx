@@ -53,7 +53,7 @@ const BreadCrumbs = ({ pageTitle }: Props) => {
       </li>
       {/*<li className="text-xs font-bold text-gray-800 truncate dark:text-gray-200" ariaCurrent="page">*/}
       <li
-        className="truncate truncate text-xs font-bold text-gray-800 dark:text-gray-200"
+        className="truncate text-xs font-bold text-gray-800 dark:text-gray-200"
         aria-current="page"
       >
         {pageTitle}
