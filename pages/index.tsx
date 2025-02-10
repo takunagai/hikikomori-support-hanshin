@@ -1,21 +1,20 @@
 // import Image from "next/image"
+import { motion } from "framer-motion"
 import Link from "next/link"
+import AccessMap from "../components/AccessMap"
 import Date from "../components/date"
 import Layout from "../components/layout"
-import AccessMap from "../components/AccessMap"
 import { client } from "../lib/client"
-import { motion } from "framer-motion"
-import Lightbox from "yet-another-react-lightbox"
 // import "yet-another-react-lightbox/styles.css"
 
 import {
-  FaLock,
-  FaHandHoldingHeart,
-  FaUserFriends,
-  FaHandshake,
   FaDove,
-  FaHorse,
   FaFrog,
+  FaHandHoldingHeart,
+  FaHandshake,
+  FaHorse,
+  FaLock,
+  FaUserFriends,
 } from "react-icons/fa"
 
 import type {
@@ -23,7 +22,7 @@ import type {
   GetStaticPropsContext,
   InferGetStaticPropsType,
   NextPage,
-} from "next" // TypeScript の型データ
+} from "next"; // TypeScript の型データ
 
 /**
  * Settings
