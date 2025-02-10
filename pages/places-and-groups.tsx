@@ -2,23 +2,23 @@
  * microcms API からフェッチ
  * @ref https://document.microcms.io/tutorial/next/next-getting-started
  */
-import { useState } from "react"
-import Layout from "../components/layout"
-import AfterContentArea from "../components/AfterContentArea"
 import * as Dialog from "@radix-ui/react-dialog"
-import DialogDemo from "../components/Dialog"
 import { motion } from "framer-motion"
-import RadioButton from "../components/RadioButton"
+import { useState } from "react"
+import AfterContentArea from "../components/AfterContentArea"
+import DialogDemo from "../components/Dialog"
+import Layout from "../components/layout"
 import Link from "../components/Link"
-import { client } from "../lib/client" // microcms-js-sdkの初期化
+import RadioButton from "../components/RadioButton"
+import { client } from "../lib/client"; // microcms-js-sdkの初期化
 
 import {
-  FaInfoCircle,
   FaEnvelope,
+  FaGlobe,
+  FaInfoCircle,
+  FaLine,
   FaPhoneAlt,
   FaPrint,
-  FaGlobe,
-  FaLine,
 } from "react-icons/fa"
 
 import type {
@@ -26,7 +26,7 @@ import type {
   // GetStaticPropsContext,
   InferGetStaticPropsType,
   NextPage,
-} from "next" // TypeScript の型データ
+} from "next"; // TypeScript の型データ
 
 // https://zenn.dev/catnose99/articles/7201a6c56d3c88
 type Props = InferGetStaticPropsType<typeof getStaticProps>
@@ -254,179 +254,222 @@ const GroupList = ({
   return Object.keys(groups).length === 0 ? (
     <p>登録がありません。</p>
   ) : (
-    <ul className="mt-8 gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
-      {(groups as any) // FIXME: 型
-        .filter(extractCategoryMatches)
-        .map((group: Group, index: number) => (
-          <li
-            key={index}
-            className="mb-8 rounded bg-tertiary-100/50 p-6 shadow md:mb-0"
-          >
-            <h2 className="text-left text-[1.4rem] text-primary">
-              {group.title}
-            </h2>
-            {group.mainImage && group.mainImage.url}
-            {group.mainImage && group.mainImage.width}
-            {group.mainImage && group.mainImage.height}
-            <ul className="mt-4 inline-flex flex-wrap gap-1">
-              {group.locationType.map((x, i) => (
-                <li
-                  className="inline-block border border-primary-200 py-0 px-1 text-sm text-primary"
-                  key={i}
-                >
-                  {x}
-                </li>
-              ))}
-              <li className="inline-block rounded-full bg-secondary-200 py-0 px-2 text-sm text-primary">
-                {group.city.join(", ")}
-              </li>
-            </ul>
-            <p className="mt-4">{group.summary}</p>
-            <p>
-              <b className="text-primary">対象者:</b> <br />
-              {group.objectPerson}
-            </p>
-            <p className="mb-1.5 pl-12 -indent-12 leading-5">
-              <b className="text-primary">場所：</b>
-              {group.place}{" "}
-              {group.address && (
-                <>
-                  <br />
-                  <small>({group.address})</small>
-                </>
-              )}
-            </p>
-            <p className="mt-0 pl-12 -indent-12">
-              <b className="text-primary">日時：</b>
-              {group.activityDate}
-            </p>
-            <p className="mt-0 pl-16 -indent-16">
-              <b className="text-primary">参加費：</b>
-              {group.cost}
-            </p>
-            <p className="mt-0 pl-16 -indent-16">
-              <b className="text-primary">主催者：</b>
-              {group.manager}
-            </p>
-            {group.notice && (
-              <p className="text-red-500">
-                <small>{group.notice}</small>
-              </p>
-            )}
-            <p>
-              <b className="text-primary">
-                問合せ先
-                <small className="font-normal">
-                  {group.contactName && ` (${group.contactName})`}
-                </small>
-                ：
-              </b>
-            </p>
+    <div className="mt-8">
+      <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {(groups as any) // FIXME: 型
+          .filter(extractCategoryMatches)
+          .map((group: Group, index: number) => (
+            <motion.li
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
+              className="group relative overflow-hidden rounded-lg bg-[#FBF7F4] p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-gray-800/95 dark:shadow-gray-900/30"
+              style={{
+                backgroundImage: "url('/images/paper-texture.svg')",
+                backgroundRepeat: "repeat",
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-b from-primary-50/30 to-transparent dark:from-primary-900/10"></div>
+              <div className="relative">
+                <h2 className="text-left text-[1.4rem] font-bold text-primary-700 dark:text-primary-300">
+                  {group.title}
+                </h2>
 
-            {group.contactTel && (
-              <p className="mt-0">
-                <FaPhoneAlt className="mx-auto inline h-4 w-4 text-secondary md:mx-0" />{" "}
-                Tel:{" "}
-                <span className="text-xl font-bold">
-                  <a href={`tel:${group.contactTel}`}>{group.contactTel}</a>
-                </span>
-                {group.contactHours && <small> {group.contactHours}</small>}
-              </p>
-            )}
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {group.locationType.map((x, i) => (
+                    <li
+                      className="rounded-md border border-primary-200 px-2 py-0.5 text-sm text-primary-600 dark:border-primary-700 dark:text-primary-300"
+                      key={i}
+                    >
+                      {x}
+                    </li>
+                  ))}
+                  <li className="rounded-full bg-secondary-100 px-3 py-0.5 text-sm text-secondary-700 dark:bg-secondary-900/30 dark:text-secondary-300">
+                    {group.city.join(", ")}
+                  </li>
+                </ul>
 
-            {group.contactFax && (
-              <p className="mt-0">
-                <FaPrint className="mx-auto inline h-4 w-4 text-secondary md:mx-0" />{" "}
-                Fax: {group.contactFax}
-              </p>
-            )}
+                <p className="mt-4 text-gray-600 dark:text-gray-300">{group.summary}</p>
 
-            <p className="mt-1 flex gap-2">
-              {group.contactEmail && (
-                <b>
-                  <FaEnvelope className="inline h-4 w-4 text-secondary" />
-                  <a
-                    href={`mailto:${group.contactEmail}`}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Email
-                  </a>
-                </b>
-              )}
-              {group.contactLine && (
-                <b>
-                  <FaLine className="inline h-4 w-4 text-secondary" />
-                  <a
-                    href={`https://lin.ee/${group.contactLine}`}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    LINE
-                  </a>
-                </b>
-              )}
-              {group.webUrl && (
-                <b>
-                  <FaGlobe className="inline h-4 w-4 text-secondary" />
-                  <a href={`${group.webUrl}`} target="_blank" rel="noreferrer">
-                    Web
-                  </a>
-                </b>
-              )}
-            </p>
-            {group.leafletImage1 && (
-              <p className="relative text-center text-sm">
-                <img
-                  src={group.leafletImage1.url}
-                  width={group.leafletImage1.width}
-                  height={group.leafletImage1.height}
-                  alt="リーフレット"
-                />
-                <DialogDemo
-                  title={group.title}
-                  showTitle={false}
-                  triggerType="link"
-                  triggerText="» 拡大表示"
-                  isStretchLink={true}
-                  isPortrait={
-                    group.leafletImage1.height >= group.leafletImage1.width
-                  }
-                >
-                  <img
-                    src={group.leafletImage1.url}
-                    width={group.leafletImage1.width}
-                    height={group.leafletImage1.height}
-                    alt="リーフレット"
-                  />
-                </DialogDemo>
-              </p>
-            )}
-            {group.leafletImage2 && (
-              <p className="text-center text-sm">
-                <img
-                  src={group.leafletImage2.url}
-                  width={group.leafletImage2.width}
-                  height={group.leafletImage2.height}
-                  alt="リーフレット"
-                />
-                <DialogDemo
-                  title={group.title}
-                  showTitle={false}
-                  triggerType="link"
-                  triggerText="» 拡大表示"
-                >
-                  <img
-                    src={group.leafletImage2.url}
-                    width={group.leafletImage2.width}
-                    height={group.leafletImage2.height}
-                    alt="リーフレット"
-                  />
-                </DialogDemo>
-              </p>
-            )}
-          </li>
-        ))}
-    </ul>
+                <div className="mt-4 space-y-3 text-sm">
+                  <div>
+                    <span className="font-bold text-primary-600 dark:text-primary-400">対象者:</span>
+                    <p className="mt-1">{group.objectPerson}</p>
+                  </div>
+
+                  <div className="grid gap-2">
+                    <p className="flex items-start">
+                      <span className="mr-2 font-bold text-primary-600 dark:text-primary-400">場所：</span>
+                      <span className="flex-1">
+                        {group.place}
+                        {group.address && (
+                          <small className="mt-1 block text-gray-500 dark:text-gray-400">
+                            ({group.address})
+                          </small>
+                        )}
+                      </span>
+                    </p>
+
+                    <p className="flex items-start">
+                      <span className="mr-2 font-bold text-primary-600 dark:text-primary-400">日時：</span>
+                      <span className="flex-1">{group.activityDate}</span>
+                    </p>
+
+                    <p className="flex items-start">
+                      <span className="mr-2 font-bold text-primary-600 dark:text-primary-400">参加費：</span>
+                      <span className="flex-1">{group.cost}</span>
+                    </p>
+
+                    <p className="flex items-start">
+                      <span className="mr-2 font-bold text-primary-600 dark:text-primary-400">主催者：</span>
+                      <span className="flex-1">{group.manager}</span>
+                    </p>
+                  </div>
+
+                  {group.notice && (
+                    <p className="rounded-md bg-red-50 p-2 text-red-600 dark:bg-red-900/20 dark:text-red-300">
+                      <small>{group.notice}</small>
+                    </p>
+                  )}
+
+                  <div className="border-t border-gray-100 pt-3 dark:border-gray-700">
+                    <p className="font-bold text-primary-600 dark:text-primary-400">
+                      問合せ先
+                      {group.contactName && (
+                        <small className="font-normal text-gray-500 dark:text-gray-400">
+                          {" "}({group.contactName})
+                        </small>
+                      )}
+                    </p>
+
+                    <div className="mt-2 space-y-2">
+                      {group.contactTel && (
+                        <p className="flex items-center gap-2">
+                          <FaPhoneAlt className="h-4 w-4 text-secondary-500" />
+                          <a
+                            href={`tel:${group.contactTel}`}
+                            className="text-lg font-bold text-secondary-600 hover:text-secondary-500 dark:text-secondary-400 dark:hover:text-secondary-300"
+                          >
+                            {group.contactTel}
+                          </a>
+                          {group.contactHours && (
+                            <small className="text-gray-500 dark:text-gray-400">
+                              {group.contactHours}
+                            </small>
+                          )}
+                        </p>
+                      )}
+
+                      {group.contactFax && (
+                        <p className="flex items-center gap-2">
+                          <FaPrint className="h-4 w-4 text-secondary-500" />
+                          <span className="text-gray-600 dark:text-gray-300">{group.contactFax}</span>
+                        </p>
+                      )}
+
+                      <div className="flex gap-4">
+                        {group.contactEmail && (
+                          <Link
+                            href={`mailto:${group.contactEmail}`}
+                            external
+                            variant="secondary"
+                            className="inline-flex items-center gap-1"
+                          >
+                            <FaEnvelope className="h-4 w-4 mx-auto" />
+                            <span className="font-bold">Email</span>
+                          </Link>
+                        )}
+
+                        {group.contactLine && (
+                          <Link
+                            href={`https://lin.ee/${group.contactLine}`}
+                            external
+                            variant="secondary"
+                            className="inline-flex items-center gap-1"
+                          >
+                            <FaLine className="h-4 w-4 mx-auto" />
+                            <span className="font-bold">LINE</span>
+                          </Link>
+                        )}
+
+                        {group.webUrl && (
+                          <Link
+                            href={group.webUrl}
+                            external
+                            variant="secondary"
+                            className="inline-flex items-center gap-1"
+                          >
+                            <FaGlobe className="h-4 w-4 mx-auto" />
+                            <span className="font-bold">Web</span>
+                          </Link>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {(group.leafletImage1 || group.leafletImage2) && (
+                  <div className="mt-4 grid gap-4">
+                    {group.leafletImage1 && (
+                      <div className="relative overflow-hidden rounded-lg">
+                        <img
+                          src={group.leafletImage1.url}
+                          width={group.leafletImage1.width}
+                          height={group.leafletImage1.height}
+                          alt="リーフレット"
+                          className="w-full object-cover"
+                        />
+                        <DialogDemo
+                          title={group.title}
+                          showTitle={false}
+                          triggerType="link"
+                          triggerText="» 拡大表示"
+                          isStretchLink={true}
+                          isPortrait={group.leafletImage1.height >= group.leafletImage1.width}
+                        >
+                          <img
+                            src={group.leafletImage1.url}
+                            width={group.leafletImage1.width}
+                            height={group.leafletImage1.height}
+                            alt="リーフレット"
+                          />
+                        </DialogDemo>
+                      </div>
+                    )}
+
+                    {group.leafletImage2 && (
+                      <div className="relative overflow-hidden rounded-lg">
+                        <img
+                          src={group.leafletImage2.url}
+                          width={group.leafletImage2.width}
+                          height={group.leafletImage2.height}
+                          alt="リーフレット"
+                          className="w-full object-cover"
+                        />
+                        <DialogDemo
+                          title={group.title}
+                          showTitle={false}
+                          triggerType="link"
+                          triggerText="» 拡大表示"
+                          isStretchLink={true}
+                          isPortrait={group.leafletImage2.height >= group.leafletImage2.width}
+                        >
+                          <img
+                            src={group.leafletImage2.url}
+                            width={group.leafletImage2.width}
+                            height={group.leafletImage2.height}
+                            alt="リーフレット"
+                          />
+                        </DialogDemo>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            </motion.li>
+          ))}
+      </ul>
+    </div>
   )
 }
