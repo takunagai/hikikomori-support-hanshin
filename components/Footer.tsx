@@ -1,6 +1,6 @@
 // import Image from "next/image"
 import Link from "next/link"
-import { FaTwitter } from "react-icons/fa"
+import { FaFacebook, FaInstagram, FaXTwitter, FaYoutube } from "react-icons/fa6"
 
 const Footer = () => {
   // const footerLinks = [
@@ -61,14 +61,15 @@ const Footer = () => {
                   　　　　(JR西宮名塩駅西に出てすぐ)
                 </p>
                 <p className="mt-3 flex justify-center gap-2 lg:justify-start">
-                  <a
-                    href="https://twitter.com/ikigaisagashi1"
+                  <Link
+                    href="https://x.com/ikigaisagashi1"
                     target="_blank"
-                    rel="noreferrer"
-                    className="text-primary-300 hover:text-primary-200"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-50 text-gray-900 transition hover:bg-primary-100 hover:text-primary-600 dark:bg-gray-800 dark:text-white dark:hover:bg-primary-900 dark:hover:text-primary-400"
                   >
-                    <FaTwitter className="text-[1.75rem]" />
-                  </a>
+                    <span className="sr-only">X（旧Twitter）</span>
+                    <FaXTwitter className="h-4 w-4" />
+                  </Link>
                 </p>
               </div>
             </div>
@@ -187,7 +188,7 @@ const FooterBar = () => {
     <div className="bg-primary py-4 text-primary-200">
       <div className="container">
         <p className="text-center text-sm">
-          © 2023 兵庫ひきこもり相談支援センター 阪神ブランチ
+          2023 兵庫ひきこもり相談支援センター 阪神ブランチ
         </p>
       </div>
     </div>
