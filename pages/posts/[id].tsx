@@ -9,7 +9,6 @@ import { motion } from "framer-motion"
 
 type Props = {
   postData: {
-    // id: string,
     title: string
     date: string
     contentHtml: string
@@ -27,15 +26,10 @@ export default function Post({ postData }: Props) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-        <article className="prose prose-sm prose-zinc prose-pink max-w-none prose-headings:underline dark:prose-invert lg:prose-base">
+        <article className="prose prose-sm prose-zinc max-w-none dark:prose-invert lg:prose-base">
           <p className="text-sm">
             <Date dateString={postData.date} />
           </p>
-          {/*{postData.id}*/}
-          {/*{postData.title}*/}
-          {/* dangerouslySetInnerHTML は、ブラウザ DOM における innerHTML の React での代替 */}
-          {/* ★★TODO: サニタイズ推奨 https://hackmd.io/@euxn23/ByfD97Ujv */}
-          {/*<div dangerouslySetInnerHTML={{ __html: sanitizer(postData.contentHtml) }} />*/}
           <div
             className="content mt-5"
             dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
@@ -61,7 +55,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
  * params.id で、ブログ記事に必要なデータを取得
  */
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  // const postData = await getPostData(params.id as string)
   const postData = await getPostData(params?.id as string) // await 必要、オプショナルチェーンで undefined の場合の対応
   return {
     props: {
