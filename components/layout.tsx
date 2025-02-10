@@ -79,6 +79,8 @@ export default function Layout({ children, title, description, home }: Props) {
         <link rel="icon" href="/favicon/favicon.ico" />
       </Head>
 
+      <Script src="https://unpkg.com/preline@1.9.0/dist/preline.js" strategy="afterInteractive" />
+
       {/*<div className="flex h-full w-full flex-col">*/}
       <div className={`${yomogi.variable} flex h-full w-full flex-col`}>
         {/*<TopmostNotificationBar />*/}

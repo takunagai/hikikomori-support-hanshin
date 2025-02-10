@@ -6,14 +6,19 @@
  * _app.js はサーバーサイドでレンダリング（getInitialPropsの実行を含む）され、
  *     ライフサイクルのイベントはクライアントサイドでも実行される
  */
-// import { useEffect } from "react"
 import { ThemeProvider } from "next-themes" // for Dark mode
 import { AnimatePresence } from "framer-motion"
 import "../styles/globals.css"
+import { useEffect } from "react"
 
 import type { AppProps } from "next/app"
 
 function MyApp({ Component, pageProps, router }: AppProps) {
+  // Prelineの初期化
+  useEffect(() => {
+    require('preline')
+  }, [])
+
   // // 遷移時に特定の処理をはさむ
   // // https://zenn.dev/catnose99/articles/2169dae14b58b6
   // useEffect(() => {
