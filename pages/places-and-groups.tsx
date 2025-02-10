@@ -33,7 +33,6 @@ type Props = InferGetStaticPropsType<typeof getStaticProps>
 
 // microCMS - group
 import type { Group } from "../types/group"
-import type { Groups } from "../types/groups"
 type Groups = { groups: Array<Group> }
 
 /**
