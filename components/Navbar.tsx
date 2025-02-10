@@ -53,7 +53,7 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
     <nav className="relative">
       {/* デスクトップメニュー */}
       <div className="hidden lg:block">
-        <div className="mx-10 flex items-center justify-end gap-5" role="menubar">
+        <div className="mx-10 flex items-center justify-end gap-5 py-2" role="menubar">
           <Link
             href="/"
             className="group relative font-medium text-primary-700 dark:text-gray-400"
@@ -239,133 +239,135 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
       </div>
 
       {/* モバイルメニュー */}
-      <motion.div
-        className={`${isMenuOpen ? "block" : "hidden"} lg:hidden`}
-        initial={false}
-        animate={isMenuOpen ? "open" : "closed"}
-        variants={{
-          open: {
-            opacity: 1,
-            height: "auto",
-            transition: {
-              type: "spring",
-              stiffness: 300,
-              damping: 30,
+      <div className={`${isMenuOpen ? "block" : "hidden"} lg:hidden`}>
+        <motion.div
+          initial={false}
+          animate={isMenuOpen ? "open" : "closed"}
+          variants={{
+            open: {
+              opacity: 1,
+              height: "auto",
+              transition: {
+                type: "spring",
+                stiffness: 300,
+                damping: 30,
+              },
             },
-          },
-          closed: {
-            opacity: 0,
-            height: 0,
-            transition: {
-              type: "spring",
-              stiffness: 300,
-              damping: 30,
+            closed: {
+              opacity: 0,
+              height: 0,
+              transition: {
+                type: "spring",
+                stiffness: 300,
+                damping: 30,
+              },
             },
-          },
-        }}
-        role="menu"
-        aria-orientation="vertical"
-        aria-label="メインメニュー"
-      >
-        <div className="mx-4 mt-5 flex flex-col gap-5">
-          <Link
-            href="/"
-            className="group relative font-medium text-primary-700 dark:text-gray-400"
-            aria-current="page"
-            role="menuitem"
-          >
-            <span className="relative z-10">Home</span>
-            <motion.span
-              className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
-              whileHover={{ width: "100%" }}
-              transition={{ duration: 0.2 }}
-            />
-          </Link>
-          <Link
-            href="/flow"
-            className="group relative font-medium text-primary-700 dark:text-gray-400"
-            role="menuitem"
-          >
-            <span className="relative z-10">相談する</span>
-            <motion.span
-              className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
-              whileHover={{ width: "100%" }}
-              transition={{ duration: 0.2 }}
-            />
-          </Link>
-          <div className="relative">
-            <div className="font-medium text-primary-700 dark:text-gray-400">
-              <span className="relative z-10">お役立ち情報</span>
+          }}
+          className="overflow-hidden"
+          role="menu"
+          aria-orientation="vertical"
+          aria-label="メインメニュー"
+        >
+          <div className="mx-4 mt-5 flex flex-col gap-5">
+            <Link
+              href="/"
+              className="group relative font-medium text-primary-700 dark:text-gray-400"
+              aria-current="page"
+              role="menuitem"
+            >
+              <span className="relative z-10">Home</span>
+              <motion.span
+                className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
+                whileHover={{ width: "100%" }}
+                transition={{ duration: 0.2 }}
+              />
+            </Link>
+            <Link
+              href="/flow"
+              className="group relative font-medium text-primary-700 dark:text-gray-400"
+              role="menuitem"
+            >
+              <span className="relative z-10">相談する</span>
+              <motion.span
+                className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
+                whileHover={{ width: "100%" }}
+                transition={{ duration: 0.2 }}
+              />
+            </Link>
+            <div className="relative">
+              <div className="font-medium text-primary-700 dark:text-gray-400">
+                <span className="relative z-10">お役立ち情報</span>
+              </div>
+              <div className="mt-2 ml-4 flex flex-col gap-3" role="menu" aria-orientation="vertical">
+                <Link
+                  href="/places-and-groups"
+                  className="group relative text-sm text-primary-600 transition-colors hover:text-primary-400 dark:text-gray-400 dark:hover:text-gray-300"
+                  role="menuitem"
+                >
+                  <span className="relative z-10">
+                    ├ 居場所一覧
+                    <motion.span
+                      className="absolute bottom-0 left-0 h-[1px] w-0 bg-primary-400 dark:bg-gray-500"
+                      whileHover={{ width: "100%" }}
+                      transition={{ duration: 0.2 }}
+                    />
+                  </span>
+                </Link>
+                <Link
+                  href="/reference"
+                  className="group relative text-sm text-primary-600 transition-colors hover:text-primary-400 dark:text-gray-400 dark:hover:text-gray-300"
+                  role="menuitem"
+                >
+                  <span className="relative z-10">
+                    └ 相談・教育支援センター
+                    <motion.span
+                      className="absolute bottom-0 left-0 h-[1px] w-0 bg-primary-400 dark:bg-gray-500"
+                      whileHover={{ width: "100%" }}
+                      transition={{ duration: 0.2 }}
+                    />
+                  </span>
+                </Link>
+              </div>
             </div>
-            <div className="mt-2 ml-4 flex flex-col gap-3" role="menu" aria-orientation="vertical">
-              <Link
-                href="/places-and-groups"
-                className="group relative text-sm text-primary-600 transition-colors hover:text-primary-400 dark:text-gray-400 dark:hover:text-gray-300"
-                role="menuitem"
-              >
-                <span className="relative z-10">
-                  ├ 居場所一覧
-                  <motion.span
-                    className="absolute bottom-0 left-0 h-[1px] w-0 bg-primary-400 dark:bg-gray-500"
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.2 }}
-                  />
-                </span>
-              </Link>
-              <Link
-                href="/reference"
-                className="group relative text-sm text-primary-600 transition-colors hover:text-primary-400 dark:text-gray-400 dark:hover:text-gray-300"
-                role="menuitem"
-              >
-                <span className="relative z-10">
-                  └ 相談・教育支援センター
-                  <motion.span
-                    className="absolute bottom-0 left-0 h-[1px] w-0 bg-primary-400 dark:bg-gray-500"
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.2 }}
-                  />
-                </span>
-              </Link>
-            </div>
+            <Link
+              href="/user-comments"
+              className="group relative font-medium text-primary-700 dark:text-gray-400"
+              role="menuitem"
+            >
+              <span className="relative z-10">ご利用者様の声</span>
+              <motion.span
+                className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
+                whileHover={{ width: "100%" }}
+                transition={{ duration: 0.2 }}
+              />
+            </Link>
+            <Link
+              href="/faq"
+              className="group relative font-medium text-primary-700 dark:text-gray-400"
+              role="menuitem"
+            >
+              <span className="relative z-10">よくある質問</span>
+              <motion.span
+                className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
+                whileHover={{ width: "100%" }}
+                transition={{ duration: 0.2 }}
+              />
+            </Link>
+            <Link
+              href="/inquiry"
+              className="group relative font-medium text-primary-700 dark:text-gray-400"
+              role="menuitem"
+            >
+              <span className="relative z-10">お問合せ</span>
+              <motion.span
+                className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
+                whileHover={{ width: "100%" }}
+                transition={{ duration: 0.2 }}
+              />
+            </Link>
           </div>
-          <Link
-            href="/user-comments"
-            className="group relative font-medium text-primary-700 dark:text-gray-400"
-            role="menuitem"
-          >
-            <span className="relative z-10">ご利用者様の声</span>
-            <motion.span
-              className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
-              whileHover={{ width: "100%" }}
-              transition={{ duration: 0.2 }}
-            />
-          </Link>
-          <Link
-            href="/faq"
-            className="group relative font-medium text-primary-700 dark:text-gray-400"
-            role="menuitem"
-          >
-            <span className="relative z-10">よくある質問</span>
-            <motion.span
-              className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
-              whileHover={{ width: "100%" }}
-              transition={{ duration: 0.2 }}
-            />
-          </Link>
-          <Link
-            href="/inquiry"
-            className="group relative font-medium text-primary-700 dark:text-gray-400"
-            role="menuitem"
-          >
-            <span className="relative z-10">お問合せ</span>
-            <motion.span
-              className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
-              whileHover={{ width: "100%" }}
-              transition={{ duration: 0.2 }}
-            />
-          </Link>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </nav>
   )
 }
