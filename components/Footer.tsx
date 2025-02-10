@@ -1,6 +1,6 @@
 // import Image from "next/image"
 import Link from "next/link"
-import { FaFacebook, FaInstagram, FaXTwitter, FaYoutube } from "react-icons/fa6"
+import { FaXTwitter } from "react-icons/fa6"
 
 const Footer = () => {
   // const footerLinks = [
@@ -188,7 +188,7 @@ const FooterBar = () => {
     <div className="bg-primary py-4 text-primary-200">
       <div className="container">
         <p className="text-center text-sm">
-          2023 兵庫ひきこもり相談支援センター 阪神ブランチ
+          (c)2025 兵庫ひきこもり相談支援センター 阪神ブランチ
         </p>
       </div>
     </div>

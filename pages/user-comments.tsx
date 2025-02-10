@@ -2,17 +2,17 @@
  * microcms フェッチ
  * @ref https://document.microcms.io/tutorial/next/next-getting-started
  */
-import Layout from "../components/layout"
-import AfterContentArea from "../components/AfterContentArea"
 import { motion } from "framer-motion"
-import { client } from "../lib/client" // microcms-js-sdkの初期化
+import AfterContentArea from "../components/AfterContentArea"
+import Layout from "../components/layout"
+import { client } from "../lib/client"; // microcms-js-sdkの初期化
 
 import type {
   GetStaticProps,
   GetStaticPropsContext,
   InferGetStaticPropsType,
   NextPage,
-} from "next" // TypeScript の型データ
+} from "next"; // TypeScript の型データ
 
 // https://zenn.dev/catnose99/articles/7201a6c56d3c88
 type Props = InferGetStaticPropsType<typeof getStaticProps>
@@ -59,7 +59,7 @@ const UserComments: NextPage<Props> = ({ userComments }) => {
         <section className="mt-8">
           <div className="mt-8">
             <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {userComments.map((userComment: UserComment, index) => (
+              {userComments.map((userComment: UserComment, index: number) => (
                 <motion.li
                   key={index}
                   initial={{ opacity: 0, y: 20, scale: 0.95 }}
