@@ -52,36 +52,25 @@ export default function Layout({ children, title, description, home }: Props) {
           </title>
         )}
         <meta name="description" content={description || "ページ概要未設定"} />
-        <meta name="twitter:site" content={siteTitle} />
-        <meta name="twitter:creator" content="@nagai_shouten" />
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta
-          name="twitter:description"
-          content={description || "ページ概要未設定"}
-        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@preline" />
         <meta
           name="twitter:image"
           content="https://preline.co/preline-logo.svg"
         />
-        <meta property="og:url" content="https://preline.co/" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={siteTitle} />
         <meta property="og:site_name" content={siteTitle} />
-        <meta property="og:title" content={pageTitle} />
-        <meta
-          property="og:description"
-          content={description || "ページ概要未設定"}
-        />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content="https://preline.co/" />
         <meta
           property="og:image"
           content="https://preline.co/preline-logo.svg"
         />
-        <link rel="apple-touch-icon" href="/favicon/favicon.ico" />
+
         <link rel="icon" href="/favicon/favicon.ico" />
       </Head>
 
-      <Script src="https://unpkg.com/preline@1.9.0/dist/preline.js" strategy="afterInteractive" />
-
-      {/*<div className="flex h-full w-full flex-col">*/}
       <div className={`${yomogi.variable} flex h-full w-full flex-col`}>
         {/*<TopmostNotificationBar />*/}
         <Header
@@ -102,9 +91,6 @@ export default function Layout({ children, title, description, home }: Props) {
 
         <Footer />
       </div>
-
-      {/* preline UI */}
-      <Script src="/js/hs-ui.bundle.js"></Script>
     </>
   )
 }
