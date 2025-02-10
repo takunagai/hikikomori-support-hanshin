@@ -12,14 +12,15 @@ const Accordion = ({ title, children, defaultOpen = false }: Props) => {
 
   return (
     <div className="-mt-px border bg-white first:rounded-t-lg last:rounded-b-lg dark:border-gray-700 dark:bg-gray-800">
-      <button
+      <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex w-full items-center gap-x-3 py-4 px-5 text-left font-bold text-primary transition hover:text-gray-500 dark:text-gray-200 dark:hover:text-gray-400"
+        className="inline-flex w-full items-center gap-x-3 py-4 px-5 text-left font-bold text-primary transition-colors hover:bg-gray-50 dark:text-gray-200 dark:hover:bg-gray-700/50"
         aria-expanded={isOpen}
+        whileTap={{ scale: 0.98 }}
       >
         <motion.svg
           animate={{ rotate: isOpen ? 90 : 0 }}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.2, ease: "easeInOut" }}
           className="h-3 w-3 text-gray-600 dark:text-gray-400"
           viewBox="0 0 16 16"
           fill="none"
@@ -40,14 +41,17 @@ const Accordion = ({ title, children, defaultOpen = false }: Props) => {
           />
         </motion.svg>
         {title}
-      </button>
+      </motion.button>
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{
+              height: { duration: 0.2, ease: "easeInOut" },
+              opacity: { duration: 0.1, ease: "linear" },
+            }}
             className="overflow-hidden"
           >
             <div className="px-5 pb-4">{children}</div>

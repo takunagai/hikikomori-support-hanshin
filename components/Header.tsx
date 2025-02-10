@@ -1,3 +1,4 @@
+import { useState } from "react"
 import SiteLogo from "./SiteLogo"
 import NavbarCollapseButton from "./NavbarCollapseButton"
 import Navbar from "./Navbar"
@@ -12,20 +13,22 @@ type Props = {
 }
 
 const Header = ({ home, siteTitle, theme, setTheme }: Props) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   return (
     <header className="relative z-50 border-t-4 border-primary bg-tertiary-200 py-2 dark:bg-zinc-800">
       <nav
-        className="w-full px-4 lg:flex lg:items-center lg:justify-between lg:px-6 lg:px-8"
+        className="mx-auto flex w-full max-w-[85rem] flex-wrap items-center justify-between px-4 lg:px-8"
         aria-label="Global"
       >
-        <div className="flex items-center justify-between">
+        <div className="flex w-full items-center justify-between lg:w-auto">
           <SiteLogo home={home} siteTitle={siteTitle} />
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center gap-4 lg:hidden">
             {/*<ModeSwitcher theme={theme} setTheme={setTheme} />*/}
-            <NavbarCollapseButton />
+            <NavbarCollapseButton isOpen={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)} />
           </div>
         </div>
-        <Navbar />
+        <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} />
         {/*<div className="hidden lg:block">*/}
         {/*  <ModeSwitcher theme={theme} setTheme={setTheme} />*/}
         {/*</div>*/}

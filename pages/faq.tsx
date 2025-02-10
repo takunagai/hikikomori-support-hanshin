@@ -1,7 +1,7 @@
-import Link from "next/link"
-import { motion } from "framer-motion"
 import Layout from "../components/layout"
 import Accordion from "../components/Accordion"
+import PageTransition from "../components/PageTransition"
+import Link from "../components/Link"
 import AfterContentArea from "../components/AfterContentArea"
 import type { NextPage } from "next"
 
@@ -26,11 +26,7 @@ import {
 const Faq: NextPage = () => {
   return (
     <Layout title="よくある質問とその回答" description="よくある質問とその回答">
-      <motion.div
-        initial={{ opacity: 0 }} // initial
-        animate={{ opacity: 1 }} // on mount
-        exit={{ opacity: 0 }} // on unmount
-      >
+      <PageTransition>
         <h1 className="alignfull bg-dots3">よくある質問とその回答</h1>
 
         <div className="mx-auto max-w-2xl">
@@ -40,8 +36,8 @@ const Faq: NextPage = () => {
             これ以外にご不明な点や聞きたいことがございましたら、お問合せよりご連絡ください。
           </p>
           <p className="mt-1 text-sm">
-            <Link href="/inquiry" className="inline-block font-bold text-primary">
-              » お問合せはこちら
+            <Link href="/inquiry" variant="primary" showArrow>
+              お問合せはこちら
             </Link>
           </p>
         </div>
@@ -72,40 +68,24 @@ const Faq: NextPage = () => {
                     阪神ブランチ<small>(当サイト)</small>
                   </li>
                   <li>
-                    <a
-                      href="https://harima-branch.com/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
+                    <Link href="https://harima-branch.com/" external variant="default">
                       播磨ブランチ
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="https://kounotori-inochinet.com/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
+                    <Link href="https://kounotori-inochinet.com/" external variant="default">
                       但馬ブランチ
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="https://web.pref.hyogo.lg.jp/kk16/ac12_000000034.html"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
+                    <Link href="https://web.pref.hyogo.lg.jp/kk16/ac12_000000034.html" external variant="default">
                       丹波ブランチ
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="https://web.pref.hyogo.lg.jp/kf09/hikikomori/awaji.html"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
+                    <Link href="https://web.pref.hyogo.lg.jp/kf09/hikikomori/awaji.html" external variant="default">
                       淡路ブランチ
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -121,12 +101,17 @@ const Faq: NextPage = () => {
               <p className="text-gray-800 dark:text-gray-200">
                 まずはお電話ください。スタッフが相談予約日をご案内します。
               </p>
+              <p className="mt-3">
+                <Link href="/flow" variant="primary" showArrow>
+                  相談する
+                </Link>
+              </p>
             </Accordion>
           </div>
         </section>
 
         <AfterContentArea />
-      </motion.div>
+      </PageTransition>
     </Layout>
   )
 }

@@ -8,6 +8,8 @@ import AfterContentArea from "../components/AfterContentArea"
 import * as Dialog from "@radix-ui/react-dialog"
 import DialogDemo from "../components/Dialog"
 import { motion } from "framer-motion"
+import RadioButton from "../components/RadioButton"
+import Link from "../components/Link"
 import { client } from "../lib/client" // microcms-js-sdkの初期化
 
 import {
@@ -31,7 +33,7 @@ type Props = InferGetStaticPropsType<typeof getStaticProps>
 
 // microCMS - group
 import type { Group } from "../types/group"
-import Link from "next/link"
+import type { Groups } from "../types/groups"
 type Groups = { groups: Array<Group> }
 
 /**
@@ -201,31 +203,32 @@ const RadioButtonsForFilter = ({
 
   return (
     <>
-      <div className="mx-auto max-w-lg rounded-2xl bg-gray-100 p-3">
-        <p className="text-center font-bold text-primary">場所で絞り込む</p>
-        <fieldset className="mt-3">
-          <ul className="flex flex-wrap gap-3">
+      <div className="mx-auto max-w-lg rounded-2xl bg-gray-100 p-4 dark:bg-gray-800">
+        <p className="text-center font-bold text-primary dark:text-primary-300">場所で絞り込む</p>
+        <fieldset className="mt-4">
+          <div className="flex flex-wrap justify-center gap-2">
             {CITIES.map((city) => (
-              <li key={city.id}>
-                <input
-                  type="radio"
-                  name="city"
-                  id={city.id}
-                  value={city.name}
-                  checked={selectedCity === city.name}
-                  onChange={(e) => setSelectedCity(e.target.value)}
-                />
-                <label className="ml-1" htmlFor={city.id}>
-                  {city.name}
-                </label>
-              </li>
+              <RadioButton
+                key={city.id}
+                name="city"
+                id={city.id}
+                value={city.name}
+                label={city.name}
+                checked={selectedCity === city.name}
+                onChange={(e) => setSelectedCity(e.target.value)}
+              />
             ))}
-          </ul>
+          </div>
         </fieldset>
       </div>
-      <h2 className="mt-6 border-b border-dashed border-primary-200 pb-2 font-bold">
+      <motion.h2
+        className="mt-6 border-b border-dashed border-primary-200 pb-2 font-bold dark:border-primary-700"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        key={selectedCity}
+      >
         {selectedCity}
-      </h2>
+      </motion.h2>
     </>
   )
 }

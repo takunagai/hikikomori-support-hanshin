@@ -1,48 +1,57 @@
-/**
- * ★★TODO: コンポーネント引数でスタイルをコントロールできるように
- * button タグが受け取れる属性 (onClick, name, id) を Porps に受け取れるように
- * アイコンと文字を入れたりもできるように (children: ReactNode)
- * 参考：https://ttryo.hateblo.jp/entry/2022/04/14/%E3%80%90React_%C3%97_TypeScript%E3%80%91HTML%E5%B1%9E%E6%80%A7%E3%81%AE%E5%9E%8B%E6%83%85%E5%A0%B1%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88%E6%96%B9%E6%B3%95
- * 参考：https://qiita.com/tokio_dev/items/de537515bca92ad7a892
- * 参考：https://react-typescript-cheatsheet.netlify.app/docs/advanced/patterns_by_usecase
- */
-// import styles from "./Button.module.css"
+import { motion } from "framer-motion"
 import type { ReactNode, ComponentPropsWithoutRef } from "react"
 
 type ButtonProps = ComponentPropsWithoutRef<"button"> & {
   children: ReactNode
-  style?: "primary" | "outline-primary" | "secondary"
-  size?: "small" | "large"
+  variant?: "primary" | "secondary" | "outline"
+  size?: "sm" | "md" | "lg"
+  fullWidth?: boolean
+  icon?: ReactNode
 }
 
-export default function Button(props: ButtonProps) {
-  const { children, style, size, ...rest } = props
-  let classNameArr = ["btn"]
+const Button = ({
+  children,
+  variant = "primary",
+  size = "md",
+  fullWidth = false,
+  icon,
+  className = "",
+  ...rest
+}: ButtonProps) => {
+  const baseStyles = "relative inline-flex items-center justify-center gap-2 rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
 
-  switch (style) {
-    case "primary":
-      classNameArr.push("btn-primary")
-      break
-    case "outline-primary":
-      classNameArr.push("btn-outline-primary")
-      break
-    case "secondary":
-      classNameArr.push("btn-secondary")
-      break
+  const variantStyles = {
+    primary: "bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 dark:bg-primary-500 dark:hover:bg-primary-600",
+    secondary: "bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-secondary-500 dark:bg-secondary-500 dark:hover:bg-secondary-600",
+    outline: "border-2 border-primary-600 bg-transparent text-primary-600 hover:bg-primary-50 focus:ring-primary-500 dark:border-primary-400 dark:text-primary-400 dark:hover:bg-primary-900/20",
   }
 
-  switch (size) {
-    case "small":
-      classNameArr.push("btn-small")
-      break
-    case "large":
-      classNameArr.push("btn-large")
-      break
+  const sizeStyles = {
+    sm: "px-3 py-1.5 text-sm",
+    md: "px-4 py-2 text-base",
+    lg: "px-6 py-3 text-lg",
   }
+
+  const widthStyle = fullWidth ? "w-full" : ""
+
+  const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${widthStyle} ${className}`
 
   return (
-    <button className={classNameArr.join(" ")} {...rest}>
+    <motion.button
+      className={combinedClassName}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{
+        type: "spring",
+        stiffness: 400,
+        damping: 17,
+      }}
+      {...rest}
+    >
+      {icon && <span className="text-[1.1em]">{icon}</span>}
       {children}
-    </button>
+    </motion.button>
   )
 }
+
+export default Button
