@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import type { ReactNode } from "react"
 
 type Props = {
-  children: ReactNode[]
+  children: ReactNode
   itemsPerPage?: number
   threshold?: number
   loadMoreText?: string
@@ -18,14 +18,17 @@ const InfiniteScroll = ({
   const [isLoading, setIsLoading] = useState(false)
   const loaderRef = useRef<HTMLDivElement>(null)
 
+  // childrenが配列でない場合は配列に変換
+  const items = Array.isArray(children) ? children : [children]
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         const target = entries[0]
-        if (target.isIntersecting && displayCount < children.length) {
+        if (target.isIntersecting && displayCount < items.length) {
           setIsLoading(true)
           setTimeout(() => {
-            setDisplayCount((prev) => Math.min(prev + itemsPerPage, children.length))
+            setDisplayCount((prev) => Math.min(prev + itemsPerPage, items.length))
             setIsLoading(false)
           }, 500) // ローディングを見せるために少し遅延を入れる
         }
@@ -40,12 +43,12 @@ const InfiniteScroll = ({
     }
 
     return () => observer.disconnect()
-  }, [children.length, displayCount, itemsPerPage, threshold])
+  }, [items.length, displayCount, itemsPerPage, threshold])
 
   return (
     <>
-      {children.slice(0, displayCount)}
-      {displayCount < children.length && (
+      {items.slice(0, displayCount)}
+      {displayCount < items.length && (
         <div
           ref={loaderRef}
           className="col-span-full mt-8 flex items-center justify-center py-4 text-gray-500"
