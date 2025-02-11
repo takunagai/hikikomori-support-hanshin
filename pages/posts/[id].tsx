@@ -1,11 +1,11 @@
+import { motion } from 'framer-motion'
+import type { GetStaticPaths, GetStaticProps } from 'next'
+import Date from '../../components/date'
 /**
  * 確認用 URL: http://localhost:3000/posts/pre-rendering
  */
-import Layout from "../../components/layout"
-import { getAllPostIds, getPostData } from "../../lib/posts"
-import { GetStaticProps, GetStaticPaths } from "next"
-import Date from "../../components/date"
-import { motion } from "framer-motion"
+import Layout from '../../components/layout'
+import { getAllPostIds, getPostData } from '../../lib/posts'
 
 type Props = {
   postData: {
@@ -21,11 +21,7 @@ type Props = {
 export default function Post({ postData }: Props) {
   return (
     <Layout title={postData.title} description="★★TODO:概要表示の実装">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
         <article className="prose prose-sm prose-zinc max-w-none dark:prose-invert lg:prose-base">
           <p className="text-sm">
             <Date dateString={postData.date} />

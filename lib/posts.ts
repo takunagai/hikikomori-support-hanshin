@@ -1,12 +1,12 @@
 // ★★TODO: 参考：https://github.com/vercel/next-learn/tree/master/basics/typescript-final
 // ★★TODO: 参考：https://zenn.dev/ifhito/articles/7d345bb8d03024
-import fs from "fs"
-import path from "path"
-import matter from "gray-matter"
-import { remark } from "remark"
-import html from "remark-html"
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+import { remark } from 'remark'
+import html from 'remark-html'
 
-const postsDirectory = path.join(process.cwd(), "posts")
+const postsDirectory = path.join(process.cwd(), 'posts')
 
 // type AllPostsData = {
 //     id: string,
@@ -23,11 +23,11 @@ export function getSortedPostsData() {
   const fileNames = fs.readdirSync(postsDirectory)
   const allPostsData = fileNames.map((fileName) => {
     // ID 取得：ファイル名から .md を削除
-    const id = fileName.replace(/\.md$/, "")
+    const id = fileName.replace(/\.md$/, '')
 
     // Markdown ファイルを文字列として読み取る
     const fullPath = path.join(postsDirectory, fileName)
-    const fileContents = fs.readFileSync(fullPath, "utf8")
+    const fileContents = fs.readFileSync(fullPath, 'utf8')
 
     // gray-matter で投稿メタデータセクションを解析
     // {
@@ -81,7 +81,7 @@ export function getAllPostIds() {
   return fileNames.map((fileName) => {
     return {
       params: {
-        id: fileName.replace(/\.md$/, ""),
+        id: fileName.replace(/\.md$/, ''),
       },
     }
   })
@@ -93,16 +93,14 @@ export function getAllPostIds() {
  */
 export async function getPostData(id: string) {
   const fullPath = path.join(postsDirectory, `${id}.md`)
-  const fileContents = fs.readFileSync(fullPath, "utf8")
+  const fileContents = fs.readFileSync(fullPath, 'utf8')
 
   // gray-matter で、Markdown のフロントマター(投稿メタデータセクション)を解析
   // 上の getSortedPostsData と同じ形のオブジェクトデータが返る
   const matterResult = matter(fileContents)
 
   // remark で Markdown を HTML 文字列に変換
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content)
+  const processedContent = await remark().use(html).process(matterResult.content)
   const contentHtml = processedContent.toString() // 文字型への変換が必要
 
   // ID とデータを組み合わせる

@@ -1,15 +1,15 @@
+import * as Dialog from '@radix-ui/react-dialog'
+import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
 /**
  * Dialog Sample
  * @ref {https://www.radix-ui.com/docs/primitives/components/dialog}
  */
-import React, { ReactNode } from "react"
-import * as Dialog from "@radix-ui/react-dialog"
-import * as VisuallyHidden from "@radix-ui/react-visually-hidden"
+import React, { type ReactNode } from 'react'
 
 type Props = {
   title?: string | null
   showTitle?: boolean
-  triggerType?: "button" | "link"
+  triggerType?: 'button' | 'link'
   triggerText?: string
   isStretchLink?: boolean
   isPortrait?: boolean
@@ -19,26 +19,20 @@ type Props = {
 const DialogDemo = ({
   title = null,
   showTitle = true,
-  triggerType = "button",
-  triggerText = "開く",
+  triggerType = 'button',
+  triggerText = '開く',
   isStretchLink = false,
   isPortrait = false,
   children,
 }: Props) => (
   <Dialog.Root>
-    <Dialog.Trigger
-      asChild
-      {...(isStretchLink && { className: "after:absolute after:inset-0" })}
-    >
-      {triggerType === "button" ? (
+    <Dialog.Trigger asChild {...(isStretchLink && { className: 'after:absolute after:inset-0' })}>
+      {triggerType === 'button' ? (
         <button className="rounded bg-primary-100 px-2 py-1 shadow data-[state=open]:bg-primary-200">
           {triggerText}
         </button>
       ) : (
-        <a
-          href="#"
-          className="text-primary-500-700 underline data-[state=open]:text-gray-500"
-        >
+        <a href="#" className="text-primary-500-700 underline data-[state=open]:text-gray-500">
           {triggerText}
         </a>
       )}

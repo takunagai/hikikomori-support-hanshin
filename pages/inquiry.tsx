@@ -1,25 +1,25 @@
-import Link from "next/link"
-import { motion } from "framer-motion"
-import Layout from "../components/layout"
-import type { NextPage } from "next"
+import { motion } from 'framer-motion'
+import type { NextPage } from 'next'
+import Link from 'next/link'
+import Layout from '../components/layout'
 
 import {
-  FaPhoneAlt,
-  FaLine,
-  FaTwitter,
-  FaLock,
-  FaHandHoldingHeart,
-  FaUserFriends,
-  FaHandshake,
-  FaDove,
   FaCat,
   FaCrow,
   FaDemocrat,
   FaDog,
+  FaDove,
   FaFish,
-  FaHorse,
   FaFrog,
-} from "react-icons/fa"
+  FaHandHoldingHeart,
+  FaHandshake,
+  FaHorse,
+  FaLine,
+  FaLock,
+  FaPhoneAlt,
+  FaTwitter,
+  FaUserFriends,
+} from 'react-icons/fa'
 
 const Inquiry: NextPage = () => {
   return (
@@ -78,11 +78,7 @@ const Inquiry: NextPage = () => {
                   <b>Twitter</b>
                   <br />
                   ID:
-                  <a
-                    href="https://twitter.com/ikigaisagashi1"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <a href="https://twitter.com/ikigaisagashi1" target="_blank" rel="noreferrer">
                     @ikigaisagashi1
                   </a>
                 </p>
@@ -95,9 +91,7 @@ const Inquiry: NextPage = () => {
             <h2 className="text-primary">お問合せフォーム</h2>
             <p className="text-small text-center text-sm">(24H受付)</p>
             <div className="mx-auto max-w-lg">
-              <p className="mt-3">
-                準備中です。電話か Twitter でお問合せください。
-              </p>
+              <p className="mt-3">準備中です。電話か Twitter でお問合せください。</p>
               {/*<p className="mt-3">*/}
               {/*  送信後すぐに、自動返信メールが届きます。内容を確認次第、スタッフより連絡させていただきます。*/}
               {/*</p>*/}

@@ -1,36 +1,29 @@
+import { motion } from 'framer-motion'
 /**
  * microcms フェッチ
  * @ref https://document.microcms.io/tutorial/next/next-getting-started
  */
-import Link from "next/link"
-import Date from "../components/date"
-import Layout from "../components/layout"
-import AfterContentArea from "../components/AfterContentArea"
-import { motion } from "framer-motion"
-import { client } from "../lib/client" // microcms-js-sdkの初期化
+import Link from 'next/link'
+import AfterContentArea from '../components/AfterContentArea'
+import Date from '../components/date'
+import Layout from '../components/layout'
+import { client } from '../lib/client' // microcms-js-sdkの初期化
 
-import type {
-  GetStaticProps,
-  GetStaticPropsContext,
-  InferGetStaticPropsType,
-  NextPage,
-} from "next" // TypeScript の型データ
+import type { GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next' // TypeScript の型データ
 
 // https://zenn.dev/catnose99/articles/7201a6c56d3c88
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
 // microCMS - news
-import type { NewsItem } from "../types/news"
+import type { NewsItem } from '../types/news'
 type NewsItemsTypes = { newsItems: Array<NewsItem> }
 
 // getStaticProps は、実装者が大きな変更をしない限り Promise を返却する = 条件は必ず真に流れる
 // ★★TODO: エラー消す (参考：https://zenn.dev/eitches/articles/2021-0424-getstaticprops-type)
 // export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext<{ slug: string }>) => {
-export const getStaticProps: GetStaticProps = async (
-  context: GetStaticPropsContext,
-) => {
+export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
   const data = await client.get({
-    endpoint: "news",
+    endpoint: 'news',
     queries: { limit: 50 },
   })
 
@@ -48,11 +41,7 @@ const NewsItems: NextPage<Props> = ({ newsItems }) => {
       title="fetch() メソッドで microCMS API からフェッチ"
       description="fetch() メソッドで microCMS API からデータをフェッチして表示するサンプル"
     >
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
         <h1 className="alignfull bg-dots3">お知らせ</h1>
         <div className="mx-auto mt-8 max-w-2xl">
           <p>お知らせやイベント情報。</p>
@@ -61,16 +50,9 @@ const NewsItems: NextPage<Props> = ({ newsItems }) => {
         <section className="mx-auto mt-8 max-w-2xl">
           <ul className="">
             {newsItems.map((newsItem: NewsItem, index: number) => (
-              <li
-                key={index}
-                className="border-b border-dashed border-primary-100 py-4"
-              >
+              <li key={index} className="border-b border-dashed border-primary-100 py-4">
                 <h2 className="inline text-left text-xl">
-                  <Link
-                    href={`/news/${newsItem.id}`}
-                    passHref
-                    className="!px-0 text-primary"
-                  >
+                  <Link href={`/news/${newsItem.id}`} passHref className="!px-0 text-primary">
                     {newsItem.title}
                   </Link>
                 </h2>

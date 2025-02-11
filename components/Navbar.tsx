@@ -1,6 +1,6 @@
-import Link from "next/link"
-import { useState, useRef, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { AnimatePresence, motion } from 'framer-motion'
+import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
 
 type Props = {
   isMenuOpen: boolean
@@ -25,21 +25,21 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
       }
     }
 
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
   // ESCキーでドロップダウンを閉じる
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && isDropdownOpen) {
+      if (event.key === 'Escape' && isDropdownOpen) {
         setIsDropdownOpen(false)
         dropdownButtonRef.current?.focus()
       }
     }
 
-    document.addEventListener("keydown", handleEscape)
-    return () => document.removeEventListener("keydown", handleEscape)
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
   }, [isDropdownOpen])
 
   // ドロップダウンが開いた時に最初の項目にフォーカス
@@ -63,7 +63,7 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
             <span className="relative z-10">Home</span>
             <motion.span
               className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
-              whileHover={{ width: "100%" }}
+              whileHover={{ width: '100%' }}
               transition={{ duration: 0.2 }}
             />
           </Link>
@@ -75,7 +75,7 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
             <span className="relative z-10">相談する</span>
             <motion.span
               className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
-              whileHover={{ width: "100%" }}
+              whileHover={{ width: '100%' }}
               transition={{ duration: 0.2 }}
             />
           </Link>
@@ -85,7 +85,7 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
                 ref={dropdownButtonRef}
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 className="flex w-full items-center font-medium text-primary-700 dark:text-gray-400"
-                whileHover={{ color: "#846333" }}
+                whileHover={{ color: '#846333' }}
                 whileTap={{ scale: 0.98 }}
                 aria-expanded={isDropdownOpen}
                 aria-haspopup="true"
@@ -138,7 +138,7 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
                         居場所一覧
                         <motion.span
                           className="absolute bottom-0 left-0 h-[1px] w-0 bg-primary-400 dark:bg-gray-500"
-                          whileHover={{ width: "100%" }}
+                          whileHover={{ width: '100%' }}
                           transition={{ duration: 0.2 }}
                         />
                       </span>
@@ -153,7 +153,7 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
                         相談・教育支援センター
                         <motion.span
                           className="absolute bottom-0 left-0 h-[1px] w-0 bg-primary-400 dark:bg-gray-500"
-                          whileHover={{ width: "100%" }}
+                          whileHover={{ width: '100%' }}
                           transition={{ duration: 0.2 }}
                         />
                       </span>
@@ -167,7 +167,11 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
               <div className="font-medium text-primary-700 dark:text-gray-400">
                 <span className="relative z-10">お役立ち情報</span>
               </div>
-              <div className="mt-2 ml-4 flex flex-col gap-3" role="menu" aria-orientation="vertical">
+              <div
+                className="mt-2 ml-4 flex flex-col gap-3"
+                role="menu"
+                aria-orientation="vertical"
+              >
                 <Link
                   href="/places-and-groups"
                   className="group relative text-sm text-primary-600 transition-colors hover:text-primary-400 dark:text-gray-400 dark:hover:text-gray-300"
@@ -177,7 +181,7 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
                     ├ 居場所一覧
                     <motion.span
                       className="absolute bottom-0 left-0 h-[1px] w-0 bg-primary-400 dark:bg-gray-500"
-                      whileHover={{ width: "100%" }}
+                      whileHover={{ width: '100%' }}
                       transition={{ duration: 0.2 }}
                     />
                   </span>
@@ -191,7 +195,7 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
                     └ 相談・教育支援センター
                     <motion.span
                       className="absolute bottom-0 left-0 h-[1px] w-0 bg-primary-400 dark:bg-gray-500"
-                      whileHover={{ width: "100%" }}
+                      whileHover={{ width: '100%' }}
                       transition={{ duration: 0.2 }}
                     />
                   </span>
@@ -207,7 +211,7 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
             <span className="relative z-10">ご利用者様の声</span>
             <motion.span
               className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
-              whileHover={{ width: "100%" }}
+              whileHover={{ width: '100%' }}
               transition={{ duration: 0.2 }}
             />
           </Link>
@@ -219,7 +223,7 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
             <span className="relative z-10">よくある質問</span>
             <motion.span
               className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
-              whileHover={{ width: "100%" }}
+              whileHover={{ width: '100%' }}
               transition={{ duration: 0.2 }}
             />
           </Link>
@@ -231,7 +235,7 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
             <span className="relative z-10">お問合せ</span>
             <motion.span
               className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
-              whileHover={{ width: "100%" }}
+              whileHover={{ width: '100%' }}
               transition={{ duration: 0.2 }}
             />
           </Link>
@@ -239,16 +243,16 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
       </div>
 
       {/* モバイルメニュー */}
-      <div className={`${isMenuOpen ? "block" : "hidden"} lg:hidden`}>
+      <div className={`${isMenuOpen ? 'block' : 'hidden'} lg:hidden`}>
         <motion.div
           initial={false}
-          animate={isMenuOpen ? "open" : "closed"}
+          animate={isMenuOpen ? 'open' : 'closed'}
           variants={{
             open: {
               opacity: 1,
-              height: "auto",
+              height: 'auto',
               transition: {
-                type: "spring",
+                type: 'spring',
                 stiffness: 300,
                 damping: 30,
               },
@@ -257,7 +261,7 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
               opacity: 0,
               height: 0,
               transition: {
-                type: "spring",
+                type: 'spring',
                 stiffness: 300,
                 damping: 30,
               },
@@ -278,7 +282,7 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
               <span className="relative z-10">Home</span>
               <motion.span
                 className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
-                whileHover={{ width: "100%" }}
+                whileHover={{ width: '100%' }}
                 transition={{ duration: 0.2 }}
               />
             </Link>
@@ -290,7 +294,7 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
               <span className="relative z-10">相談する</span>
               <motion.span
                 className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
-                whileHover={{ width: "100%" }}
+                whileHover={{ width: '100%' }}
                 transition={{ duration: 0.2 }}
               />
             </Link>
@@ -298,7 +302,11 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
               <div className="font-medium text-primary-700 dark:text-gray-400">
                 <span className="relative z-10">お役立ち情報</span>
               </div>
-              <div className="mt-2 ml-4 flex flex-col gap-3" role="menu" aria-orientation="vertical">
+              <div
+                className="mt-2 ml-4 flex flex-col gap-3"
+                role="menu"
+                aria-orientation="vertical"
+              >
                 <Link
                   href="/places-and-groups"
                   className="group relative text-sm text-primary-600 transition-colors hover:text-primary-400 dark:text-gray-400 dark:hover:text-gray-300"
@@ -308,7 +316,7 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
                     ├ 居場所一覧
                     <motion.span
                       className="absolute bottom-0 left-0 h-[1px] w-0 bg-primary-400 dark:bg-gray-500"
-                      whileHover={{ width: "100%" }}
+                      whileHover={{ width: '100%' }}
                       transition={{ duration: 0.2 }}
                     />
                   </span>
@@ -322,7 +330,7 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
                     └ 相談・教育支援センター
                     <motion.span
                       className="absolute bottom-0 left-0 h-[1px] w-0 bg-primary-400 dark:bg-gray-500"
-                      whileHover={{ width: "100%" }}
+                      whileHover={{ width: '100%' }}
                       transition={{ duration: 0.2 }}
                     />
                   </span>
@@ -337,7 +345,7 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
               <span className="relative z-10">ご利用者様の声</span>
               <motion.span
                 className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
-                whileHover={{ width: "100%" }}
+                whileHover={{ width: '100%' }}
                 transition={{ duration: 0.2 }}
               />
             </Link>
@@ -349,7 +357,7 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
               <span className="relative z-10">よくある質問</span>
               <motion.span
                 className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
-                whileHover={{ width: "100%" }}
+                whileHover={{ width: '100%' }}
                 transition={{ duration: 0.2 }}
               />
             </Link>
@@ -361,7 +369,7 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
               <span className="relative z-10">お問合せ</span>
               <motion.span
                 className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
-                whileHover={{ width: "100%" }}
+                whileHover={{ width: '100%' }}
                 transition={{ duration: 0.2 }}
               />
             </Link>

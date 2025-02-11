@@ -1,8 +1,8 @@
-import Link from "next/link"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import Layout from "../components/layout"
-import type { NextPage } from "next"
+import { motion } from 'framer-motion'
+import type { NextPage } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
+import Layout from '../components/layout'
 
 const Recruit: NextPage = () => {
   return (

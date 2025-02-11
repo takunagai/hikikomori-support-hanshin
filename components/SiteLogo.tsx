@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from 'next/link'
 
 type Props = {
   home?: boolean
@@ -6,7 +6,7 @@ type Props = {
 }
 
 const SiteLogo = ({ home, siteTitle }: Props) => {
-  const commonClasses = "site-title flex-none text-xl font-bold text-primary dark:text-white"
+  const commonClasses = 'site-title flex-none text-xl font-bold text-primary dark:text-white'
 
   return (
     <>

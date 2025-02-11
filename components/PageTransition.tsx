@@ -1,5 +1,5 @@
-import { motion } from "framer-motion"
-import { ReactNode } from "react"
+import { motion } from 'framer-motion'
+import type { ReactNode } from 'react'
 
 type Props = {
   children: ReactNode
@@ -13,7 +13,7 @@ const PageTransition = ({ children }: Props) => {
       exit={{ opacity: 0, y: -20 }}
       transition={{
         duration: 0.3,
-        ease: "easeInOut",
+        ease: 'easeInOut',
       }}
     >
       {children}

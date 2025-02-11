@@ -1,3 +1,4 @@
+import { AnimatePresence } from 'framer-motion'
 /**
  * App コンポーネント(全てのページを初期化)を継承し上書き
  * 全ページで必要な処理を書く
@@ -6,11 +7,10 @@
  * _app.js はサーバーサイドでレンダリング（getInitialPropsの実行を含む）され、
  *     ライフサイクルのイベントはクライアントサイドでも実行される
  */
-import { ThemeProvider } from "next-themes" // for Dark mode
-import { AnimatePresence } from "framer-motion"
-import "../styles/globals.css"
+import { ThemeProvider } from 'next-themes' // for Dark mode
+import '../styles/globals.css'
 
-import type { AppProps } from "next/app"
+import type { AppProps } from 'next/app'
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   // // 遷移時に特定の処理をはさむ

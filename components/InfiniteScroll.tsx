@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react"
-import type { ReactNode } from "react"
+import { useEffect, useRef, useState } from 'react'
+import type { ReactNode } from 'react'
 
 type Props = {
   children: ReactNode
@@ -12,7 +12,7 @@ const InfiniteScroll = ({
   children,
   itemsPerPage = 6,
   threshold = 0.1,
-  loadMoreText = "読み込み中...",
+  loadMoreText = '読み込み中...',
 }: Props) => {
   const [displayCount, setDisplayCount] = useState(itemsPerPage)
   const [isLoading, setIsLoading] = useState(false)
@@ -35,7 +35,7 @@ const InfiniteScroll = ({
       },
       {
         threshold,
-      }
+      },
     )
 
     if (loaderRef.current) {
@@ -56,7 +56,7 @@ const InfiniteScroll = ({
           <div className="flex items-center gap-2">
             <svg
               className={`h-5 w-5 animate-spin text-primary-500 ${
-                isLoading ? "opacity-100" : "opacity-0"
+                isLoading ? 'opacity-100' : 'opacity-0'
               }`}
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

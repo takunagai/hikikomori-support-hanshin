@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from "react"
-import Head from "next/head"
-import Link from "next/link"
-import Script from "next/script"
-import { useTheme } from "next-themes"
-import TopmostNotificationBar from "./TopmostNotificationBar"
-import Header from "./Header"
-import BreadCrumbs from "./BreadCrumbs"
-import Footer from "./Footer"
+import { useTheme } from 'next-themes'
+import Head from 'next/head'
+import Link from 'next/link'
+import Script from 'next/script'
+import type React from 'react'
+import { useEffect, useState } from 'react'
+import BreadCrumbs from './BreadCrumbs'
+import Footer from './Footer'
+import Header from './Header'
+import TopmostNotificationBar from './TopmostNotificationBar'
 
-import { Yomogi } from "next/font/google"
+import { Yomogi } from 'next/font/google'
 const yomogi = Yomogi({
-  variable: "--yomogi-font",
-  weight: "400", // バリアブルフォントでないので必要
-  subsets: ["latin"],
-  fallback: ["cursive", "system-ui", "-apple-system", "sans-serif"],
+  variable: '--yomogi-font',
+  weight: '400', // バリアブルフォントでないので必要
+  subsets: ['latin'],
+  fallback: ['cursive', 'system-ui', '-apple-system', 'sans-serif'],
 })
 
 // import styles from './layout.module.css'
@@ -27,11 +28,10 @@ type Props = {
 }
 
 export const siteTitle =
-  process.env.NEXT_PUBLIC_SITE_TITLE ||
-  ".env NEXT_PUBLIC_SITE_TITLE で設定してください"
+  process.env.NEXT_PUBLIC_SITE_TITLE || '.env NEXT_PUBLIC_SITE_TITLE で設定してください'
 
 export default function Layout({ children, title, description, home }: Props) {
-  const pageTitle = title || "タイトル未設定"
+  const pageTitle = title || 'タイトル未設定'
 
   // Dark mode
   const [mounted, setMounted] = useState<boolean>(false)
@@ -51,22 +51,16 @@ export default function Layout({ children, title, description, home }: Props) {
             {pageTitle} - {siteTitle}
           </title>
         )}
-        <meta name="description" content={description || "ページ概要未設定"} />
+        <meta name="description" content={description || 'ページ概要未設定'} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@preline" />
-        <meta
-          name="twitter:image"
-          content="https://preline.co/preline-logo.svg"
-        />
+        <meta name="twitter:image" content="https://preline.co/preline-logo.svg" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={siteTitle} />
         <meta property="og:site_name" content={siteTitle} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content="https://preline.co/" />
-        <meta
-          property="og:image"
-          content="https://preline.co/preline-logo.svg"
-        />
+        <meta property="og:image" content="https://preline.co/preline-logo.svg" />
 
         <link rel="icon" href="/favicon/favicon.ico" />
       </Head>

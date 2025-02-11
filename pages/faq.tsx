@@ -1,27 +1,27 @@
-import Layout from "../components/layout"
-import Accordion from "../components/Accordion"
-import PageTransition from "../components/PageTransition"
-import Link from "../components/Link"
-import AfterContentArea from "../components/AfterContentArea"
-import type { NextPage } from "next"
+import type { NextPage } from 'next'
+import Accordion from '../components/Accordion'
+import AfterContentArea from '../components/AfterContentArea'
+import Link from '../components/Link'
+import PageTransition from '../components/PageTransition'
+import Layout from '../components/layout'
 
 import {
-  FaPhoneAlt,
-  FaLine,
-  FaTwitter,
-  FaLock,
-  FaHandHoldingHeart,
-  FaUserFriends,
-  FaHandshake,
-  FaDove,
   FaCat,
   FaCrow,
   FaDemocrat,
   FaDog,
+  FaDove,
   FaFish,
-  FaHorse,
   FaFrog,
-} from "react-icons/fa"
+  FaHandHoldingHeart,
+  FaHandshake,
+  FaHorse,
+  FaLine,
+  FaLock,
+  FaPhoneAlt,
+  FaTwitter,
+  FaUserFriends,
+} from 'react-icons/fa'
 
 const Faq: NextPage = () => {
   return (
@@ -45,9 +45,7 @@ const Faq: NextPage = () => {
         <section className="mx-auto max-w-2xl py-8">
           <div className="space-y-0">
             <Accordion title="Q. 相談料はかかりますか？" defaultOpen>
-              <p className="text-gray-800 dark:text-gray-200">
-                料金はかかりません。無料です。
-              </p>
+              <p className="text-gray-800 dark:text-gray-200">料金はかかりません。無料です。</p>
             </Accordion>
 
             <Accordion title="Q. 対象の地域は？">
@@ -57,12 +55,8 @@ const Faq: NextPage = () => {
                 兵庫県の他の地域の方は、兵庫ひきこもり相談支援センターの地域のブランチをご利用ください。
               </p>
               <div className="mt-3 max-w-fit rounded border border-dashed border-primary-200 p-3">
-                <p className="font-bold text-primary">
-                  兵庫ひきこもり相談支援センター
-                </p>
-                <p className="mt-0 text-xs">
-                  ※リンクは運営している団体のホームページ
-                </p>
+                <p className="font-bold text-primary">兵庫ひきこもり相談支援センター</p>
+                <p className="mt-0 text-xs">※リンクは運営している団体のホームページ</p>
                 <ul className="mt-2 list-square pl-5 marker:text-secondary-400">
                   <li>
                     阪神ブランチ<small>(当サイト)</small>
@@ -78,12 +72,20 @@ const Faq: NextPage = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="https://web.pref.hyogo.lg.jp/kk16/ac12_000000034.html" external variant="default">
+                    <Link
+                      href="https://web.pref.hyogo.lg.jp/kk16/ac12_000000034.html"
+                      external
+                      variant="default"
+                    >
                       丹波ブランチ
                     </Link>
                   </li>
                   <li>
-                    <Link href="https://web.pref.hyogo.lg.jp/kf09/hikikomori/awaji.html" external variant="default">
+                    <Link
+                      href="https://web.pref.hyogo.lg.jp/kf09/hikikomori/awaji.html"
+                      external
+                      variant="default"
+                    >
                       淡路ブランチ
                     </Link>
                   </li>

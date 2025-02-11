@@ -11,13 +11,7 @@
  *    アプリケーションのロジックや、styled-jsx の ような CSS の設定は、_app.tsx に書く
  * DocumentのgetInitialProps は、クライアントサイドの遷移中、ページが静的に最適化されている場合にも呼び出さない
  */
-import Document, {
-  DocumentContext,
-  Head,
-  Html,
-  Main,
-  NextScript,
-} from "next/document"
+import Document, { type DocumentContext, Head, Html, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {

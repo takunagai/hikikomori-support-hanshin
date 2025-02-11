@@ -1,4 +1,4 @@
-import { FaMapMarkedAlt } from "react-icons/fa"
+import { FaMapMarkedAlt } from 'react-icons/fa'
 
 const AccessMap = () => {
   return (

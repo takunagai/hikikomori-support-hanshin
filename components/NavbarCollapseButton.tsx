@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { motion } from 'framer-motion'
 
 type Props = {
   isOpen: boolean
@@ -29,7 +29,7 @@ const NavbarCollapseButton = ({ isOpen, onClick }: Props) => {
               y: 0,
             },
           }}
-          animate={isOpen ? "open" : "closed"}
+          animate={isOpen ? 'open' : 'closed'}
           transition={{ duration: 0.2 }}
         />
         <motion.span
@@ -44,7 +44,7 @@ const NavbarCollapseButton = ({ isOpen, onClick }: Props) => {
               y: -8,
             },
           }}
-          animate={isOpen ? "open" : "closed"}
+          animate={isOpen ? 'open' : 'closed'}
           transition={{ duration: 0.2 }}
         />
         <motion.span
@@ -61,7 +61,7 @@ const NavbarCollapseButton = ({ isOpen, onClick }: Props) => {
               opacity: 1,
             },
           }}
-          animate={isOpen ? "open" : "closed"}
+          animate={isOpen ? 'open' : 'closed'}
           transition={{ duration: 0.2 }}
         />
       </div>

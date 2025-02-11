@@ -1,11 +1,11 @@
-import { motion } from "framer-motion"
-import type { ComponentPropsWithoutRef } from "react"
+import { motion } from 'framer-motion'
+import type { ComponentPropsWithoutRef } from 'react'
 
-type Props = Omit<ComponentPropsWithoutRef<"input">, "type"> & {
+type Props = Omit<ComponentPropsWithoutRef<'input'>, 'type'> & {
   label: string
 }
 
-const RadioButton = ({ label, className = "", ...props }: Props) => {
+const RadioButton = ({ label, className = '', ...props }: Props) => {
   return (
     <label className="group relative inline-flex cursor-pointer items-center">
       <input type="radio" className="peer sr-only" {...props} />

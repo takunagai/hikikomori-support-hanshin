@@ -1,6 +1,6 @@
 // import Image from "next/image"
-import Link from "next/link"
-import { FaXTwitter } from "react-icons/fa6"
+import Link from 'next/link'
+import { FaXTwitter } from 'react-icons/fa6'
 
 const Footer = () => {
   // const footerLinks = [
@@ -32,8 +32,8 @@ const Footer = () => {
                   height={637}
                   alt="イラスト"
                   style={{
-                    maxWidth: "100%",
-                    height: "auto",
+                    maxWidth: '100%',
+                    height: 'auto',
                   }}
                 />
               </p>
@@ -43,9 +43,7 @@ const Footer = () => {
                   <br />
                   阪神ブランチ
                 </p>
-                <p className="mt-0 text-xs">
-                  (運営：一般社団法人いきがいさがし)
-                </p>
+                <p className="mt-0 text-xs">(運営：一般社団法人いきがいさがし)</p>
                 <p className="mt-3">
                   電話番号：
                   <span>
@@ -75,11 +73,7 @@ const Footer = () => {
             </div>
             <ul>
               <li>
-                <a
-                  href="https://twitter.com/necoris1"
-                  target="_blank"
-                  rel="noreferrer"
-                ></a>
+                <a href="https://twitter.com/necoris1" target="_blank" rel="noreferrer"></a>
               </li>
               <li>
                 <a
@@ -187,9 +181,7 @@ const FooterBar = () => {
   return (
     <div className="bg-primary py-4 text-primary-200">
       <div className="container">
-        <p className="text-center text-sm">
-          (c)2025 兵庫ひきこもり相談支援センター 阪神ブランチ
-        </p>
+        <p className="text-center text-sm">(c)2025 兵庫ひきこもり相談支援センター 阪神ブランチ</p>
       </div>
     </div>
   )

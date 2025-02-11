@@ -1,30 +1,30 @@
-import { useState } from "react"
+import { motion } from 'framer-motion'
+import { useState } from 'react'
+import Lightbox from 'yet-another-react-lightbox'
+import AccessMap from '../components/AccessMap'
 // import Image from "next/image"
-import Layout from "../components/layout"
-import AccessMap from "../components/AccessMap"
-import { motion } from "framer-motion"
-import Lightbox from "yet-another-react-lightbox"
-import "yet-another-react-lightbox/styles.css"
+import Layout from '../components/layout'
+import 'yet-another-react-lightbox/styles.css'
 
 import {
-  FaPhoneAlt,
-  FaLine,
-  FaTwitter,
-  FaLock,
-  FaHandHoldingHeart,
-  FaUserFriends,
-  FaHandshake,
-  FaDove,
   FaCat,
   FaCrow,
   FaDemocrat,
   FaDog,
+  FaDove,
   FaFish,
-  FaHorse,
   FaFrog,
-} from "react-icons/fa"
+  FaHandHoldingHeart,
+  FaHandshake,
+  FaHorse,
+  FaLine,
+  FaLock,
+  FaPhoneAlt,
+  FaTwitter,
+  FaUserFriends,
+} from 'react-icons/fa'
 
-import type { NextPage } from "next"
+import type { NextPage } from 'next'
 // import type { LightboxProps } from "yet-another-react-lightbox/types.d.ts"
 
 const Flow: NextPage = () => {
@@ -32,11 +32,7 @@ const Flow: NextPage = () => {
 
   return (
     <Layout title="相談する" description="Flow の概要です。">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
         <h1 className="alignfull bg-dots3">相談する</h1>
 
         <div className="mx-auto mt-8 max-w-2xl">
@@ -51,8 +47,7 @@ const Flow: NextPage = () => {
             相談の流れ
           </h2>
           <p className="mt-6 md:text-center">
-            専門の相談員による相談 (電話相談、来所相談、訪問相談)
-            を行っています。
+            専門の相談員による相談 (電話相談、来所相談、訪問相談) を行っています。
             <br className="hidden md:inline" />
             まずはお電話ください。スタッフが相談可能日をご案内します。
           </p>
@@ -63,8 +58,8 @@ const Flow: NextPage = () => {
               height={400}
               alt="写真"
               style={{
-                maxWidth: "100%",
-                height: "auto",
+                maxWidth: '100%',
+                height: 'auto',
               }}
               className="inline rounded-2xl"
             />
@@ -78,9 +73,7 @@ const Flow: NextPage = () => {
               電話相談
             </h2>
             <div className="mx-auto mt-6 max-w-2xl text-center">
-              <p>
-                来所が難しい方には、専門の相談員による電話相談を行っています。
-              </p>
+              <p>来所が難しい方には、専門の相談員による電話相談を行っています。</p>
               <p className="mt-4 text-center">
                 <img
                   src="/images/hanshin-branch/illust-telephone.png"
@@ -88,8 +81,8 @@ const Flow: NextPage = () => {
                   height={155}
                   alt="電話相談のイラスト"
                   style={{
-                    maxWidth: "100%",
-                    height: "auto",
+                    maxWidth: '100%',
+                    height: 'auto',
                   }}
                   className="inline"
                 />
@@ -105,7 +98,7 @@ const Flow: NextPage = () => {
               来所相談
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-center">
-              西宮市名塩にある事務所で、専門の相談員による相談を行っています。{" "}
+              西宮市名塩にある事務所で、専門の相談員による相談を行っています。{' '}
               <a href="#access-map" className="inline-block">
                 » アクセス地図
               </a>
@@ -117,8 +110,8 @@ const Flow: NextPage = () => {
                 height={161}
                 alt="写真"
                 style={{
-                  maxWidth: "100%",
-                  height: "auto",
+                  maxWidth: '100%',
+                  height: 'auto',
                 }}
                 className="inline"
               />
@@ -142,8 +135,8 @@ const Flow: NextPage = () => {
                 height={161}
                 alt="訪問相談のイラスト"
                 style={{
-                  maxWidth: "100%",
-                  height: "auto",
+                  maxWidth: '100%',
+                  height: 'auto',
                 }}
                 className="inline"
               />
@@ -171,11 +164,7 @@ const Flow: NextPage = () => {
             </p>
             <p className="mt-1 text-sm">受付時間 火・水・木・金 10〜16時</p>
             <p>
-              <a
-                type="button"
-                onClick={() => setOpen(true)}
-                className="btn btn-secondary"
-              >
+              <a type="button" onClick={() => setOpen(true)} className="btn btn-secondary">
                 青少年用「ほっとらいん相談」
               </a>
               {/*<Lightbox*/}

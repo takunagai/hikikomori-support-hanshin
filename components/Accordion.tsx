@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { AnimatePresence, motion } from 'framer-motion'
+import { useState } from 'react'
 
 type Props = {
   title: React.ReactNode
@@ -20,7 +20,7 @@ const Accordion = ({ title, children, defaultOpen = false }: Props) => {
       >
         <motion.svg
           animate={{ rotate: isOpen ? 90 : 0 }}
-          transition={{ duration: 0.2, ease: "easeInOut" }}
+          transition={{ duration: 0.2, ease: 'easeInOut' }}
           className="h-3 w-3 text-gray-600 dark:text-gray-400"
           viewBox="0 0 16 16"
           fill="none"
@@ -37,7 +37,7 @@ const Accordion = ({ title, children, defaultOpen = false }: Props) => {
             stroke="currentColor"
             strokeWidth="2"
             strokeLinecap="round"
-            style={{ transformOrigin: "center" }}
+            style={{ transformOrigin: 'center' }}
           />
         </motion.svg>
         {title}
@@ -46,11 +46,11 @@ const Accordion = ({ title, children, defaultOpen = false }: Props) => {
         {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
+            animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{
-              height: { duration: 0.2, ease: "easeInOut" },
-              opacity: { duration: 0.1, ease: "linear" },
+              height: { duration: 0.2, ease: 'easeInOut' },
+              opacity: { duration: 0.1, ease: 'linear' },
             }}
             className="overflow-hidden"
           >

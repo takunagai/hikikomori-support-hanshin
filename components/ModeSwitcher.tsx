@@ -27,8 +27,8 @@ const ModeSwitcher = ({ theme, setTheme }: Props) => {
       <div className="dark-mode-toggle-switcher text-center text-[10px]">
         <a
           className="hs-dark-mode group inline-block items-center text-gray-600 hover:text-blue-600 hs-dark-mode-active:hidden dark:text-gray-400 dark:hover:text-gray-500"
-          href={"#!"}
-          onClick={() => setTheme("dark")}
+          href={'#!'}
+          onClick={() => setTheme('dark')}
           data-hs-theme-click-value="dark"
         >
           <svg
@@ -46,8 +46,8 @@ const ModeSwitcher = ({ theme, setTheme }: Props) => {
         </a>
         <a
           className="hs-dark-mode group hidden items-center text-gray-600 hover:text-blue-600 hs-dark-mode-active:inline-block dark:text-gray-400 dark:hover:text-gray-500"
-          href={"#!"}
-          onClick={() => setTheme("light")}
+          href={'#!'}
+          onClick={() => setTheme('light')}
           data-hs-theme-click-value="light"
         >
           <svg

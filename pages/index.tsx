@@ -1,10 +1,10 @@
 // import Image from "next/image"
-import { motion } from "framer-motion"
-import Link from "next/link"
-import AccessMap from "../components/AccessMap"
-import Date from "../components/date"
-import Layout from "../components/layout"
-import { client } from "../lib/client"
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import AccessMap from '../components/AccessMap'
+import Date from '../components/date'
+import Layout from '../components/layout'
+import { client } from '../lib/client'
 // import "yet-another-react-lightbox/styles.css"
 
 import {
@@ -15,14 +15,9 @@ import {
   FaHorse,
   FaLock,
   FaUserFriends,
-} from "react-icons/fa"
+} from 'react-icons/fa'
 
-import type {
-  GetStaticProps,
-  GetStaticPropsContext,
-  InferGetStaticPropsType,
-  NextPage,
-} from "next"; // TypeScript の型データ
+import type { GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next' // TypeScript の型データ
 
 /**
  * Settings
@@ -39,14 +34,12 @@ const numberOfNewsLeafletDisplayed = 4
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
 // microCMS - news
-import type { NewsItem } from "../types/news"
+import type { NewsItem } from '../types/news'
 type NewsItemsTypes = { newsItems: Array<NewsItem> }
 
-export const getStaticProps: GetStaticProps = async (
-  context: GetStaticPropsContext,
-) => {
+export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
   const data = await client.get({
-    endpoint: "news",
+    endpoint: 'news',
     queries: { limit: numberOfNewsItemsToFetch },
   })
 
@@ -66,11 +59,7 @@ const Home: NextPage = ({ newsItems }: any) => {
 
   return (
     <Layout title="Home" description="Home の概要です。">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
         <div className="alignfull bg-tertiary-100 py-8 px-4 text-center sm:px-6 lg:py-24 lg:px-8">
           <div className="container flex flex-col items-center justify-center lg:flex-row">
             <div className="order-2 mx-auto max-w-lg lg:px-8">
@@ -98,10 +87,7 @@ const Home: NextPage = ({ newsItems }: any) => {
                 <Link href="/flow" className="btn btn-primary px-7 md:px-16">
                   相談する
                 </Link>
-                <Link
-                  href="/places-and-groups"
-                  className="btn btn-secondary lg:px-7"
-                >
+                <Link href="/places-and-groups" className="btn btn-secondary lg:px-7">
                   居場所情報を見る
                 </Link>
               </p>
@@ -113,8 +99,8 @@ const Home: NextPage = ({ newsItems }: any) => {
                 height={637}
                 alt="イラスト"
                 style={{
-                  maxWidth: "100%",
-                  height: "auto",
+                  maxWidth: '100%',
+                  height: 'auto',
                 }}
               />
             </p>
@@ -131,18 +117,11 @@ const Home: NextPage = ({ newsItems }: any) => {
               {newsItems
                 .slice(0, numberOfNewsItemsDisplayed)
                 .map((newsItem: NewsItem, index: number) => (
-                  <li
-                    key={index}
-                    className="border-b border-dashed border-primary-100 py-2"
-                  >
+                  <li key={index} className="border-b border-dashed border-primary-100 py-2">
                     <span className="block text-xs md:inline-block">
                       <Date dateString={newsItem.date} />
                     </span>
-                    <Link
-                      href={`/news/${newsItem.id}`}
-                      passHref
-                      className="text-primary"
-                    >
+                    <Link href={`/news/${newsItem.id}`} passHref className="text-primary">
                       {newsItem.title}
                     </Link>
                   </li>
@@ -156,11 +135,7 @@ const Home: NextPage = ({ newsItems }: any) => {
               .map((newsItem: NewsItem, index: number) => (
                 <li key={index} className="basis-1/2 px-3 md:basis-1/4">
                   {newsItem.postThumbnail && (
-                    <Link
-                      href={`/news/${newsItem.id}`}
-                      passHref
-                      className="text-primary"
-                    >
+                    <Link href={`/news/${newsItem.id}`} passHref className="text-primary">
                       <img
                         src={`${newsItem.postThumbnail.url}`}
                         width={`${newsItem.postThumbnail.width}`}
@@ -168,8 +143,8 @@ const Home: NextPage = ({ newsItems }: any) => {
                         alt={`${newsItem.title}`}
                         className="shadow-lg hover:opacity-80"
                         style={{
-                          maxWidth: "100%",
-                          height: "auto",
+                          maxWidth: '100%',
+                          height: 'auto',
                         }}
                       />
                     </Link>
@@ -193,9 +168,7 @@ const Home: NextPage = ({ newsItems }: any) => {
             当事者の気持ちに十分な配慮を行い、社会参加へのはじめの一歩を踏み出せるよう支援いたします。お気軽にご相談ください。
           </p>
 
-          <h3 className="marker-underlined mt-10 text-center">
-            このような方、ご相談ください
-          </h3>
+          <h3 className="marker-underlined mt-10 text-center">このような方、ご相談ください</h3>
           <div className="mx-auto mt-6 flex max-w-fit flex-col gap-4 md:flex-row">
             <div className="rounded-lg border-4 border-dotted border-secondary-300 p-3">
               <h4 className="text-primary">ご本人</h4>
@@ -262,7 +235,7 @@ const Home: NextPage = ({ newsItems }: any) => {
             <p>
               利用人数：１日２〜８名程度
               <br />
-              男女比：８：２ / 年齢層：20～50代{" "}
+              男女比：８：２ / 年齢層：20～50代{' '}
             </p>
           </div>
           <div className="mx-auto max-w-fit">
@@ -270,15 +243,11 @@ const Home: NextPage = ({ newsItems }: any) => {
               <li>
                 病気で入院して体力が落ちたので、復職へ向けて体力づくりやリハビリの最初のステップとして通いたい
               </li>
-              <li>
-                人が怖い、緊張してしまうので、会話や交流など人と関わる練習をしたい
-              </li>
+              <li>人が怖い、緊張してしまうので、会話や交流など人と関わる練習をしたい</li>
             </ul>
           </div>
 
-          <h3 className="marker-underlined mt-10">
-            どうやって利用や相談をするの？
-          </h3>
+          <h3 className="marker-underlined mt-10">どうやって利用や相談をするの？</h3>
           <p className="mx-auto mt-6 max-w-3xl">
             専門の相談員による相談（電話・来所・訪問）、ひきこもりに関する地域相談会や研修会などを開催しています。
             <br />

@@ -1,26 +1,26 @@
+import { motion } from 'framer-motion'
 /**
  * 確認用 URL: http://localhost:3000/news/fh86-lbz5
  * 参照：https://blog.microcms.io/microcms-next-jamstack-blog/
  */
-import Link from "next/link"
-import Layout from "../../components/layout"
-import Date from "../../components/date"
-import { motion } from "framer-motion"
-import { client } from "../../lib/client" // microcms-js-sdkの初期化
+import Link from 'next/link'
+import Date from '../../components/date'
+import Layout from '../../components/layout'
+import { client } from '../../lib/client' // microcms-js-sdkの初期化
 
 import type {
-  GetStaticProps,
   GetStaticPaths,
+  GetStaticProps,
   GetStaticPropsContext,
   InferGetStaticPropsType,
   NextPage,
-} from "next"
+} from 'next'
 
 // https://zenn.dev/catnose99/articles/7201a6c56d3c88
 // type Props = InferGetStaticPropsType<typeof getStaticProps>
 
 // microCMS - news
-import type { NewsItem } from "../../types/news"
+import type { NewsItem } from '../../types/news'
 
 /**
  * ページコンポーネント
@@ -29,13 +29,9 @@ export default function BlogId({ newsArticle }: any) {
   return (
     <Layout
       title={newsArticle.title}
-      description={newsArticle.body.replace(/(<([^>]+)>)/gi, "").slice(0, 100)}
+      description={newsArticle.body.replace(/(<([^>]+)>)/gi, '').slice(0, 100)}
     >
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
         <p className="alignfull border-b border-primary-100 bg-dots3 py-1 text-center text-primary">
           お知らせ
         </p>
@@ -71,7 +67,7 @@ export default function BlogId({ newsArticle }: any) {
  *   静的生成のためのパスを指定
  */
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data = await client.get({ endpoint: "news" })
+  const data = await client.get({ endpoint: 'news' })
   const paths = data.contents.map((content: NewsItem) => `/news/${content.id}`)
   return { paths, fallback: false }
 }
@@ -81,13 +77,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
  *   データをテンプレートに受け渡す部分の処理を記述します
  *   getStaticProps は、実装者が大きな変更をしない限り Promise を返却する = 条件は必ず真に流れる
  */
-export const getStaticProps: GetStaticProps = async (
-  context: GetStaticPropsContext,
-) => {
+export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
   const id = context.params?.id
   const idExceptArray = id instanceof Array ? id[0] : id
   const data = await client.get({
-    endpoint: "news",
+    endpoint: 'news',
     contentId: idExceptArray,
   })
 

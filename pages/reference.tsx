@@ -1,34 +1,31 @@
-import Link from "next/link"
-import { motion } from "framer-motion"
-import Layout from "../components/layout"
-import AfterContentArea from "../components/AfterContentArea"
-import type { NextPage } from "next"
+import { motion } from 'framer-motion'
+import type { NextPage } from 'next'
+import Link from 'next/link'
+import AfterContentArea from '../components/AfterContentArea'
+import Layout from '../components/layout'
 
 import {
-  FaPhoneAlt,
-  FaEnvelope,
-  FaLine,
-  FaTwitter,
-  FaLock,
-  FaHandHoldingHeart,
-  FaUserFriends,
-  FaHandshake,
-  FaDove,
   FaCat,
   FaCrow,
   FaDemocrat,
   FaDog,
+  FaDove,
+  FaEnvelope,
   FaFish,
-  FaHorse,
   FaFrog,
-} from "react-icons/fa"
+  FaHandHoldingHeart,
+  FaHandshake,
+  FaHorse,
+  FaLine,
+  FaLock,
+  FaPhoneAlt,
+  FaTwitter,
+  FaUserFriends,
+} from 'react-icons/fa'
 
 const Reference: NextPage = () => {
   return (
-    <Layout
-      title="相談窓口・教育支援センター"
-      description="相談窓口・教育支援センター"
-    >
+    <Layout title="相談窓口・教育支援センター" description="相談窓口・教育支援センター">
       <motion.div
         initial={{ opacity: 0 }} // initial
         animate={{ opacity: 1 }} // on mount
@@ -69,11 +66,7 @@ const Reference: NextPage = () => {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://ashiya-shakyo.com/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <a href="https://ashiya-shakyo.com/" target="_blank" rel="noreferrer">
                     芦屋市社会福祉協議会
                   </a>
                 </li>
@@ -96,11 +89,7 @@ const Reference: NextPage = () => {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://amarisu.com"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <a href="https://amarisu.com" target="_blank" rel="noreferrer">
                     NPO法人ゲートキーパー支援センター あまりす事業部
                   </a>
                 </li>
@@ -150,11 +139,7 @@ const Reference: NextPage = () => {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://nishi-yorisoi.com/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <a href="https://nishi-yorisoi.com/" target="_blank" rel="noreferrer">
                     ソーシャルスポット西宮よりそい
                   </a>
                 </li>
@@ -302,10 +287,7 @@ const Reference: NextPage = () => {
                     rel="noreferrer"
                   >
                     あすなろ
-                    <small>
-                      {" "}
-                      (なるおきた、かわらぎ、やまぐち、しおせ、うえがはら、はまわき)
-                    </small>
+                    <small> (なるおきた、かわらぎ、やまぐち、しおせ、うえがはら、はまわき)</small>
                   </a>
                 </li>
               </ul>

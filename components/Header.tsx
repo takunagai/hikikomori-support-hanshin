@@ -1,7 +1,7 @@
-import { useState } from "react"
-import SiteLogo from "./SiteLogo"
-import NavbarCollapseButton from "./NavbarCollapseButton"
-import Navbar from "./Navbar"
+import { useState } from 'react'
+import Navbar from './Navbar'
+import NavbarCollapseButton from './NavbarCollapseButton'
+import SiteLogo from './SiteLogo'
 // import ModeSwitcher from "./ModeSwitcher"
 
 type Props = {

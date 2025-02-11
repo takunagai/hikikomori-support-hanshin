@@ -1,5 +1,5 @@
 // ★★TODO: ブログでページタイトルが取得できていないのを修正
-import Link from "next/link"
+import Link from 'next/link'
 
 type Props = {
   pageTitle: string
@@ -9,10 +9,7 @@ const BreadCrumbs = ({ pageTitle }: Props) => {
   return (
     <ol className="flex min-w-0 items-center whitespace-nowrap text-xs">
       <li className="flex items-center">
-        <Link
-          href="/"
-          className="text-gray-600 hover:text-primary hover:underline"
-        >
+        <Link href="/" className="text-gray-600 hover:text-primary hover:underline">
           Home
         </Link>
         <svg

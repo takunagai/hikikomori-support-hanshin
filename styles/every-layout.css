@@ -9,9 +9,7 @@
   --s-5: calc(var(--s-4) / var(--ratio));
   --s-4: calc(var(--s-3) / var(--ratio));
   --s-3: calc(var(--s-2) / var(--ratio)); /* 1rem --ratio --ratio --ratio */
-  --s-2: calc(
-    var(--s-1) / var(--ratio)
-  ); /* 1rem ÷ --ratio ÷ --ratio ※ = pow(var(--ratio), 2) */
+  --s-2: calc(var(--s-1) / var(--ratio)); /* 1rem ÷ --ratio ÷ --ratio ※ = pow(var(--ratio), 2) */
   --s-1: calc(var(--s0) / var(--ratio)); /* 1rem ÷ --ratio */
   --s0: 1rem;
   --s1: calc(var(--s0) * var(--ratio)); /* 1rem * --ratio */
@@ -293,7 +291,7 @@
   justify-content: center;
   align-items: center;
 }
-[class^="frame"] > img,/* ★★きかない？ */
+[class^="frame"] > img /* ★★きかない？ */,
 [class^="frame"] > video {
   inline-size: 100%;
   outline: 1px dotted red;
