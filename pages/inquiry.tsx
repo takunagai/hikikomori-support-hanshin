@@ -4,22 +4,9 @@ import Link from 'next/link'
 import Layout from '../components/layout'
 
 import {
-  FaCat,
-  FaCrow,
-  FaDemocrat,
-  FaDog,
-  FaDove,
-  FaFish,
-  FaFrog,
-  FaHandHoldingHeart,
-  FaHandshake,
-  FaHorse,
-  FaLine,
-  FaLock,
-  FaPhoneAlt,
-  FaTwitter,
-  FaUserFriends,
+  FaPhoneAlt
 } from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
 
 const Inquiry: NextPage = () => {
   return (
@@ -74,11 +61,10 @@ const Inquiry: NextPage = () => {
               </p>
               <div className="mt-3 justify-center">
                 <p>
-                  <FaTwitter className="inline align-baseline text-primary-300" />
-                  <b>Twitter</b>
+                  <FaXTwitter className="inline align-baseline text-primary-300 text-2xl" />
                   <br />
                   ID:
-                  <a href="https://twitter.com/ikigaisagashi1" target="_blank" rel="noreferrer">
+                  <a href="https://x.com/ikigaisagashi1" target="_blank" rel="noreferrer">
                     @ikigaisagashi1
                   </a>
                 </p>
