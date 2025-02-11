@@ -37,7 +37,7 @@ export default function BlogId({ newsArticle }: any) {
         </p>
 
         <main className="mx-auto max-w-2xl py-8">
-          <h1>{newsArticle.title}</h1>
+          <h1 className="font-sans font-bold">{newsArticle.title}</h1>
           <p className="mt-2 text-sm text-gray-600">
             投稿日：
             <Date dateString={newsArticle.date} />
