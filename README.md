@@ -54,6 +54,10 @@
 - microCMS SDK（ヘッドレスCMS）
 - date-fns（日付処理）
 - DOMPurify（HTMLサニタイズ）
+- Satori & @vercel/og（OGP画像生成）
+  - Reactコンポーネントからの動的画像生成
+  - カスタムフォントとスタイリング
+  - エッジでのリアルタイム生成
 
 ### セキュリティ対策
 
@@ -67,7 +71,12 @@
 
 #### メタタグとOGP
 
-- 動的OGP画像生成（@vercel/og）
+- 動的OGP画像生成
+  - @vercel/ogとSatoriを使用
+  - Reactコンポーネントベースのデザイン
+  - エッジでのリアルタイム生成
+  - 1200×630pxの最適化された画像
+  - カスタムフォントとブランディング
 - Twitter Card対応
 - 構造化データ（JSON-LD）
 - カスタムメタタグ
