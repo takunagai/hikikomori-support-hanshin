@@ -10,7 +10,7 @@ import ja from 'date-fns/locale/ja'
 type Props = {
   dateString: string
 }
-export default function Date({ dateString }: Props) {
+const FormattedDate = ({ dateString }: Props) => {
   const date = parseISO(dateString)
   return (
     <time dateTime={dateString}>
@@ -18,3 +18,5 @@ export default function Date({ dateString }: Props) {
     </time>
   )
 }
+
+export default FormattedDate
