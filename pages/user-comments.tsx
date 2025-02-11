@@ -48,16 +48,16 @@ const UserComments: NextPage<Props> = ({ userComments }) => {
         <section className="mt-8">
           <div className="mt-8">
             <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {userComments.map((userComment: UserComment, index: number) => (
+              {userComments.map((userComment: UserComment) => (
                 <motion.li
-                  key={index}
+                  key={userComment.id}
                   initial={{ opacity: 0, y: 20, scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{
                     type: 'spring',
                     stiffness: 100,
                     damping: 15,
-                    delay: index * 0.1,
+                    delay: 0.1,
                   }}
                   className="group relative flex min-h-[280px] flex-col overflow-hidden rounded-lg bg-[#FBF7F4] p-6 shadow-md transition-all hover:shadow-lg dark:bg-gray-800/95 dark:shadow-gray-900/30"
                   style={{
@@ -65,7 +65,7 @@ const UserComments: NextPage<Props> = ({ userComments }) => {
                     backgroundRepeat: 'repeat',
                   }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-b from-primary-50/30 to-transparent dark:from-primary-900/10"></div>
+                  <div className="absolute inset-0 bg-gradient-to-b from-primary-50/30 to-transparent dark:from-primary-900/10" />
                   <div className="relative flex-1">
                     <h3 className="mb-4 text-lg font-medium text-primary-600 dark:text-primary-400">
                       {userComment.title}

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
  */
 import Link from 'next/link'
 import AfterContentArea from '../components/AfterContentArea'
-import Date from '../components/date'
+import FormattedDate from '../components/date'
 import Layout from '../components/layout'
 import { client } from '../lib/client' // microcms-js-sdkの初期化
 
@@ -49,8 +49,8 @@ const NewsItems: NextPage<Props> = ({ newsItems }) => {
 
         <section className="mx-auto mt-8 max-w-2xl">
           <ul className="">
-            {newsItems.map((newsItem: NewsItem, index: number) => (
-              <li key={index} className="border-b border-dashed border-primary-100 py-4">
+            {newsItems.map((newsItem: NewsItem) => (
+              <li key={newsItem.id} className="border-b border-dashed border-primary-100 py-4">
                 <h2 className="inline text-left text-xl">
                   <Link href={`/news/${newsItem.id}`} passHref className="!px-0 text-primary">
                     {newsItem.title}
@@ -58,7 +58,7 @@ const NewsItems: NextPage<Props> = ({ newsItems }) => {
                 </h2>
                 <p className="mt-1 text-sm text-gray-700">
                   投稿日：
-                  <Date dateString={newsItem.date} />
+                  <FormattedDate dateString={newsItem.date} />
                 </p>
               </li>
             ))}
