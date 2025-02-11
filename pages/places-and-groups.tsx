@@ -99,7 +99,7 @@ const PlacesAndGroups: NextPage<Props> = ({ groups }) => {
           <p className="mt-4 text-center">
             <Dialog.Root>
               <Dialog.Trigger asChild>
-                <button className="btn btn-primary">
+                <button type="button" className="btn btn-primary">
                   運営者の方へ<small> (掲載希望、情報変更)</small>
                 </button>
               </Dialog.Trigger>
@@ -129,11 +129,13 @@ const PlacesAndGroups: NextPage<Props> = ({ groups }) => {
                     }}
                   >
                     <Dialog.Close asChild>
-                      <button className="text-sm text-primary underline">閉じる</button>
+                      <button type="button" className="text-sm text-primary underline">
+                        閉じる
+                      </button>
                     </Dialog.Close>
                   </div>
                   <Dialog.Close asChild>
-                    <button className="IconButton" aria-label="Close">
+                    <button type="button" className="IconButton" aria-label="Close">
                       ×
                     </button>
                   </Dialog.Close>
@@ -223,9 +225,8 @@ const GroupList = ({
   const extractCategoryMatches = (item: Group) => {
     if (selectedCity === '全表示') {
       return true
-    } else {
-      return item.city[0] === selectedCity
     }
+    return item.city[0] === selectedCity
   }
 
   return Object.keys(groups).length === 0 ? (
@@ -235,7 +236,7 @@ const GroupList = ({
       <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         <AnimatePresence mode="popLayout">
           <InfiniteScroll itemsPerPage={6}>
-            {(groups as any).filter(extractCategoryMatches).map((group: Group, index: number) => (
+            {groups.groups.filter(extractCategoryMatches).map((group: Group, index: number) => (
               <motion.li
                 key={group.id}
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -254,17 +255,17 @@ const GroupList = ({
                   backgroundRepeat: 'repeat',
                 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-b from-primary-50/30 to-transparent dark:from-primary-900/10"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-primary-50/30 to-transparent dark:from-primary-900/10" />
                 <div className="relative">
                   <h2 className="text-left text-[1.4rem] font-bold text-primary-700 dark:text-primary-300">
                     {group.title}
                   </h2>
 
                   <ul className="mt-4 flex flex-wrap gap-2">
-                    {group.locationType.map((x, i) => (
+                    {group.locationType.map((x) => (
                       <li
                         className="rounded-md border border-primary-200 px-2 py-0.5 text-sm text-primary-600 dark:border-primary-700 dark:text-primary-300"
-                        key={i}
+                        key={`${group.id}-${x}`}
                       >
                         {x}
                       </li>
@@ -279,7 +280,7 @@ const GroupList = ({
                   <div className="mt-4 space-y-3 text-sm">
                     <div>
                       <span className="font-bold text-primary-600 dark:text-primary-400">
-                        対象者:
+                        対象者：
                       </span>
                       <p className="mt-1">{group.objectPerson}</p>
                     </div>

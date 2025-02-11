@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import AccessMap from '../components/AccessMap'
-import Date from '../components/date'
+import FormattedDate from '../components/date'
 import Layout from '../components/layout'
 import { client } from '../lib/client'
 // import "yet-another-react-lightbox/styles.css"
@@ -53,8 +53,7 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
 /**
  * Component
  */
-// const Index: NextPage<Props> = ({ newsItems }: : NewsItemsTypes) => { // 型付けるとエラー
-const Home: NextPage = ({ newsItems }: any) => {
+const Home: NextPage<NewsItemsTypes> = ({ newsItems }: NewsItemsTypes) => {
   // console.log(newsItems)
 
   return (
@@ -114,43 +113,39 @@ const Home: NextPage = ({ newsItems }: any) => {
           <div className="mx-auto max-w-2xl">
             {/* ★★TODO: 記事がない場合の分岐処理を追加 */}
             <ul className="mt-8 list-square pl-5 marker:text-secondary-400">
-              {newsItems
-                .slice(0, numberOfNewsItemsDisplayed)
-                .map((newsItem: NewsItem, index: number) => (
-                  <li key={index} className="border-b border-dashed border-primary-100 py-2">
-                    <span className="block text-xs md:inline-block">
-                      <Date dateString={newsItem.date} />
-                    </span>
-                    <Link href={`/news/${newsItem.id}`} passHref className="text-primary">
-                      {newsItem.title}
-                    </Link>
-                  </li>
-                ))}
+              {newsItems.slice(0, numberOfNewsItemsDisplayed).map((newsItem: NewsItem) => (
+                <li key={newsItem.id} className="border-b border-dashed border-primary-100 py-2">
+                  <span className="block text-xs md:inline-block">
+                    <FormattedDate dateString={newsItem.date} />
+                  </span>
+                  <Link href={`/news/${newsItem.id}`} passHref className="text-primary">
+                    {newsItem.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <ul className="mx-4 mt-8 flex flex-wrap">
-            {newsItems
-              .slice(0, numberOfNewsLeafletDisplayed)
-              .map((newsItem: NewsItem, index: number) => (
-                <li key={index} className="basis-1/2 px-3 md:basis-1/4">
-                  {newsItem.postThumbnail && (
-                    <Link href={`/news/${newsItem.id}`} passHref className="text-primary">
-                      <img
-                        src={`${newsItem.postThumbnail.url}`}
-                        width={`${newsItem.postThumbnail.width}`}
-                        height={`${newsItem.postThumbnail.height}`}
-                        alt={`${newsItem.title}`}
-                        className="shadow-lg hover:opacity-80"
-                        style={{
-                          maxWidth: '100%',
-                          height: 'auto',
-                        }}
-                      />
-                    </Link>
-                  )}
-                </li>
-              ))}
+            {newsItems.slice(0, numberOfNewsLeafletDisplayed).map((newsItem: NewsItem) => (
+              <li key={newsItem.id} className="basis-1/2 px-3 md:basis-1/4">
+                {newsItem.postThumbnail && (
+                  <Link href={`/news/${newsItem.id}`} passHref className="text-primary">
+                    <img
+                      src={`${newsItem.postThumbnail.url}`}
+                      width={`${newsItem.postThumbnail.width}`}
+                      height={`${newsItem.postThumbnail.height}`}
+                      alt={`${newsItem.title}`}
+                      className="shadow-lg hover:opacity-80"
+                      style={{
+                        maxWidth: '100%',
+                        height: 'auto',
+                      }}
+                    />
+                  </Link>
+                )}
+              </li>
+            ))}
           </ul>
         </section>
 
