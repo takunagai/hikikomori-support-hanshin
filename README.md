@@ -53,6 +53,33 @@
 - SWR（データフェッチング）
 - microCMS SDK（ヘッドレスCMS）
 - date-fns（日付処理）
+- DOMPurify（HTMLサニタイズ）
+
+### セキュリティ対策
+
+- DOMPurifyによるHTMLコンテンツのサニタイズ
+- Content Security Policy (CSP) の実装
+- HTTPSの強制
+- クロスサイトスクリプティング（XSS）対策
+- セキュアなヘッダー設定
+
+### SEOとソーシャルメディア対応
+
+#### メタタグとOGP
+
+- 動的OGP画像生成（@vercel/og）
+- Twitter Card対応
+- 構造化データ（JSON-LD）
+- カスタムメタタグ
+- Google Search Console対応
+
+#### 最適化
+
+- SEOフレンドリーなURL構造
+- サイトマップの自動生成
+- 適切なHTMLセマンティクス
+- モバイルフレンドリー対応
+- Core Web Vitalsの最適化
 
 ## プロジェクト構成
 
