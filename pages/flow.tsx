@@ -31,7 +31,10 @@ const Flow: NextPage = () => {
   const [open, setOpen] = useState(false)
 
   return (
-    <Layout title="相談する" description="Flow の概要です。">
+    <Layout 
+      title="相談の流れ" 
+      description="兵庫ひきこもり相談支援センター 阪神ブランチへの相談方法と流れについて説明します"
+    >
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
         <h1 className="alignfull bg-dots3">相談する</h1>
 

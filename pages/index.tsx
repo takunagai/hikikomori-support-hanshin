@@ -57,7 +57,10 @@ const Home: NextPage<NewsItemsTypes> = ({ newsItems }: NewsItemsTypes) => {
   // console.log(newsItems)
 
   return (
-    <Layout title="Home" description="Home の概要です。">
+    <Layout 
+      title="兵庫ひきこもり相談支援センター 阪神ブランチ" 
+      description="ひきこもりでお悩みの方やそのご家族の相談窓口です。兵庫県阪神地域で無料の相談支援を行っています"
+    >
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
         <div className="alignfull bg-tertiary-100 py-8 px-4 text-center sm:px-6 lg:py-24 lg:px-8">
           <div className="container flex flex-col items-center justify-center lg:flex-row">

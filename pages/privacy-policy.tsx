@@ -8,7 +8,7 @@ const Recruit: NextPage = () => {
   return (
     <Layout
       title="個人情報保護方針(プライバシーポリシー)"
-      description="川西市 アステ川西内のカフェ「スフレ専門店 ナッツベリー」の求人情報"
+      description="兵庫ひきこもり相談支援センター 阪神ブランチの個人情報の取り扱いについて"
     >
       <motion.div
         initial={{ opacity: 0 }} // initial
