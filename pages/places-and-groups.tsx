@@ -219,7 +219,7 @@ const GroupList = ({
   groups,
   selectedCity,
 }: {
-  groups: Groups
+  groups: Group[]  // Groups型ではなく、Group[]型に修正
   selectedCity: string
 }) => {
   const extractCategoryMatches = (item: Group) => {
@@ -236,7 +236,7 @@ const GroupList = ({
       <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         <AnimatePresence mode="popLayout">
           <InfiniteScroll itemsPerPage={6}>
-            {groups.groups.filter(extractCategoryMatches).map((group: Group, index: number) => (
+            {groups.filter(extractCategoryMatches).map((group: Group, index: number) => (
               <motion.li
                 key={group.id}
                 initial={{ opacity: 0, scale: 0.95 }}
