@@ -2,7 +2,7 @@
 
 ひきこもりの当事者やご家族への支援を目的とした情報提供・相談窓口サイトです。
 
- [公式サイト](https://hanshin-branch.org)
+[公式サイト](https://hanshin-branch.org)
 
 ## 主な機能
 
@@ -12,52 +12,117 @@
 - 場所とグループ情報
 - お問い合わせフォーム
 - プライバシーポリシー
+- ダークモード対応
+- アクセシビリティ対応
 
 ## 技術スタック
 
-- **フレームワーク**
-  - Next.js
-  - React
-  - TypeScript
+### フロントエンド基盤
 
-- **スタイリング**
-  - Tailwind CSS
-  - PostCSS
+- Next.js 15.1.6
+- React 18.2.0
+- TypeScript
 
-- **コンテンツ管理**
-  - MicroCMS（ヘッドレスCMS）
+### UI/スタイリング
 
-- **その他の主要パッケージ**
-  - Framer Motion（アニメーション）
-  - SWR（データフェッチング）
-  - date-fns（日付処理）
+- Tailwind CSS 3.4.17
+  - @tailwindcss/typography: マークダウンスタイリング
+  - @tailwindcss/forms: フォーム要素のスタイリング
+  - @tailwindcss/aspect-ratio: アスペクト比の制御
+  - @tailwindcss/line-clamp: テキストの行数制限
+  - PostCSS プラグイン（postcss-import, postcss-nesting）
+- Framer Motion 10.18.0（アニメーション）
+  - ページトランジション
+  - スプリングアニメーション
+  - 無限スクロール効果
+- Radix UI（アクセシブルなコンポーネント）
+  - @radix-ui/react-dialog: モーダルダイアログ
+  - @radix-ui/react-visually-hidden: スクリーンリーダー対応
+- React Icons 4.12.0
+  - Font Awesome アイコン
+  - SNSアイコン
+- その他のUIライブラリ
+  - next-themes 0.2.1: ダークモード対応
+  - react-responsive 9.0.0: レスポンシブデザイン
+  - react-scroll 1.9.0: スムーズスクロール
+  - yet-another-react-lightbox 2.2.0: 画像ライトボックス
+  - @etchteam/next-pagination 3.5.5: ページネーション
+
+### データ管理/API
+
+- SWR（データフェッチング）
+- microCMS SDK（ヘッドレスCMS）
+- date-fns（日付処理）
+
+## プロジェクト構成
+
+### ディレクトリ構造
+
+```
+.
+├── components/     # 再利用可能なUIコンポーネント
+│   ├── layout/    # レイアウト関連
+│   ├── ui/        # UI要素
+│   └── nav/       # ナビゲーション
+├── pages/         # Next.jsのページコンポーネント
+├── public/        # 静的アセット
+├── styles/        # スタイリング関連
+├── lib/          # ユーティリティ関数
+└── types/        # TypeScript型定義
+```
+
+### 主要コンポーネント
+
+- **レイアウト**: Layout.tsx, Header.tsx, Footer.tsx
+- **UI要素**: Button.tsx, Alert.tsx, Dialog.tsx
+- **ナビゲーション**: Navbar.tsx, BreadCrumbs.tsx
+
+## 特徴的な実装
+
+### UI/UX
+
+- スプリングアニメーションによる自然な動き
+- 無限スクロールによるコンテンツ読み込み
+- レスポンシブデザイン
+- ダークモード対応
+- アクセシブルなUI（WAI-ARIA準拠）
+
+### パフォーマンス
+
+- 画像の最適化
+- コンポーネントの遅延読み込み
+- SSGによる高速なページロード
 
 ## 開発環境のセットアップ
 
 1. リポジトリのクローン
+
 ```bash
 git clone [repository-url]
 cd hikikomori-support-hanshin
 ```
 
 2. 依存パッケージのインストール
+
 ```bash
 npm install
 ```
 
 3. 環境変数の設定
 `.env.local`ファイルをプロジェクトルートに作成し、以下の環境変数を設定：
+
 ```
 SERVICE=your-microcms-service-domain
 APIKEY=your-microcms-api-key
 ```
 
 4. 開発サーバーの起動
+
 ```bash
 npm run dev
 ```
 
-ブラウザで http://localhost:3000 を開いて確認できます。
+ブラウザで <http://localhost:3000> を開いて確認できます。
 
 ## 主要なページ構成
 
@@ -68,24 +133,43 @@ npm run dev
 - `/news`: ニュース一覧
 - `/places-and-groups`: 場所とグループ
 - `/reference`: 参考資料
+- `/user-comments`: ご利用者様の声
 - `/sitemap`: サイトマップ
 
-## ビルドとデプロイ
+## デプロイ
 
-本番用ビルド：
+### 本番用ビルド
+
 ```bash
 npm run build
 ```
 
-本番環境での起動：
+### 本番環境での起動
+
 ```bash
 npm run start
 ```
 
+## 開発ガイドライン
+
+### コーディング規約
+
+- ESLintとPrettierによるコード整形
+- TypeScriptの厳格な型チェック
+- コンポーネントの単一責任原則
+- アクセシビリティガイドラインの遵守
+
+### Git運用
+
+- 機能ごとのブランチ作成
+- コミットメッセージの規約に従う
+- プルリクエストによるコードレビュー
+
 ## ライセンス
+
+Copyright (c) 2025 兵庫ひきこもり相談支援センター 阪神ブランチ
 
 All rights reserved.
 
-## 問い合わせ先
-
-詳細は[お問い合わせページ](https://hanshin-branch.org/inquiry)をご覧ください。
+このプロジェクトのソースコードおよびコンテンツの全ての権利は兵庫ひきこもり相談支援センター 阪神ブランチに帰属します。
+許可なく複製、改変、再配布することを禁じます。
