@@ -49,7 +49,7 @@ const NewsItems: NextPage<Props> = ({ newsItems }) => {
           <ul className="">
             {newsItems.map((newsItem: NewsItem) => (
               <li key={newsItem.id} className="border-b border-dashed border-primary-100 py-4">
-                <h2 className="inline text-left text-xl">
+                <h2 className="inline text-left text-xl font-sans font-bold">
                   <Link href={`/news/${newsItem.id}`} passHref className="!px-0 text-primary">
                     {newsItem.title}
                   </Link>
