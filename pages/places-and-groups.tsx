@@ -22,12 +22,13 @@ import type {
   NextPage,
 } from 'next' // TypeScript の型データ
 
-// https://zenn.dev/catnose99/articles/7201a6c56d3c88
-type Props = InferGetStaticPropsType<typeof getStaticProps>
+// コンポーネントのPropsの型定義
+type Props = {
+  groups: Group[]
+}
 
 // microCMS - group
 import type { Group } from '../types/group'
-type Groups = { groups: Array<Group> }
 
 /**
  * getStaticProps (from microCMS API)
@@ -56,7 +57,6 @@ export const getStaticProps: GetStaticProps = async () =>
 /**
  * Main Component
  */
-// const PlacesAndGroups: NextPage<Props> = ({ groups }: Groups) => { // 型付けるとエラー
 const PlacesAndGroups: NextPage<Props> = ({ groups }) => {
   const [selectedCity, setSelectedCity] = useState('全表示')
 
@@ -227,7 +227,7 @@ const GroupList = ({
   groups,
   selectedCity,
 }: {
-  groups: Group[]  // Groups型ではなく、Group[]型に修正
+  groups: Group[]
   selectedCity: string
 }) => {
   const extractCategoryMatches = (item: Group) => {

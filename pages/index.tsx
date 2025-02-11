@@ -17,7 +17,7 @@ import {
   FaUserFriends,
 } from 'react-icons/fa'
 
-import type { GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next' // TypeScript の型データ
+import type { GetStaticProps, NextPage } from 'next' // TypeScript の型データ
 
 /**
  * Settings
@@ -31,13 +31,11 @@ const numberOfNewsLeafletDisplayed = 4
  * getStaticProps (from microCMS API)
  */
 // https://zenn.dev/catnose99/articles/7201a6c56d3c88
-type Props = InferGetStaticPropsType<typeof getStaticProps>
-
 // microCMS - news
 import type { NewsItem } from '../types/news'
 type NewsItemsTypes = { newsItems: Array<NewsItem> }
 
-export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
+export const getStaticProps: GetStaticProps = async () => {
   const data = await client.get({
     endpoint: 'news',
     queries: { limit: numberOfNewsItemsToFetch },
