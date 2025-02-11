@@ -1,13 +1,9 @@
 import { useTheme } from 'next-themes'
 import Head from 'next/head'
-import Link from 'next/link'
-import Script from 'next/script'
 import type React from 'react'
 import { useEffect, useState } from 'react'
-import BreadCrumbs from './BreadCrumbs'
 import Footer from './Footer'
 import Header from './Header'
-import TopmostNotificationBar from './TopmostNotificationBar'
 
 import { Yomogi } from 'next/font/google'
 const yomogi = Yomogi({
@@ -53,14 +49,14 @@ export default function Layout({ children, title, description, home }: Props) {
         )}
         <meta name="description" content={description || 'ページ概要未設定'} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@preline" />
-        <meta name="twitter:image" content="https://preline.co/preline-logo.svg" />
+        <meta name="twitter:site" content="@ikigaisagashi1" />
+        <meta name="twitter:image" content="https://pbs.twimg.com/profile_images/1592493354264428545/4RhzK19v_400x400.jpg" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={siteTitle} />
         <meta property="og:site_name" content={siteTitle} />
         <meta property="og:description" content={description} />
-        <meta property="og:url" content="https://preline.co/" />
-        <meta property="og:image" content="https://preline.co/preline-logo.svg" />
+        <meta property="og:url" content="https://hanshin-branch.org" />
+        <meta property="og:image" content="https://pbs.twimg.com/profile_images/1592493354264428545/4RhzK19v_400x400.jpg" />
 
         <link rel="icon" href="/favicon/favicon.ico" />
       </Head>
@@ -78,7 +74,7 @@ export default function Layout({ children, title, description, home }: Props) {
         {/*  <BreadCrumbs pageTitle={pageTitle} />*/}
         {/*</div>*/}
         <div className="cover__main container">
-          <main id="primary" role="main">
+          <main id="primary">
             {children}
           </main>
         </div>

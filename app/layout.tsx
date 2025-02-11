@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: '兵庫ひきこもり相談支援センター 阪神ブランチ',
     description: 'ひきこもりでお悩みの方やそのご家族の相談窓口です。兵庫県阪神地域で無料の相談支援を行っています。',
-    url: 'https://hikikomori-support-hanshin.vercel.app/',
+    url: 'https://hanshin-branch.org',
     siteName: '兵庫ひきこもり相談支援センター 阪神ブランチ',
     images: [
       {
-        url: 'https://hikikomori-support-hanshin.vercel.app/api/og',
+        url: 'https://hanshin-branch.org/api/og',
         width: 1200,
         height: 630,
         alt: '兵庫ひきこもり相談支援センター 阪神ブランチ',
@@ -32,7 +32,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '兵庫ひきこもり相談支援センター 阪神ブランチ',
     description: 'ひきこもりでお悩みの方やそのご家族の相談窓口です。兵庫県阪神地域で無料の相談支援を行っています。',
-    images: ['https://hikikomori-support-hanshin.vercel.app/api/og'],
+    site: '@ikigaisagashi1',
+    images: ['https://hanshin-branch.org/api/og'],
   },
   verification: {
     google: 'XXXXXXXXXX', // Google Search Console 用の確認コード
