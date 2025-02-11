@@ -36,8 +36,8 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
 const UserComments: NextPage<Props> = ({ userComments }) => {
   return (
     <Layout
-      title="fetch() メソッドで microCMS API からフェッチ"
-      description="fetch() メソッドで microCMS API からデータをフェッチして表示するサンプル"
+      title="ご利用者様の声"
+      description="兵庫ひきこもり相談支援センター 阪神ブランチをご利用いただいた方々からの声を紹介します"
     >
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
         <h1 className="alignfull bg-dots3">ご利用者様の声</h1>
