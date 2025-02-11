@@ -1,29 +1,29 @@
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 /**
  * 確認用 URL: http://localhost:3000/news/fh86-lbz5
  * 参照：https://blog.microcms.io/microcms-next-jamstack-blog/
  */
-import Link from 'next/link'
-import Date from '../../components/date'
-import Layout from '../../components/layout'
+import Link from 'next/link';
+import FormattedDate from '../../components/date';
+import Layout from '../../components/layout';
 import { client } from '../../lib/client'; // microcms-js-sdkの初期化
 
 import type {
   GetStaticPaths,
   GetStaticProps,
   GetStaticPropsContext
-} from 'next'
+} from 'next';
 
 // https://zenn.dev/catnose99/articles/7201a6c56d3c88
 // type Props = InferGetStaticPropsType<typeof getStaticProps>
 
 // microCMS - news
-import type { NewsItem } from '../../types/news'
+import type { NewsItem } from '../../types/news';
 
 /**
  * ページコンポーネント
  */
-export default function BlogId({ newsArticle }: any) {
+export default function BlogId({ newsArticle }: { newsArticle: NewsItem }) {
   return (
     <Layout
       title={newsArticle.title}
@@ -38,7 +38,7 @@ export default function BlogId({ newsArticle }: any) {
           <h2 className="font-sans font-bold">{newsArticle.title}</h2>
           <p className="mt-2 text-sm text-gray-600">
             投稿日：
-            <Date dateString={newsArticle.date} />
+            <FormattedDate dateString={newsArticle.date} />
           </p>
           <div
             dangerouslySetInnerHTML={{
@@ -77,7 +77,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
  */
 export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
   const id = context.params?.id
-  const idExceptArray = id instanceof Array ? id[0] : id
+  const idExceptArray = Array.isArray(id) ? id[0] : id
   const data = await client.get({
     endpoint: 'news',
     contentId: idExceptArray,
