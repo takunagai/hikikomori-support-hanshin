@@ -1,14 +1,14 @@
+import DOMPurify from 'dompurify';
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 /**
  * 確認用 URL: http://localhost:3000/news/fh86-lbz5
  * 参照：https://blog.microcms.io/microcms-next-jamstack-blog/
  */
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import FormattedDate from '../../components/date';
 import Layout from '../../components/layout';
 import { client } from '../../lib/client'; // microcms-js-sdkの初期化
-import DOMPurify from 'dompurify';
 
 import type {
   GetStaticPaths,
@@ -50,8 +50,8 @@ export default function BlogId({ newsArticle }: { newsArticle: NewsItem }) {
             投稿日：
             <FormattedDate dateString={newsArticle.date} />
           </p>
-          {/* eslint-disable-next-line react/no-danger */}
           <div
+            // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
             dangerouslySetInnerHTML={{
               __html: sanitizedHtml,
             }}
