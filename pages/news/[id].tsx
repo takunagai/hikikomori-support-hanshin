@@ -40,11 +40,11 @@ export default function BlogId({ newsArticle }: { newsArticle: NewsItem }) {
       description={newsArticle.body.replace(/(<([^>]+)>)/gi, '').slice(0, 100)}
     >
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-        <p className="alignfull border-b border-primary-100 bg-dots3 py-1 text-center text-primary">
+        <h1 className="alignfull bg-dots3">
           お知らせ
-        </p>
+        </h1>
 
-        <main className="mx-auto max-w-2xl py-8">
+        <div className="mx-auto max-w-2xl py-12">
           <h2 className="font-sans font-bold">{newsArticle.title}</h2>
           <p className="mt-2 text-sm text-gray-600">
             投稿日：
@@ -55,9 +55,9 @@ export default function BlogId({ newsArticle }: { newsArticle: NewsItem }) {
             dangerouslySetInnerHTML={{
               __html: sanitizedHtml,
             }}
-            className="mt-4"
+            className="mt-8"
           />
-        </main>
+        </div>
         <p className="text-center">
           <Link href="/" className="btn btn-primary px-16">
             トップページへ
