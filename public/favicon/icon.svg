@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="512" height="512" fill="#FFF8E1" rx="64" ry="64"/>
+  
+  <!-- 青虫（シンボリック、大きく） -->
+  <g transform="translate(60, 350) scale(1.4)">
+    <!-- 体（セグメント化された丸い形） -->
+    <circle cx="30" cy="0" r="30" fill="#8BC34A"/>
+    <circle cx="90" cy="0" r="30" fill="#8BC34A"/>
+    <circle cx="150" cy="0" r="30" fill="#8BC34A"/>
+    <!-- 頭 -->
+    <circle cx="210" cy="0" r="35" fill="#8BC34A"/>
+    <!-- 触角 -->
+    <path d="M220,-15 Q235,-35 245,-30" 
+          fill="#8BC34A"/>
+    <path d="M225,-20 Q240,-40 250,-35" 
+          fill="#8BC34A"/>
+  </g>
+
+  <!-- 蝶々（シンボリック、大きく） -->
+  <g transform="translate(350, 150) scale(1.4)">
+    <!-- 左羽 -->
+    <path d="M-20,0 
+             C-80,-60 -40,-90 0,-40
+             C40,-90 80,-60 20,0
+             C80,60 40,90 0,40
+             C-40,90 -80,60 -20,0"
+          fill="#FFE082"/>
+    <!-- 右羽 -->
+    <path d="M20,0 
+             C80,-60 40,-90 0,-40
+             C-40,-90 -80,-60 -20,0
+             C-80,60 -40,90 0,40
+             C40,90 80,60 20,0"
+          fill="#FFE082"/>
+    <!-- 胴体 -->
+    <path d="M0,-40 
+             C0,-20 0,20 0,40" 
+          fill="#FFE082"
+          stroke="#FFE082"
+          stroke-width="16"
+          stroke-linecap="round"/>
+    <!-- 触角 -->
+    <path d="M-5,-40 Q-15,-60 -10,-70" 
+          fill="#FFE082"
+          stroke="#FFE082"
+          stroke-width="8"
+          stroke-linecap="round"/>
+    <path d="M5,-40 Q15,-60 10,-70" 
+          fill="#FFE082"
+          stroke="#FFE082"
+          stroke-width="8"
+          stroke-linecap="round"/>
+  </g>
+</svg>
