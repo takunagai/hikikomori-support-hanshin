@@ -6,14 +6,12 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Date from '../../components/date'
 import Layout from '../../components/layout'
-import { client } from '../../lib/client' // microcms-js-sdkの初期化
+import { client } from '../../lib/client'; // microcms-js-sdkの初期化
 
 import type {
   GetStaticPaths,
   GetStaticProps,
-  GetStaticPropsContext,
-  InferGetStaticPropsType,
-  NextPage,
+  GetStaticPropsContext
 } from 'next'
 
 // https://zenn.dev/catnose99/articles/7201a6c56d3c88
@@ -37,7 +35,7 @@ export default function BlogId({ newsArticle }: any) {
         </p>
 
         <main className="mx-auto max-w-2xl py-8">
-          <h1 className="font-sans font-bold">{newsArticle.title}</h1>
+          <h2 className="font-sans font-bold">{newsArticle.title}</h2>
           <p className="mt-2 text-sm text-gray-600">
             投稿日：
             <Date dateString={newsArticle.date} />
