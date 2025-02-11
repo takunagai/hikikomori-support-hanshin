@@ -41,7 +41,7 @@ const Reference: NextPage = () => {
 
         <section className="py-4">
           <div className="mx-auto mt-8 max-w-4xl gap-8 lg:flex">
-            <div className="mx-auto basis-1/2 rounded bg-craft p-4 shadow">
+            <div className="mx-auto basis-1/2 rounded bg-base p-4 shadow">
               <h2 className="mt-3 text-primary">相談</h2>
               <p className="mt-4">
                 ひきこもりや不登校に関する相談を受けている行政などの公共機関、民間の支援機関。
@@ -155,7 +155,7 @@ const Reference: NextPage = () => {
               </ul>
             </div>
 
-            <div className="mx-auto mt-8 basis-1/2 rounded bg-craft p-4 shadow lg:mt-0">
+            <div className="mx-auto mt-8 basis-1/2 rounded bg-base p-4 shadow lg:mt-0">
               <h2 className="mt-3 text-primary">教育支援センター</h2>
               <p className="mt-4">
                 主に小中学校を長期で休んでいる子どものために、教育委員会が用意した公的機関。
