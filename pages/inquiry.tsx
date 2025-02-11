@@ -34,7 +34,7 @@ const Inquiry: NextPage = () => {
 
         <section className="py-8">
           <div className="mx-auto mt-8 max-w-3xl gap-8 lg:flex">
-            <div className="mx-auto basis-1/2 rounded bg-craft p-4 text-center shadow">
+            <div className="mx-auto basis-1/2 rounded bg-base p-4 text-center shadow">
               <h2 className="text-primary">電話でのお問合せ</h2>
               <p className="mt-2">
                 <b>
@@ -52,7 +52,7 @@ const Inquiry: NextPage = () => {
               <p className="mt-1 text-sm">対応時間 火・水・木・金　10〜16時</p>
             </div>
 
-            <div className="mx-auto mt-8 basis-1/2 rounded bg-craft p-4 text-center shadow lg:mt-0">
+            <div className="mx-auto mt-8 basis-1/2 rounded bg-base p-4 text-center shadow lg:mt-0">
               <h2 className="text-primary">SNS でお問合せ</h2>
               <p className="mt-2">
                 メッセージでお問合せください。
@@ -73,7 +73,7 @@ const Inquiry: NextPage = () => {
             </div>
           </div>
 
-          <div className="mx-auto mt-8 max-w-3xl rounded bg-craft py-8 px-4 shadow lg:px-8">
+          <div className="mx-auto mt-8 max-w-3xl rounded bg-base py-8 px-4 shadow lg:px-8 hidden">
             <h2 className="text-primary">お問合せフォーム</h2>
             <p className="text-small text-center text-sm">(24H受付)</p>
             <div className="mx-auto max-w-lg">
