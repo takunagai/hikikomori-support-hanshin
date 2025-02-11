@@ -265,7 +265,7 @@ const GroupList = ({
               >
                 <div className="absolute inset-0 bg-gradient-to-b from-primary-50/30 to-transparent dark:from-primary-900/10" />
                 <div className="relative">
-                  <h2 className="text-left text-[1.4rem] font-bold text-primary-700 dark:text-primary-300">
+                  <h2 className="text-left text-[1.4rem] font-bold font-sans text-primary-700 dark:text-primary-300">
                     {group.title}
                   </h2>
 
