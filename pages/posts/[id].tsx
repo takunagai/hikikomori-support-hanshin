@@ -23,7 +23,7 @@ export default function Post({ postData }: Props) {
   return (
     <Layout 
       title={postData.title} 
-      description={postData.body.replace(/(<([^>]+)>)/gi, '').slice(0, 100)}
+      description={postData.body ? postData.body.replace(/(<([^>]+)>)/gi, '').slice(0, 100) : ''}
     >
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
         <article className="prose prose-sm prose-zinc max-w-none dark:prose-invert lg:prose-base">

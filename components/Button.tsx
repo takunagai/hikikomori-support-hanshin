@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion'
+import { motion, HTMLMotionProps } from 'framer-motion'
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 
-type ButtonProps = ComponentPropsWithoutRef<'button'> & {
+type ButtonProps = Omit<HTMLMotionProps<'button'>, 'children'> & {
   children: ReactNode
   variant?: 'primary' | 'secondary' | 'outline'
   size?: 'sm' | 'md' | 'lg'
