@@ -96,7 +96,7 @@ const PlacesAndGroups: NextPage<Props> = ({ groups }) => {
               </div>
             </div>
           </div>
-          <p className="mt-4 text-center">
+          <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Dialog.Root>
               <Dialog.Trigger asChild>
                 <button type="button" className="btn btn-primary">
@@ -142,7 +142,15 @@ const PlacesAndGroups: NextPage<Props> = ({ groups }) => {
                 </Dialog.Content>
               </Dialog.Portal>
             </Dialog.Root>
-          </p>
+            <a
+              href="https://www.dropbox.com/scl/fi/3oy65o0dh7ydd3v7ctfv1/whereabouts-summary-booklet.pdf?rlkey=kfsjeq59gpqbd4g9t7wwcel9l&st=kgadp0pw&dl=0"
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-secondary"
+            >
+              阪神地域の居場所Map <small>(PDF)</small>
+            </a>
+          </div>
         </div>
         <section className="mt-8">
           <RadioButtonsForFilter selectedCity={selectedCity} setSelectedCity={setSelectedCity} />
