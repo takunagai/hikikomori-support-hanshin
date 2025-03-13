@@ -168,37 +168,37 @@ module.exports = {
         // },
       }),
     },
-    aspectRatio: {
-      // @tailwindcss/aspect-ratio Plugin
-      auto: 'auto',
-      square: '1 / 1',
-      video: '16 / 9',
-      1: '1',
-      2: '2',
-      3: '3',
-      4: '4',
-      5: '5',
-      6: '6',
-      7: '7',
-      8: '8',
-      9: '9',
-      10: '10',
-      11: '11',
-      12: '12',
-      13: '13',
-      14: '14',
-      15: '15',
-      16: '16',
-    },
+    // aspectRatio: {
+    //   // @tailwindcss/aspect-ratio Plugin - Tailwind CSS 3.4以降は組み込み機能で対応
+    //   auto: 'auto',
+    //   square: '1 / 1',
+    //   video: '16 / 9',
+    //   1: '1',
+    //   2: '2',
+    //   3: '3',
+    //   4: '4',
+    //   5: '5',
+    //   6: '6',
+    //   7: '7',
+    //   8: '8',
+    //   9: '9',
+    //   10: '10',
+    //   11: '11',
+    //   12: '12',
+    //   13: '13',
+    //   14: '14',
+    //   15: '15',
+    //   16: '16',
+    // },
   },
   corePlugins: {
-    aspectRatio: false, // @tailwindcss/aspect-ratio との競合を避けるため無効化
+    // aspectRatio: false, // Tailwind CSS 3.4以降は組み込み機能を使用
   },
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
-    require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/line-clamp'),
+    // require('@tailwindcss/aspect-ratio'), // Tailwind CSS 3.4以降は不要
+    // require('@tailwindcss/line-clamp'), // Tailwind CSS 3.3以降は不要
   ],
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
 }
