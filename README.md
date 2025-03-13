@@ -42,7 +42,8 @@
   - Font Awesome アイコン
   - SNSアイコン
 - その他のUIライブラリ
-  - next-themes 0.2.1: ダークモード対応
+  - next-themes 0.2.1: ダークモード対応  
+    (ただし、ダークモードの実装は未完了で、強制的にライトモードを適用)
   - react-responsive 9.0.0: レスポンシブデザイン
   - react-scroll 1.9.0: スムーズスクロール
   - yet-another-react-lightbox 2.2.0: 画像ライトボックス
