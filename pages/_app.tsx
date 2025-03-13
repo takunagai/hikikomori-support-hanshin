@@ -1,26 +1,13 @@
 import { AnimatePresence } from 'framer-motion'
-/**
- * App コンポーネント(全てのページを初期化)を継承し上書き
- * 全ページで必要な処理を書く
- * @see https://nextjs-ja-translation-docs.vercel.app/docs/advanced-features/custom-app
- * @see https://qiita.com/tetsutaroendo/items/c7171286137d963cdecf
- * _app.js はサーバーサイドでレンダリング（getInitialPropsの実行を含む）され、
- *     ライフサイクルのイベントはクライアントサイドでも実行される
- */
 import { ThemeProvider } from 'next-themes' // for Dark mode
+import type { AppProps } from 'next/app'
 import '../styles/globals.css'
 
-import type { AppProps } from 'next/app'
-
-function MyApp({ Component, pageProps, router }: AppProps) {
-  // // 遷移時に特定の処理をはさむ
-  // // https://zenn.dev/catnose99/articles/2169dae14b58b6
-  // useEffect(() => {
-  //   if (router.pathname === "/about") {
-  //     alert("about ページです")
-  //   }
-  // }, [router.pathname])
-
+/**
+ * App コンポーネント(全てのページを初期化)
+ * @see https://nextjs.org/docs/pages/building-your-application/routing/custom-app
+ */
+export default function App({ Component, pageProps, router }: AppProps) {
   return (
     <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
       <ThemeProvider attribute="class" defaultTheme="light" forcedTheme="light">
@@ -29,15 +16,3 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     </AnimatePresence>
   )
 }
-
-// アプリケーション内の全ページでブロックするデータが必要な場合に有効化
-// Automatic Static Optimization を無効にし、アプリケーション内の各ページはサーバーサイドでレンダリングされます。
-//
-// MyApp.getInitialProps = async (appContext) => {
-//   // ページの`getInitialProps`を呼び、`appProps.pageProps`を満たします。
-//   const appProps = await App.getInitialProps(appContext);
-//
-//   return { ...appProps }
-// }
-
-export default MyApp

@@ -11,24 +11,17 @@
  *    アプリケーションのロジックや、styled-jsx の ような CSS の設定は、_app.tsx に書く
  * DocumentのgetInitialProps は、クライアントサイドの遷移中、ページが静的に最適化されている場合にも呼び出さない
  */
-import Document, { type DocumentContext, Head, Html, Main, NextScript } from 'next/document'
+import { Head, Html, Main, NextScript } from 'next/document'
 
-class MyDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
-    return Document.getInitialProps(ctx)
-  }
-
-  render() {
-    return (
-      <Html lang="ja" className="h-full">
-        <Head />
-        <body className="flex h-full flex-col leading-relaxed antialiased">
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    )
-  }
+// Next.js v15では関数コンポーネントが推奨
+export default function Document() {
+  return (
+    <Html lang="ja" className="h-full">
+      <Head />
+      <body className="flex h-full flex-col leading-relaxed antialiased">
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  )
 }
-
-export default MyDocument
