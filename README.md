@@ -29,7 +29,7 @@
   - @tailwindcss/typography: マークダウンスタイリング
   - @tailwindcss/forms: フォーム要素のスタイリング
   - ~~@tailwindcss/aspect-ratio~~: ~~アスペクト比の制御~~ (Tailwind CSS 3.4以降は組み込み機能で対応)
-  - @tailwindcss/line-clamp: テキストの行数制限
+  - ~~@tailwindcss/line-clamp~~: ~~テキストの行数制限~~ (Tailwind CSS 3.3以降は組み込み機能で対応)
   - PostCSS プラグイン（postcss-import, postcss-nesting）
 - Framer Motion 10.18.0（アニメーション）
   - ページトランジション

@@ -46,24 +46,33 @@
 - React 18.2.0: UIコンポーネントライブラリ
 - TypeScript: 型安全な開発環境
 - Tailwind CSS 3.4.17: ユーティリティファーストCSSフレームワーク
-  - @tailwindcss/typography, @tailwindcss/forms, @tailwindcss/aspect-ratio, @tailwindcss/line-clamp
+  - @tailwindcss/typography
+  - @tailwindcss/forms
+  - ~~@tailwindcss/aspect-ratio~~ (Tailwind CSS 3.4以降は組み込み機能で対応)
+  - ~~@tailwindcss/line-clamp~~ (Tailwind CSS 3.3以降は組み込み機能で対応)
 - Framer Motion 10.18.0: アニメーションライブラリ
 - Radix UI: アクセシブルなUIコンポーネント
 - React Icons 4.12.0: アイコンライブラリ
 - next-themes 0.2.1: ダークモード対応
 - react-responsive 9.0.0: レスポンシブデザイン対応
+- ~~react-scroll 1.9.0~~ (未使用)
+- yet-another-react-lightbox 2.2.0: 画像ライトボックス
+- ~~@etchteam/next-pagination 3.5.5~~ (未使用)
 
 ### データ管理/API
 - SWR: データフェッチング
 - microCMS SDK: ヘッドレスCMS連携
 - date-fns: 日付処理
 - DOMPurify: HTMLサニタイズ
-- Satori & @vercel/og: OGP画像生成
+- ~~Satori & @vercel/og~~ (未使用)
+- ~~gray-matter~~ (未使用)
+- ~~remark~~ (未使用)
+- ~~remark-html~~ (未使用)
+- ~~@hashicorp/platform-code-highlighting~~ (未使用)
 
 ### 特記事項
 - SEOとアクセシビリティを重視したマークアップ
 - Core Web Vitalsの最適化
-- エッジでのリアルタイムOGP画像生成
 - モバイルフレンドリー対応
 
 ## 品質管理プロトコル
