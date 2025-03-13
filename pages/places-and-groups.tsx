@@ -11,16 +11,14 @@ import InfiniteScroll from '../components/InfiniteScroll'
 import Link from '../components/Link'
 import RadioButton from '../components/RadioButton'
 import Layout from '../components/layout'
-import { client } from '../lib/client' // microcms-js-sdkの初期化
+import { client } from '../lib/client'; // microcms-js-sdkの初期化
 
 import { FaEnvelope, FaGlobe, FaInfoCircle, FaLine, FaPhoneAlt, FaPrint } from 'react-icons/fa'
 
 import type {
   GetStaticProps,
-  // GetStaticPropsContext,
-  InferGetStaticPropsType,
-  NextPage,
-} from 'next' // TypeScript の型データ
+  NextPage
+} from 'next'; // TypeScript の型データ
 
 // コンポーネントのPropsの型定義
 type Props = {
@@ -146,9 +144,9 @@ const PlacesAndGroups: NextPage<Props> = ({ groups }) => {
               href="https://www.dropbox.com/scl/fi/3oy65o0dh7ydd3v7ctfv1/whereabouts-summary-booklet.pdf?rlkey=kfsjeq59gpqbd4g9t7wwcel9l&st=kgadp0pw&dl=0"
               target="_blank"
               rel="noreferrer"
-              className="btn btn-secondary"
+              className="btn btn-secondary text-center"
             >
-              阪神地域の居場所Map <small>(PDF)</small>
+              阪神地域の居場所マップ <small>(PDF)</small>
             </a>
           </div>
         </div>
