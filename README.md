@@ -28,7 +28,7 @@
 - Tailwind CSS 3.4.17
   - @tailwindcss/typography: マークダウンスタイリング
   - @tailwindcss/forms: フォーム要素のスタイリング
-  - @tailwindcss/aspect-ratio: アスペクト比の制御
+  - ~~@tailwindcss/aspect-ratio~~: ~~アスペクト比の制御~~ (Tailwind CSS 3.4以降は組み込み機能で対応)
   - @tailwindcss/line-clamp: テキストの行数制限
   - PostCSS プラグイン（postcss-import, postcss-nesting）
 - Framer Motion 10.18.0（アニメーション）
@@ -45,9 +45,9 @@
   - next-themes 0.2.1: ダークモード対応  
     (ただし、ダークモードの実装は未完了で、強制的にライトモードを適用)
   - react-responsive 9.0.0: レスポンシブデザイン
-  - react-scroll 1.9.0: スムーズスクロール
+  - ~~react-scroll 1.9.0: スムーズスクロール~~ (未使用)
   - yet-another-react-lightbox 2.2.0: 画像ライトボックス
-  - @etchteam/next-pagination 3.5.5: ページネーション
+  - ~~@etchteam/next-pagination 3.5.5: ページネーション~~ (未使用)
 
 ### データ管理/API
 
@@ -55,10 +55,7 @@
 - microCMS SDK（ヘッドレスCMS）
 - date-fns（日付処理）
 - DOMPurify（HTMLサニタイズ）
-- Satori & @vercel/og（OGP画像生成）
-  - Reactコンポーネントからの動的画像生成
-  - カスタムフォントとスタイリング
-  - エッジでのリアルタイム生成
+- ~~Satori & @vercel/og~~ (未使用)
 
 ### セキュリティ対策
 
@@ -73,11 +70,11 @@
 #### メタタグとOGP
 
 - 動的OGP画像生成
-  - @vercel/ogとSatoriを使用
-  - Reactコンポーネントベースのデザイン
-  - エッジでのリアルタイム生成
-  - 1200×630pxの最適化された画像
-  - カスタムフォントとブランディング
+  - ~~@vercel/ogとSatoriを使用~~ (未使用)
+  - ~~Reactコンポーネントベースのデザイン~~ (未使用)
+  - ~~エッジでのリアルタイム生成~~ (未使用)
+  - ~~1200×630pxの最適化された画像~~ (未使用)
+  - ~~カスタムフォントとブランディング~~ (未使用)
 - Twitter Card対応
 - 構造化データ（JSON-LD）
 - カスタムメタタグ
