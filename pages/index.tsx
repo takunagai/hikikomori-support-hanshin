@@ -17,7 +17,7 @@ import {
   FaUserFriends,
 } from 'react-icons/fa'
 
-import type { GetStaticProps, NextPage } from 'next' // TypeScript の型データ
+import type { GetStaticProps, NextPage } from 'next'; // TypeScript の型データ
 
 /**
  * Settings
@@ -38,7 +38,10 @@ type NewsItemsTypes = { newsItems: Array<NewsItem> }
 export const getStaticProps: GetStaticProps = async () => {
   const data = await client.get({
     endpoint: 'news',
-    queries: { limit: numberOfNewsItemsToFetch },
+    queries: {
+      limit: numberOfNewsItemsToFetch,
+      orders: '-date'
+    },
   })
 
   return {
