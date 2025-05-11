@@ -270,7 +270,7 @@ const Home: NextPage<NewsItemsTypes> = ({ newsItems }: NewsItemsTypes) => {
         <section className="py-12">
           <h2>
             <FaFrog className="mr-2 inline align-baseline text-secondary-300" />
-            兵庫県阪神地区の
+            兵庫県阪神地域の
             <br />
             居場所情報
           </h2>

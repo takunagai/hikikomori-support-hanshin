@@ -46,7 +46,7 @@ const Sitemap: NextPage = () => {
                 href="/places-and-groups"
                 className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
               >
-                阪神地区の居場所の一覧
+                阪神地域の居場所の一覧
               </Link>
             </li>
             <li className="border-b border-dashed border-primary-100 py-2">
