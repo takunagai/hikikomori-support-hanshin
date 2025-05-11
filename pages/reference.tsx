@@ -1,27 +1,8 @@
 import { motion } from 'framer-motion'
 import type { NextPage } from 'next'
-import Link from 'next/link'
 import AfterContentArea from '../components/AfterContentArea'
 import Layout from '../components/layout'
 
-import {
-  FaCat,
-  FaCrow,
-  FaDemocrat,
-  FaDog,
-  FaDove,
-  FaEnvelope,
-  FaFish,
-  FaFrog,
-  FaHandHoldingHeart,
-  FaHandshake,
-  FaHorse,
-  FaLine,
-  FaLock,
-  FaPhoneAlt,
-  FaTwitter,
-  FaUserFriends,
-} from 'react-icons/fa'
 
 const Reference: NextPage = () => {
   return (
@@ -89,11 +70,6 @@ const Reference: NextPage = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="https://amarisu.com" target="_blank" rel="noreferrer">
-                    NPO法人ゲートキーパー支援センター あまりす事業部
-                  </a>
-                </li>
-                <li>
                   <a
                     href="https://www.city.kawanishi.hyogo.jp/kurashi/kodomo/youth/1000756/1000760.html"
                     target="_blank"
@@ -141,15 +117,6 @@ const Reference: NextPage = () => {
                 <li>
                   <a href="https://nishi-yorisoi.com/" target="_blank" rel="noreferrer">
                     ソーシャルスポット西宮よりそい
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://nishi-shakyo.jp/kourei_syougai/tumugi/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    西宮市くらし相談支援センターつむぎ
                   </a>
                 </li>
               </ul>
@@ -208,11 +175,11 @@ const Reference: NextPage = () => {
               <ul className="mt-4 flex list-square flex-col gap-2 pl-5 marker:text-secondary-400">
                 <li>
                   <a
-                    href="https://www.town.inagawa.lg.jp/soshiki/kyouikuiinkai/gakkosin/kosodatekyouiku/soudan/1420434583896.html"
+                    href="https://www.town.inagawa.lg.jp/soshiki/1029/1_2/1673.html"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    猪名川町教育支援センター「STEP いながわ」
+                    猪名川町教育支援センター「STEPいながわ」
                   </a>
                 </li>
               </ul>
