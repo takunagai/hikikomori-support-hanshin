@@ -240,7 +240,7 @@ const Reference: NextPage = () => {
               <ul className="mt-4 flex list-square flex-col gap-2 pl-5 marker:text-secondary-400">
                 <li>
                   <a
-                    href="https://www.nishi.or.jp/smph/kosodate/kodomomiraicenter/soudanshien/hutoukou_shien/asunaromirai.html"
+                    href="https://www.nishi.or.jp/kosodate/kodomomiraicenter/asunaromirai/asunaromirai.html"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -249,7 +249,7 @@ const Reference: NextPage = () => {
                 </li>
                 <li>
                   <a
-                    href="https://www.nishi.or.jp/smph/kosodate/kodomomiraicenter/soudanshien/hutoukou_shien/chiiki_0865353190822.html/kyoikuiinkai/1044140/index.html"
+                    href="https://www.nishi.or.jp/kosodate/kyoiku/gakkokyoiku/oshirase/20231030.html"
                     target="_blank"
                     rel="noreferrer"
                   >
