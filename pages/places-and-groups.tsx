@@ -288,7 +288,7 @@ const GroupList = ({
                       <span className="font-bold text-primary-600 dark:text-primary-400">
                         対象者：
                       </span>
-                      <p className="mt-1">{group.objectPerson}</p>
+                      <span className="flex-1">{group.objectPerson}</span>
                     </div>
 
                     <div className="grid gap-2">
