@@ -12,12 +12,7 @@
     "lint": "biome lint .",
     "check": "biome check --write ."
   },
-  "browserslist": [
-    ">0.3%",
-    "not ie 11",
-    "not dead",
-    "not op_mini all"
-  ],
+  "browserslist": [">0.3%", "not ie 11", "not dead", "not op_mini all"],
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.5",
     "@radix-ui/react-visually-hidden": "^1.1.1",

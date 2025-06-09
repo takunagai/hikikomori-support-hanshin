@@ -17,7 +17,7 @@ import {
   FaUserFriends,
 } from 'react-icons/fa'
 
-import type { GetStaticProps, NextPage } from 'next'; // TypeScript の型データ
+import type { GetStaticProps, NextPage } from 'next' // TypeScript の型データ
 
 /**
  * Settings
@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps = async () => {
     endpoint: 'news',
     queries: {
       limit: numberOfNewsItemsToFetch,
-      orders: '-date'
+      orders: '-date',
     },
   })
 
@@ -58,8 +58,8 @@ const Home: NextPage<NewsItemsTypes> = ({ newsItems }: NewsItemsTypes) => {
   // console.log(newsItems)
 
   return (
-    <Layout 
-      title="兵庫ひきこもり相談支援センター 阪神ブランチ" 
+    <Layout
+      title="兵庫ひきこもり相談支援センター 阪神ブランチ"
       description="ひきこもりでお悩みの方やそのご家族の相談窓口です。兵庫県阪神地域で無料の相談支援を行っています"
     >
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>

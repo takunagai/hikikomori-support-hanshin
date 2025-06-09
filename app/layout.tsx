@@ -1,8 +1,9 @@
-import type { Metadata } from 'next';
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: '兵庫ひきこもり相談支援センター 阪神ブランチ',
-  description: 'ひきこもりでお悩みの方やそのご家族の相談窓口です。兵庫県阪神地域で無料の相談支援を行っています。',
+  description:
+    'ひきこもりでお悩みの方やそのご家族の相談窓口です。兵庫県阪神地域で無料の相談支援を行っています。',
   keywords: 'ひきこもり,相談,支援,兵庫県,阪神,無料,家族会',
   authors: [{ name: '兵庫ひきこもり相談支援センター 阪神ブランチ' }],
   creator: '兵庫ひきこもり相談支援センター 阪神ブランチ',
@@ -14,7 +15,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: '兵庫ひきこもり相談支援センター 阪神ブランチ',
-    description: 'ひきこもりでお悩みの方やそのご家族の相談窓口です。兵庫県阪神地域で無料の相談支援を行っています。',
+    description:
+      'ひきこもりでお悩みの方やそのご家族の相談窓口です。兵庫県阪神地域で無料の相談支援を行っています。',
     url: 'https://hanshin-branch.org',
     siteName: '兵庫ひきこもり相談支援センター 阪神ブランチ',
     images: [
@@ -31,7 +33,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: '兵庫ひきこもり相談支援センター 阪神ブランチ',
-    description: 'ひきこもりでお悩みの方やそのご家族の相談窓口です。兵庫県阪神地域で無料の相談支援を行っています。',
+    description:
+      'ひきこもりでお悩みの方やそのご家族の相談窓口です。兵庫県阪神地域で無料の相談支援を行っています。',
     site: '@ikigaisagashi1',
     images: ['https://hanshin-branch.org/api/og'],
   },
@@ -50,16 +53,16 @@ export const metadata: Metadata = {
     },
   },
   category: '相談支援',
-};
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="ja">
       <body>{children}</body>
     </html>
-  );
+  )
 }

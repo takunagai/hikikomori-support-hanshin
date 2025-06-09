@@ -3,7 +3,6 @@ import type { NextPage } from 'next'
 import AfterContentArea from '../components/AfterContentArea'
 import Layout from '../components/layout'
 
-
 const Reference: NextPage = () => {
   return (
     <Layout title="相談窓口・教育支援センター" description="相談窓口・教育支援センター">

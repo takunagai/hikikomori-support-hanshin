@@ -11,14 +11,11 @@ import InfiniteScroll from '../components/InfiniteScroll'
 import Link from '../components/Link'
 import RadioButton from '../components/RadioButton'
 import Layout from '../components/layout'
-import { client } from '../lib/client'; // microcms-js-sdkの初期化
+import { client } from '../lib/client' // microcms-js-sdkの初期化
 
 import { FaEnvelope, FaGlobe, FaInfoCircle, FaLine, FaPhoneAlt, FaPrint } from 'react-icons/fa'
 
-import type {
-  GetStaticProps,
-  NextPage
-} from 'next'; // TypeScript の型データ
+import type { GetStaticProps, NextPage } from 'next' // TypeScript の型データ
 
 // コンポーネントのPropsの型定義
 type Props = {

@@ -1,38 +1,34 @@
-import DOMPurify from 'dompurify';
-import { motion } from 'framer-motion';
+import DOMPurify from 'dompurify'
+import { motion } from 'framer-motion'
 /**
  * 確認用 URL: http://localhost:3000/news/fh86-lbz5
  * 参照：https://blog.microcms.io/microcms-next-jamstack-blog/
  */
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import FormattedDate from '../../components/date';
-import Layout from '../../components/layout';
-import { client } from '../../lib/client'; // microcms-js-sdkの初期化
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import FormattedDate from '../../components/date'
+import Layout from '../../components/layout'
+import { client } from '../../lib/client' // microcms-js-sdkの初期化
 
-import type {
-  GetStaticPaths,
-  GetStaticProps,
-  GetStaticPropsContext
-} from 'next';
+import type { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next'
 
 // https://zenn.dev/catnose99/articles/7201a6c56d3c88
 // type Props = InferGetStaticPropsType<typeof getStaticProps>
 
 // microCMS - news
-import type { NewsItem } from '../../types/news';
+import type { NewsItem } from '../../types/news'
 
 /**
  * ページコンポーネント
  */
 export default function BlogId({ newsArticle }: { newsArticle: NewsItem }) {
-  const [sanitizedHtml, setSanitizedHtml] = useState(newsArticle.body);
+  const [sanitizedHtml, setSanitizedHtml] = useState(newsArticle.body)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setSanitizedHtml(DOMPurify.sanitize(newsArticle.body));
+      setSanitizedHtml(DOMPurify.sanitize(newsArticle.body))
     }
-  }, [newsArticle.body]);
+  }, [newsArticle.body])
 
   return (
     <Layout
@@ -40,9 +36,7 @@ export default function BlogId({ newsArticle }: { newsArticle: NewsItem }) {
       description={newsArticle.body.replace(/(<([^>]+)>)/gi, '').slice(0, 100)}
     >
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-        <h1 className="alignfull bg-dots3">
-          お知らせ
-        </h1>
+        <h1 className="alignfull bg-dots3">お知らせ</h1>
 
         <div className="mx-auto max-w-2xl py-12">
           <h2 className="font-sans font-bold">{newsArticle.title}</h2>
