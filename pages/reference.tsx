@@ -110,7 +110,7 @@ const Reference: NextPage = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    西宮市保健所
+                    西宮市ひきこもり地域支援センター
                   </a>
                 </li>
                 <li>
