@@ -104,15 +104,15 @@ const Reference: NextPage = () => {
                     宝塚市せいかつ応援センター
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="https://www.nishi.or.jp/smph/kenko/hokenjojoho/kokoronokenko/kokokocare.html"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    西宮市ひきこもり地域支援センター
-                  </a>
-                </li>
+<li>
+  <a
+    href="https://www.nishi.or.jp/kenko/shakaifukushi/chiikifukushi/hikikomori.html"
+    target="_blank"
+    rel="noreferrer"
+  >
+    西宮市ひきこもり地域支援センター
+  </a>
+</li>
                 <li>
                   <a href="https://nishi-yorisoi.com/" target="_blank" rel="noreferrer">
                     ソーシャルスポット西宮よりそい
