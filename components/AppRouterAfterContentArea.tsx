@@ -27,7 +27,7 @@ export default function AppRouterAfterContentArea() {
       <p className="mt-4">
         <Link 
           href="/flow" 
-          className="inline-block rounded-lg bg-primary-600 px-6 py-3 text-white font-medium transition-colors hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+          className="btn btn-primary"
         >
           相談する
           <small className="block text-sm opacity-90 mt-1">

@@ -137,19 +137,17 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
 
         {/* ナビゲーション */}
         <nav className="mx-auto max-w-2xl px-4 py-8" aria-label="記事ナビゲーション">
-          <div className="flex flex-col gap-4 text-center sm:flex-row sm:justify-center">
+          <div className="text-center">
             <AppRouterLink 
               href="/" 
-              variant="primary"
-              className="inline-block rounded-lg bg-primary-600 px-16 py-3 text-white font-medium transition-colors hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+              className="btn btn-primary px-16"
             >
               トップページへ
             </AppRouterLink>
             
             <AppRouterLink 
               href="/news"
-              variant="secondary"
-              className="inline-block rounded-lg bg-secondary-600 px-8 py-3 text-white font-medium transition-colors hover:bg-secondary-700 focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2"
+              className="btn btn-secondary px-7"
             >
               お知らせ一覧へ
             </AppRouterLink>

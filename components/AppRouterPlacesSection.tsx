@@ -30,7 +30,7 @@ export default function AppRouterPlacesSection() {
       <div className="mt-8 text-center">
         <AppRouterLink
           href="/places-and-groups"
-          className="inline-block rounded-lg bg-secondary-600 px-8 py-3 text-white font-medium transition-colors hover:bg-secondary-700 focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2"
+          className="btn btn-secondary"
         >
           居場所情報を見る
         </AppRouterLink>

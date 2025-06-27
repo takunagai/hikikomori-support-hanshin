@@ -166,7 +166,7 @@ export default function AppRouterSupportSection() {
         <div className="mt-6 text-center">
           <AppRouterLink
             href="/flow"
-            className="inline-block rounded-lg bg-primary-600 px-10 py-3 text-white font-medium transition-colors hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+            className="btn btn-primary px-10"
           >
             相談の流れ
           </AppRouterLink>

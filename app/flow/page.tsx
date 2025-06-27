@@ -220,7 +220,7 @@ export default function FlowPage() {
             <div className="mt-6">
               <button
                 type="button"
-                className="rounded-lg bg-secondary-600 px-6 py-3 text-white font-medium transition-colors hover:bg-secondary-700 focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="btn btn-secondary disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled
                 title="準備中です"
               >

@@ -49,16 +49,16 @@ export default function AppRouterHeroSection() {
             専門の相談員による相談(電話・来所・訪問)、居場所の提供、ひきこもりに関するセミナーや研修会なども開催しています。
           </p>
           
-          <div className="mt-6 space-x-2 space-y-2">
+          <div className="mt-6">
             <AppRouterLink 
               href="/flow"
-              className="inline-block rounded-lg bg-primary-600 px-7 py-3 text-white font-medium transition-colors hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 md:px-16"
+              className="btn btn-primary px-7 md:px-16"
             >
               相談する
             </AppRouterLink>
             <AppRouterLink 
               href="/places-and-groups"
-              className="inline-block rounded-lg bg-secondary-600 px-4 py-3 text-white font-medium transition-colors hover:bg-secondary-700 focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2 lg:px-7"
+              className="btn btn-secondary lg:px-7"
             >
               居場所情報を見る
             </AppRouterLink>
