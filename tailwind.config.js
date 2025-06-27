@@ -200,5 +200,9 @@ module.exports = {
     // require('@tailwindcss/aspect-ratio'), // Tailwind CSS 3.4以降は不要
     // require('@tailwindcss/line-clamp'), // Tailwind CSS 3.3以降は不要
   ],
-  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './app/**/*.{js,ts,jsx,tsx}',
+  ],
 }
