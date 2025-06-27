@@ -6,16 +6,8 @@
 import type { NewsItem } from '../types/news'
 import type { Group } from '../types/group'
 import type { UserComment } from '../types/user-comment'
-
-// microCMS API の基本設定
-const MICROCMS_SERVICE_DOMAIN = process.env.SERVICE
-const MICROCMS_API_KEY = process.env.APIKEY
-
-if (!MICROCMS_SERVICE_DOMAIN || !MICROCMS_API_KEY) {
-  throw new Error('microCMS の環境変数が設定されていません')
-}
-
-const BASE_URL = `https://${MICROCMS_SERVICE_DOMAIN}.microcms.io/api/v1`
+import { CACHE_CONFIG } from './constants'
+import { microCMSConfig } from './env'
 
 /**
  * 共通のフェッチ関数
@@ -30,7 +22,7 @@ async function fetchFromMicroCMS<T>(
     next?: RequestInit['next']
   } = {}
 ): Promise<T> {
-  const { queries = {}, revalidate = 3600, tags = [], next } = options
+  const { queries = {}, revalidate = CACHE_CONFIG.DEFAULT_REVALIDATE, tags = [], next } = options
 
   // クエリパラメータの構築
   const searchParams = new URLSearchParams()
@@ -38,12 +30,12 @@ async function fetchFromMicroCMS<T>(
     searchParams.append(key, String(value))
   })
 
-  const url = `${BASE_URL}/${endpoint}${searchParams.toString() ? `?${searchParams.toString()}` : ''}`
+  const url = `${microCMSConfig.baseUrl}/${endpoint}${searchParams.toString() ? `?${searchParams.toString()}` : ''}`
 
   try {
     const response = await fetch(url, {
       headers: {
-        'X-MICROCMS-API-KEY': MICROCMS_API_KEY!,
+        'X-MICROCMS-API-KEY': microCMSConfig.apiKey,
         'Content-Type': 'application/json',
       },
       next: {
