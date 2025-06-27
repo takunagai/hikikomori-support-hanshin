@@ -1,10 +1,4 @@
 import type { NextPage } from 'next'
-import Accordion from '../components/Accordion'
-import AfterContentArea from '../components/AfterContentArea'
-import Link from '../components/Link'
-import PageTransition from '../components/PageTransition'
-import Layout from '../components/layout'
-
 import {
   FaCat,
   FaCrow,
@@ -22,6 +16,11 @@ import {
   FaTwitter,
   FaUserFriends,
 } from 'react-icons/fa'
+import Accordion from '../components/Accordion'
+import AfterContentArea from '../components/AfterContentArea'
+import Link from '../components/Link'
+import Layout from '../components/layout'
+import PageTransition from '../components/PageTransition'
 
 const Faq: NextPage = () => {
   return (

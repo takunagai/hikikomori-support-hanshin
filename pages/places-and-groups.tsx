@@ -4,18 +4,16 @@
  */
 import * as Dialog from '@radix-ui/react-dialog'
 import { AnimatePresence, motion } from 'framer-motion'
+import type { GetStaticProps, NextPage } from 'next' // TypeScript の型データ
 import { useState } from 'react'
+import { FaEnvelope, FaGlobe, FaInfoCircle, FaLine, FaPhoneAlt, FaPrint } from 'react-icons/fa'
 import AfterContentArea from '../components/AfterContentArea'
 import DialogDemo from '../components/Dialog'
 import InfiniteScroll from '../components/InfiniteScroll'
 import Link from '../components/Link'
-import RadioButton from '../components/RadioButton'
 import Layout from '../components/layout'
-import { client } from '../lib/client'; // microcms-js-sdkの初期化
-
-import { FaEnvelope, FaGlobe, FaInfoCircle, FaLine, FaPhoneAlt, FaPrint } from 'react-icons/fa'
-
-import type { GetStaticProps, NextPage } from 'next'; // TypeScript の型データ
+import RadioButton from '../components/RadioButton'
+import { client } from '../lib/client' // microcms-js-sdkの初期化
 
 // コンポーネントのPropsの型定義
 type Props = {
@@ -219,13 +217,7 @@ const RadioButtonsForFilter = ({
 /**
  * 居場所&グループのリスト
  */
-const GroupList = ({
-  groups,
-  selectedCity,
-}: {
-  groups: Group[]
-  selectedCity: string
-}) => {
+const GroupList = ({ groups, selectedCity }: { groups: Group[]; selectedCity: string }) => {
   const extractCategoryMatches = (item: Group) => {
     if (selectedCity === '全表示') {
       return true

@@ -1,5 +1,6 @@
 import DOMPurify from 'dompurify'
 import { motion } from 'framer-motion'
+import type { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next'
 /**
  * 確認用 URL: http://localhost:3000/news/fh86-lbz5
  * 参照：https://blog.microcms.io/microcms-next-jamstack-blog/
@@ -9,8 +10,6 @@ import { useEffect, useState } from 'react'
 import FormattedDate from '../../components/date'
 import Layout from '../../components/layout'
 import { client } from '../../lib/client' // microcms-js-sdkの初期化
-
-import type { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next'
 
 // https://zenn.dev/catnose99/articles/7201a6c56d3c88
 // type Props = InferGetStaticPropsType<typeof getStaticProps>

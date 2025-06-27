@@ -2627,7 +2627,7 @@
                   key: '_fireEvent',
                   value: function (t) {
                     var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : null
-                    this.events.hasOwnProperty(t) && this.events[t](e)
+                    Object.hasOwn(this.events, t) && this.events[t](e)
                   },
                 },
                 {
@@ -3103,8 +3103,8 @@
               g = void 0 === m ? 0 : m,
               w = 'function' == typeof d ? d({ x: b, y: g }) : { x: b, y: g }
             ;(b = w.x), (g = w.y)
-            var O = c.hasOwnProperty('x'),
-              S = c.hasOwnProperty('y'),
+            var O = Object.hasOwn(c, 'x'),
+              S = Object.hasOwn(c, 'y'),
               _ = A,
               L = E,
               P = window
@@ -3486,7 +3486,7 @@
                       Object.keys(e.elements).forEach((t) => {
                         var n = e.elements[t],
                           r = e.attributes[t] || {},
-                          a = Object.keys(e.styles.hasOwnProperty(t) ? e.styles[t] : o[t]).reduce(
+                          a = Object.keys(Object.hasOwn(e.styles, t) ? e.styles[t] : o[t]).reduce(
                             (t, e) => ((t[e] = ''), t),
                             {},
                           )
@@ -3865,7 +3865,7 @@
       for (var n in e)
         o.o(e, n) && !o.o(t, n) && Object.defineProperty(t, n, { enumerable: !0, get: e[n] })
     }),
-      (o.o = (t, e) => Object.prototype.hasOwnProperty.call(t, e)),
+      (o.o = (t, e) => Object.hasOwn(t, e)),
       (o.r = (t) => {
         'undefined' != typeof Symbol &&
           Symbol.toStringTag &&

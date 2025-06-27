@@ -42,7 +42,7 @@ const DialogDemo = ({
       <Dialog.Content
         aria-describedby={undefined}
         className={`DialogContent max-h-[85vh] w-11/12 rounded-xl bg-white p-6 ${
-          isPortrait ? `max-w-xl` : `max-w-3xl`
+          isPortrait ? 'max-w-xl' : 'max-w-3xl'
         }`}
       >
         {title &&

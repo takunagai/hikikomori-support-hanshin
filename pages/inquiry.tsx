@@ -1,10 +1,9 @@
 import { motion } from 'framer-motion'
 import type { NextPage } from 'next'
 import Link from 'next/link'
-import Layout from '../components/layout'
-
 import { FaPhoneAlt } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
+import Layout from '../components/layout'
 
 const Inquiry: NextPage = () => {
   return (

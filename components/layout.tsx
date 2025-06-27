@@ -1,11 +1,11 @@
-import { useTheme } from 'next-themes'
+import { Yomogi } from 'next/font/google'
 import Head from 'next/head'
+import { useTheme } from 'next-themes'
 import type React from 'react'
 import { useEffect, useState } from 'react'
 import Footer from './Footer'
 import Header from './Header'
 
-import { Yomogi } from 'next/font/google'
 const yomogi = Yomogi({
   variable: '--yomogi-font',
   weight: '400', // バリアブルフォントでないので必要

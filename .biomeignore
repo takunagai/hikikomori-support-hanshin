@@ -1,0 +1,33 @@
+# Next.js build output
+.next/
+out/
+
+# Node modules
+node_modules/
+
+# Test files
+**/*.test.js
+**/*.test.jsx
+**/*.test.ts
+**/*.test.tsx
+**/__tests__/**
+
+# Type definitions
+*.d.ts
+
+# Public static files
+public/
+
+# Environment files
+.env*
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+logs/
+*.log
+
+# Coverage
+coverage/

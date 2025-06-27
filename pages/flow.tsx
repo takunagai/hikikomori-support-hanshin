@@ -6,6 +6,7 @@ import AccessMap from '../components/AccessMap'
 import Layout from '../components/layout'
 import 'yet-another-react-lightbox/styles.css'
 
+import type { NextPage } from 'next'
 import {
   FaCat,
   FaCrow,
@@ -24,7 +25,6 @@ import {
   FaUserFriends,
 } from 'react-icons/fa'
 
-import type { NextPage } from 'next'
 // import type { LightboxProps } from "yet-another-react-lightbox/types.d.ts"
 
 const Flow: NextPage = () => {

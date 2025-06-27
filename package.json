@@ -12,7 +12,12 @@
     "lint": "biome lint .",
     "check": "biome check --write ."
   },
-  "browserslist": [">0.3%", "not ie 11", "not dead", "not op_mini all"],
+  "browserslist": [
+    ">0.3%",
+    "not ie 11",
+    "not dead",
+    "not op_mini all"
+  ],
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.5",
     "@radix-ui/react-visually-hidden": "^1.1.1",
@@ -33,7 +38,7 @@
     "yet-another-react-lightbox": "^2.2.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
+    "@biomejs/biome": "^2.0.6",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^20.17.16",

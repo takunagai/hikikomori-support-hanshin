@@ -3,11 +3,10 @@
  * @ref https://document.microcms.io/tutorial/next/next-getting-started
  */
 import { motion } from 'framer-motion'
+import type { GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next' // TypeScript の型データ
 import AfterContentArea from '../components/AfterContentArea'
 import Layout from '../components/layout'
 import { client } from '../lib/client' // microcms-js-sdkの初期化
-
-import type { GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next' // TypeScript の型データ
 
 // https://zenn.dev/catnose99/articles/7201a6c56d3c88
 type Props = InferGetStaticPropsType<typeof getStaticProps>

@@ -109,7 +109,7 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
                     stroke="currentColor"
                     strokeWidth="2"
                     strokeLinecap="round"
-                  ></path>
+                  />
                 </motion.svg>
               </motion.button>
 

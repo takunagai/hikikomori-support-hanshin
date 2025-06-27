@@ -5,8 +5,10 @@ import AccessMap from '../components/AccessMap'
 import FormattedDate from '../components/date'
 import Layout from '../components/layout'
 import { client } from '../lib/client'
+
 // import "yet-another-react-lightbox/styles.css"
 
+import type { GetStaticProps, NextPage } from 'next' // TypeScript の型データ
 import {
   FaDove,
   FaFrog,
@@ -16,8 +18,6 @@ import {
   FaLock,
   FaUserFriends,
 } from 'react-icons/fa'
-
-import type { GetStaticProps, NextPage } from 'next' // TypeScript の型データ
 
 /**
  * Settings
@@ -33,6 +33,7 @@ const numberOfNewsLeafletDisplayed = 4
 // https://zenn.dev/catnose99/articles/7201a6c56d3c88
 // microCMS - news
 import type { NewsItem } from '../types/news'
+
 type NewsItemsTypes = { newsItems: Array<NewsItem> }
 
 export const getStaticProps: GetStaticProps = async () => {
