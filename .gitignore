@@ -36,3 +36,19 @@ yarn-error.log*
 
 # Optional eslint cache
 .eslintcache
+
+# backup files and development artifacts
+_backup/
+*.bak
+*.backup
+*.tmp
+*.temp
+
+# development logs and documentation
+APP_ROUTER_MIGRATION_LOG.md
+
+# IDE and editor files
+.vscode/
+*.swp
+*.swo
+*~
