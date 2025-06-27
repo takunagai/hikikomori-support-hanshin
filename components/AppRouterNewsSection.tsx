@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { FaDove } from 'react-icons/fa'
 
 import type { NewsItem } from '../types/news'
@@ -46,13 +47,12 @@ export default function AppRouterNewsSection({ newsItems }: AppRouterNewsSection
                       className="font-medium"
                     />
                   </span>
-                  <AppRouterLink
+                  <Link
                     href={`/news/${newsItem.id}`}
-                    variant="primary"
-                    className="text-sm md:text-base"
+                    className="text-primary"
                   >
                     {newsItem.title}
-                  </AppRouterLink>
+                  </Link>
                 </div>
               </li>
             ))}

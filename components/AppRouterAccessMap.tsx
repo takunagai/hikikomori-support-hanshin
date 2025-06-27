@@ -9,7 +9,7 @@ import { FaMapMarkedAlt } from 'react-icons/fa'
 export default function AppRouterAccessMap() {
   return (
     <section aria-labelledby="access-map">
-      <h2 id="access-map" className="flex items-center text-xl font-semibold text-gray-900">
+      <h2 id="access-map" className="flex items-center justify-center text-2xl font-semibold text-gray-900">
         <FaMapMarkedAlt 
           className="mr-2 text-secondary-300" 
           aria-hidden="true" 
