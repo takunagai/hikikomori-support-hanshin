@@ -3,16 +3,13 @@ import Link from 'next/link'
 import { FaDove } from 'react-icons/fa'
 
 import type { NewsItem } from '../types/news'
-import AppRouterFormattedDate from './AppRouterFormattedDate'
+import { NEWS_CONFIG } from '../lib/constants'
+import FormattedDate from './FormattedDate'
 import AppRouterLink from './AppRouterLink'
 
 interface AppRouterNewsSectionProps {
   newsItems: NewsItem[]
 }
-
-// 設定値
-const numberOfNewsItemsDisplayed = 5
-const numberOfNewsLeafletDisplayed = 4
 
 /**
  * App Router 対応 ニュースセクション
@@ -35,14 +32,14 @@ export default function AppRouterNewsSection({ newsItems }: AppRouterNewsSection
       <div className="mx-auto max-w-2xl px-4">
         {newsItems.length > 0 ? (
           <ul className="mt-8 list-square pl-5 marker:text-secondary-400 space-y-2">
-            {newsItems.slice(0, numberOfNewsItemsDisplayed).map((newsItem: NewsItem) => (
+            {newsItems.slice(0, NEWS_CONFIG.DISPLAY_LIMIT).map((newsItem: NewsItem) => (
               <li 
                 key={newsItem.id} 
                 className="border-b border-dashed border-primary-100 py-2 last:border-b-0"
               >
                 <div className="flex flex-col gap-1 md:flex-row md:items-center md:gap-4">
                   <span className="flex-shrink-0 text-xs text-gray-600 md:text-sm">
-                    <AppRouterFormattedDate 
+                    <FormattedDate 
                       dateString={newsItem.date}
                       className="font-medium"
                     />
@@ -69,7 +66,7 @@ export default function AppRouterNewsSection({ newsItems }: AppRouterNewsSection
         <div className="mx-4 mt-8">
           <ul className="flex flex-wrap justify-center gap-4">
             {newsItems
-              .slice(0, numberOfNewsLeafletDisplayed)
+              .slice(0, NEWS_CONFIG.LEAFLET_DISPLAY_LIMIT)
               .filter(newsItem => newsItem.postThumbnail)
               .map((newsItem: NewsItem) => (
                 <li key={`leaflet-${newsItem.id}`} className="flex-shrink-0">

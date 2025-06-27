@@ -1,6 +1,8 @@
 import { FaPhoneAlt } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 
+import { CONTACT_CONFIG } from '../lib/constants'
+
 /**
  * App Router 対応 お問い合わせセクション
  * - Server Component として実装
@@ -33,17 +35,17 @@ export default function AppRouterContactSection() {
                 aria-hidden="true" 
               />
               <a 
-                href="tel:050-3749-1227"
+                href={`tel:${CONTACT_CONFIG.PHONE_NUMBER}`}
                 className="text-gray-900 transition-colors hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded"
-                aria-label="電話番号 050-3749-1227 に発信"
+                aria-label={`電話番号 ${CONTACT_CONFIG.PHONE_NUMBER} に発信`}
               >
-                050-3749-1227
+                {CONTACT_CONFIG.PHONE_NUMBER}
               </a>
             </span>
           </p>
           
           <p className="mt-2 text-sm text-gray-600">
-            対応時間：火・水・木・金　10:00〜16:00
+            対応時間：{CONTACT_CONFIG.BUSINESS_HOURS_DETAILED}
           </p>
         </div>
 
@@ -80,7 +82,7 @@ export default function AppRouterContactSection() {
             </div>
             
             <p className="mt-2 text-sm text-gray-600">
-              対応時間：火・水・木・金　10:00〜16:00
+              対応時間：{CONTACT_CONFIG.BUSINESS_HOURS_DETAILED}
             </p>
           </div>
         </div>

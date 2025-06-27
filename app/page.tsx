@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import { newsApi } from '../lib/microcms-app-router'
+import { NEWS_CONFIG, SITE_CONFIG } from '../lib/constants'
 import AppRouterAccessMap from '../components/AppRouterAccessMap'
 import AppRouterHeroSection from '../components/AppRouterHeroSection'
 import AppRouterNewsSection from '../components/AppRouterNewsSection'
@@ -8,17 +9,14 @@ import AppRouterPlacesSection from '../components/AppRouterPlacesSection'
 import AppRouterSupportSection from '../components/AppRouterSupportSection'
 
 export const metadata: Metadata = {
-  title: '兵庫ひきこもり相談支援センター 阪神ブランチ',
+  title: SITE_CONFIG.TITLE,
   description: 'ひきこもりでお悩みの方やそのご家族の相談窓口です。兵庫県阪神地域で無料の相談支援を行っています。専門の相談員による相談(電話・来所・訪問)、居場所の提供、ひきこもりに関するセミナーや研修会なども開催しています。',
   openGraph: {
-    title: '兵庫ひきこもり相談支援センター 阪神ブランチ',
+    title: SITE_CONFIG.TITLE,
     description: 'ひきこもりでお悩みの方やそのご家族の相談窓口です。兵庫県阪神地域で無料の相談支援を行っています。',
     type: 'website',
   },
 }
-
-// ニュース表示件数
-const numberOfNewsItemsToFetch = 20
 
 /**
  * App Router トップページ（完全実装版）
@@ -29,7 +27,7 @@ const numberOfNewsItemsToFetch = 20
 export default async function HomePage() {
   // microCMS からニュースデータを取得
   const { contents: newsItems } = await newsApi.getAll({ 
-    limit: numberOfNewsItemsToFetch 
+    limit: NEWS_CONFIG.FETCH_LIMIT 
   })
 
   return (
