@@ -30,15 +30,9 @@ export const metadata: Metadata = {
 export default function FlowPage() {
   return (
     <AppRouterInquiryContent>
-      <div className="py-8">
+      <div className="pb-8">
         {/* ページヘッダー */}
-        <header className="alignfull bg-dots3 py-12 text-center">
-          <div className="container">
-            <h1 className="text-3xl font-bold text-gray-900 md:text-4xl">
-              相談する
-            </h1>
-          </div>
-        </header>
+        <h1 className="alignfull bg-dots3">相談する</h1>
 
         {/* イントロダクション */}
         <section className="mx-auto max-w-2xl px-4">
@@ -183,41 +177,23 @@ export default function FlowPage() {
             予約のご案内
           </h2>
           
-          <div className="mx-auto max-w-lg rounded-2xl bg-tertiary-100 px-8 py-6 text-center shadow-lg">
-            <h3 className="text-lg font-semibold text-gray-900">
-              お気軽にご予約ください
-            </h3>
-            
-            <div className="mt-4 space-y-2">
-              <p className="font-bold text-gray-900">
+          <div className="mx-auto max-w-lg rounded-2xl bg-tertiary-100 py-4 px-8 text-center shadow">
+            <h3 className="text-lg">お気軽にご予約ください</h3>
+            <p>
+              <b>
                 兵庫ひきこもり相談支援センター
                 <br />
                 阪神ブランチ
-              </p>
-              
-              <p className="text-2xl font-bold">
-                <span className="flex items-center justify-center gap-2">
-                  <FaPhoneAlt 
-                    className="text-primary-300" 
-                    aria-hidden="true" 
-                  />
-                  <a 
-                    href="tel:050-3749-1227"
-                    className="text-gray-900 transition-colors hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded"
-                    aria-label="電話番号 050-3749-1227 に発信"
-                  >
-                    050-3749-1227
-                  </a>
-                </span>
-              </p>
-              
-              <p className="text-sm text-gray-600">
-                受付時間：火・水・木・金　10:00〜16:00
-              </p>
-            </div>
-
-            {/* 青少年用ホットライン（準備中） */}
-            <div className="mt-6">
+              </b>
+            </p>
+            <p className="mt-1 text-2xl">
+              <b>
+                <FaPhoneAlt className="inline align-baseline text-primary-300" />
+                <a href="tel:050-3749-1227">050-3749-1227</a>
+              </b>
+            </p>
+            <p className="mt-1 text-sm">受付時間 火・水・木・金 10〜16時</p>
+            <p>
               <button
                 type="button"
                 className="btn btn-secondary disabled:opacity-50 disabled:cursor-not-allowed"
@@ -226,10 +202,7 @@ export default function FlowPage() {
               >
                 青少年用「ほっとらいん相談」
               </button>
-              <p className="mt-2 text-xs text-gray-500">
-                ※準備中です
-              </p>
-            </div>
+            </p>
           </div>
         </section>
 

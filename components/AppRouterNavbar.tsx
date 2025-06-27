@@ -93,7 +93,7 @@ export default function AppRouterNavbar({ isMenuOpen, onMenuOpenChange }: AppRou
           </Link>
         ))}
 
-        {/* 情報ドロップダウンメニュー */}
+        {/* お役立ち情報ドロップダウンメニュー */}
         <div className="relative" ref={dropdownRef}>
           <button
             ref={dropdownButtonRef}
@@ -104,7 +104,7 @@ export default function AppRouterNavbar({ isMenuOpen, onMenuOpenChange }: AppRou
             aria-haspopup="true"
             aria-controls="dropdown-menu"
           >
-            情報
+            お役立ち情報
             <svg
               className={`ml-1 h-3 w-3 transition-transform duration-200 ${
                 isDropdownOpen ? 'rotate-180' : ''
@@ -154,13 +154,25 @@ export default function AppRouterNavbar({ isMenuOpen, onMenuOpenChange }: AppRou
           </AnimatePresence>
         </div>
 
-        {/* お問い合わせボタン */}
+        {/* その他のナビゲーション項目 */}
+        {additionalNavigationItems.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            onClick={handleMenuItemClick}
+            className="font-medium text-gray-800 hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 lg:text-sm dark:text-gray-200 dark:hover:text-primary-400"
+          >
+            {item.label}
+          </Link>
+        ))}
+
+        {/* お問合せリンク */}
         <Link
           href="/inquiry"
           onClick={handleMenuItemClick}
-          className="inline-flex items-center justify-center rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 lg:px-3 lg:py-2"
+          className="font-medium text-gray-800 hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 lg:text-sm dark:text-gray-200 dark:hover:text-primary-400"
         >
-          お問い合わせ
+          お問合せ
         </Link>
       </div>
     </div>
@@ -171,18 +183,22 @@ export default function AppRouterNavbar({ isMenuOpen, onMenuOpenChange }: AppRou
  * メインナビゲーション項目
  */
 const navigationItems = [
+  { href: '/', label: 'Home' },
   { href: '/flow', label: '相談する' },
-  { href: '/places-and-groups', label: '居場所・親の会' },
-  { href: '/user-comments', label: 'ご利用者様の声' },
-  { href: '/news', label: 'お知らせ' },
 ] as const
 
 /**
- * ドロップダウンメニュー項目
+ * ドロップダウンメニュー項目（お役立ち情報）
  */
 const dropdownItems = [
-  { href: '/reference', label: '相談窓口' },
+  { href: '/places-and-groups', label: '居場所一覧' },
+  { href: '/reference', label: '相談・教育支援センター' },
+] as const
+
+/**
+ * その他のナビゲーション項目（ドロップダウンの後）
+ */
+const additionalNavigationItems = [
+  { href: '/user-comments', label: 'ご利用者様の声' },
   { href: '/faq', label: 'よくある質問' },
-  { href: '/sitemap', label: 'サイトマップ' },
-  { href: '/privacy-policy', label: 'プライバシーポリシー' },
 ] as const

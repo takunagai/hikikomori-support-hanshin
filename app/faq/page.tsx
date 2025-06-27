@@ -21,15 +21,9 @@ export const metadata: Metadata = {
  */
 export default function FaqPage() {
   return (
-    <div className="py-8">
+    <div className="pb-8">
       {/* ページヘッダー */}
-      <header className="alignfull bg-dots3 py-12 text-center">
-        <div className="container">
-          <h1 className="text-3xl font-bold text-gray-900 md:text-4xl">
-            よくある質問とその回答
-          </h1>
-        </div>
-      </header>
+      <h1 className="alignfull bg-dots3">よくある質問とその回答</h1>
 
       {/* イントロダクション */}
       <section className="mx-auto max-w-2xl px-4">

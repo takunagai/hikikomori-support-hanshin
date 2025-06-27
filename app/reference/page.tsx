@@ -157,15 +157,9 @@ const educationSupportCenters = [
 export default function ReferencePage() {
   return (
     <AppRouterInquiryContent>
-      <div className="py-8">
+      <div className="pb-8">
         {/* ページヘッダー */}
-        <header className="alignfull bg-dots3 py-12 text-center">
-          <div className="container">
-            <h1 className="text-3xl font-bold text-gray-900 md:text-4xl">
-              相談窓口・教育支援センター
-            </h1>
-          </div>
-        </header>
+        <h1 className="alignfull bg-dots3">相談窓口・教育支援センター</h1>
 
         {/* イントロダクション */}
         <section className="mx-auto max-w-2xl px-4">
