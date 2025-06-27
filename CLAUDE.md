@@ -234,6 +234,7 @@ export default async function NewsPage() {
 ```
 
 **レガシー**: SSG（getStaticProps）
+
 - 段階的にApp Routerに移行予定
 
 #### 型定義
@@ -291,6 +292,7 @@ npm run start
 #### 🔄 コンポーネント統合（第2段階）
 
 優先順位順：
+
 1. **SiteLogo** - Header内でのみ使用、統合が容易
 2. **NavbarCollapseButton** - アクセシビリティ改善版を採用
 3. **Link** - 外部リンク機能の統合が必要

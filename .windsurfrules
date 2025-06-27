@@ -39,132 +39,308 @@
     - 重要な判断ポイントでの確認
     - 問題発生時の解決策提案を含めた迅速な報告
 
-## 技術スタックと制約
+## 技術スタックと制約 ✅
 
-### フロントエンド
-- Next.js 15.1.6: Reactベースのフレームワーク
-- React 18.2.0: UIコンポーネントライブラリ
-- TypeScript: 型安全な開発環境
-- Tailwind CSS 3.4.17: ユーティリティファーストCSSフレームワーク
-  - @tailwindcss/typography
-  - @tailwindcss/forms
+### フロントエンド基盤
+
+- **Next.js 15.3.4**: App Router ✅ **移行完了**
+- **React 18.2.0**: UIコンポーネントライブラリ
+- **TypeScript**: 型安全な開発環境（strictモード有効）
+- **Tailwind CSS 3.4.17** ✅ **App Router対応済み**: ユーティリティファーストCSSフレームワーク
+  - @tailwindcss/typography: マークダウンスタイリング
+  - @tailwindcss/forms: フォーム要素のスタイリング
   - ~~@tailwindcss/aspect-ratio~~ (Tailwind CSS 3.4以降は組み込み機能で対応)
   - ~~@tailwindcss/line-clamp~~ (Tailwind CSS 3.3以降は組み込み機能で対応)
-- Framer Motion 10.18.0: アニメーションライブラリ
-- Radix UI: アクセシブルなUIコンポーネント
-- React Icons 4.12.0: アイコンライブラリ
-- next-themes 0.2.1: ダークモード対応
-- react-responsive 9.0.0: レスポンシブデザイン対応
+
+### UI/アニメーション
+
+- **Framer Motion 10.18.0**: アニメーションライブラリ（必要最小限で使用）
+- **Radix UI**: アクセシブルなUIコンポーネント
+- **React Icons 4.12.0**: アイコンライブラリ
+- **next-themes 0.2.1**: ダークモード対応（実装途中）
+- **react-responsive 9.0.0**: レスポンシブデザイン対応
+- **yet-another-react-lightbox 2.2.0**: 画像ライトボックス
 - ~~react-scroll 1.9.0~~ (未使用)
-- yet-another-react-lightbox 2.2.0: 画像ライトボックス
 - ~~@etchteam/next-pagination 3.5.5~~ (未使用)
 
-### データ管理/API
-- SWR: データフェッチング
-- microCMS SDK: ヘッドレスCMS連携
-- date-fns: 日付処理
-- DOMPurify: HTMLサニタイズ
+### データ管理/API ✅
+
+- **microCMS**: ヘッドレスCMS ✅ **型安全性向上済み**
+  - App Router対応のクライアント実装
+  - 環境変数の型安全管理
+  - Next.js 15.3.4キャッシュ機能活用
+- **SWR**: データフェッチング（Pages Router用レガシー）
+- **date-fns**: 日付処理
+- **DOMPurify**: HTMLサニタイズ
 - ~~Satori & @vercel/og~~ (未使用)
 - ~~gray-matter~~ (未使用)
 - ~~remark~~ (未使用)
-- ~~remark-html~~ (未使用)
-- ~~@hashicorp/platform-code-highlighting~~ (未使用)
+
+### 開発基盤システム ✅
+
+- **定数管理**: `lib/constants.ts` でアプリケーション全体の設定値を一元管理
+- **環境変数管理**: `lib/env.ts` で型安全な環境変数アクセス
+- **統合コンポーネント**: 重複排除と品質向上（進行中）
+- **Biome**: リンター/フォーマッター
 
 ### 特記事項
+
 - SEOとアクセシビリティを重視したマークアップ
 - Core Web Vitalsの最適化
 - モバイルフレンドリー対応
+- Server Components中心のアーキテクチャ
+
+## 開発基盤の理解 ✅
+
+### 定数管理システム（必須）
+
+**すべての設定値は `lib/constants.ts` で一元管理**
+
+```typescript
+import { NEWS_CONFIG, CONTACT_CONFIG, SITE_CONFIG } from '../lib/constants'
+
+// ✅ 正しい使用例
+const limit = NEWS_CONFIG.FETCH_LIMIT
+const phone = CONTACT_CONFIG.PHONE_NUMBER
+
+// ❌ 避けるべき
+const limit = 20  // マジックナンバー
+const phone = '050-3749-1227'  // ハードコード
+```
+
+利用可能な定数群：
+- `NEWS_CONFIG`: ニュース表示設定
+- `CACHE_CONFIG`: キャッシュ設定
+- `CONTACT_CONFIG`: 連絡先情報
+- `SITE_CONFIG`: サイト基本情報
+- `ANIMATION_CONFIG`: アニメーション設定
+- `UI_CONFIG`: UI設定
+- `VALIDATION_CONFIG`: バリデーション設定
+
+### 環境変数管理（必須）
+
+**`lib/env.ts` 経由での型安全なアクセス**
+
+```typescript
+import { microCMSConfig, siteConfig } from '../lib/env'
+
+// ✅ 正しい使用例
+const apiKey = microCMSConfig.apiKey
+const baseUrl = microCMSConfig.baseUrl
+
+// ❌ 避けるべき
+const apiKey = process.env.APIKEY  // 型安全性なし
+```
+
+### 統合コンポーネント戦略 ✅
+
+**必須**: 以下の統合済みコンポーネントを使用
+
+- `FormattedDate` - 日付表示（AppRouterFormattedDate、dateは廃止）
+
+**統合予定**: 以下のコンポーネントは統合作業を進行中
+
+- `SiteLogo` vs `AppRouterSiteLogo`
+- `NavbarCollapseButton` vs `AppRouterNavbarCollapseButton`
+- `Link` vs `AppRouterLink`
 
 ## 品質管理プロトコル
+
 ### 1. コード品質
+
 - TypeScriptの型安全性の最大活用
 - Biomeによるコード品質チェックとフォーマット
+- 統合コンポーネントの使用
+- 定数ファイルからの設定値取得
 - 命名規則と一貫したコーディングスタイルの遵守
+
 ### 2. パフォーマンス
-- SSGによる高速なページロード
+
+- Server Components活用による最適化
+- Next.js 15.3.4キャッシュ機能の活用
 - 画像の最適化
-- コンポーネントの遅延読み込み
+- 必要最小限のアニメーション
+
 ### 3. セキュリティ
+
 - DOMPurifyによるHTMLサニタイズ
 - Content Security Policy (CSP) の実装
 - HTTPSの強制とXSS対策
+- 環境変数の型安全管理と実行時バリデーション
+
 ### 4. UI/UX
+
 - レスポンシブデザインの確保
 - WAI-ARIA準拠のアクセシビリティ
-- ダークモード対応
+- ダークモード対応（実装途中）
 
-## プロジェクト構造規約
+## プロジェクト構造規約 ✅
 
-- components/: 再利用可能なUIコンポーネント
-  - layout/: レイアウト関連コンポーネント
-  - ui/: UI要素コンポーネント
-  - nav/: ナビゲーション関連コンポーネント
-- pages/: Next.jsのページコンポーネント
-  - index.tsx: トップページ
-  - about.tsx: 概要ページ
-  - faq.tsx: よくある質問ページ
-  - その他各種ページコンポーネント
-- public/: 静的アセット
-- styles/: スタイリング関連ファイル
-- lib/: ユーティリティ関数
-- types/: TypeScript型定義
+```
+.
+├── app/                # App Router のページコンポーネント（メイン）
+│   ├── page.tsx        # トップページ
+│   ├── faq/           # よくある質問
+│   ├── news/          # ニュース関連
+│   ├── flow/          # 相談の流れ
+│   ├── user-comments/ # ご利用者様の声
+│   ├── reference/     # 相談窓口
+│   ├── inquiry/       # お問い合わせ
+│   ├── sitemap/       # サイトマップ
+│   ├── privacy-policy/ # プライバシーポリシー
+│   ├── layout.tsx     # ルートレイアウト
+│   ├── loading.tsx    # ローディングUI
+│   ├── error.tsx      # エラーUI
+│   ├── not-found.tsx  # 404ページ
+│   └── template.tsx   # ページテンプレート
+├── pages/             # Pages Router（レガシー、段階的削除予定）
+├── components/        # 再利用可能なUIコンポーネント
+│   ├── FormattedDate.tsx    # ✅ 統合済み
+│   ├── AppRouter*.tsx       # App Router用コンポーネント
+│   └── [legacy].tsx         # レガシーコンポーネント
+├── lib/               # ユーティリティ関数とシステム
+│   ├── constants.ts   # ✅ アプリケーション定数
+│   ├── env.ts         # ✅ 環境変数管理
+│   ├── microcms-app-router.ts # microCMS クライアント（App Router用）
+│   └── client.ts      # microCMS クライアント（レガシー）
+├── types/             # TypeScript型定義
+├── styles/            # スタイリング関連
+├── public/            # 静的アセット
+└── docs/              # ✅ プロジェクトドキュメント
+    ├── app-router-migration-guide.md
+    └── logs/          # 作業ログ
+```
 
 ## 重要な制約
-1. **コーディング規約**
-   - インデント: 2スペース
-   - 引用符: シングルクォート
-   - 最大行長: 100文字
-   - コンポーネントのprops型は明示的に定義
-2. **命名規則**
-   - コンポーネント: PascalCase（例：`FormattedDate`）
-   - 関数・変数: camelCase（例：`getUserData`）
-   - 定数: SNAKE_CASE（例：`MAX_ITEMS`）
-3. **コード配置**
-   - 共通処理は `lib/utils/` に配置
-   - UIコンポーネントは `components/ui/` に配置
-   - ページコンポーネントは `pages/` に配置
 
-## 実装プロセス
-### 1. 初期分析フェーズ
-```markdown
-### 要件分析
-- 機能要件の特定
-- 技術的制約の確認
-- 既存コードとの整合性確認
-### リスク評価
-- 潜在的な技術的課題
-- パフォーマンスへの影響
-- セキュリティリスク
-```
+### 1. コーディング規約
+
+- インデント: 2スペース
+- 引用符: シングルクォート
+- 最大行長: 100文字
+- コンポーネントのprops型は明示的に定義
+
+### 2. 命名規則
+
+- コンポーネント: PascalCase（例：`FormattedDate`）
+- 関数・変数: camelCase（例：`getUserData`）
+- 定数: SNAKE_CASE（例：`NEWS_CONFIG.FETCH_LIMIT`）
+
+### 3. 開発基盤の活用
+
+- **設定値**: `lib/constants.ts` からの取得必須
+- **環境変数**: `lib/env.ts` 経由でのアクセス必須
+- **コンポーネント**: 統合済みコンポーネントの使用必須
+
+### 4. アーキテクチャ
+
+- **App Router**: メインアーキテクチャ（新規開発必須）
+- **Server Components**: データフェッチングの基本
+- **microCMS**: 型安全なクライアント使用
+
+## 効率的な実装プロセス ✅
+
+### 1. 作業開始前の確認
+
+- **既存コードの確認**: Read/Grep/Task toolで関連実装を調査
+- **定数ファイル**: `lib/constants.ts` で設定値を確認
+- **統合コンポーネント**: 使用可能な統合済みコンポーネントをチェック
+- **環境変数**: `lib/env.ts` での型安全なアクセス方法を確認
+
 ### 2. 実装フェーズ
-- 統合的な実装アプローチ
-- 継続的な検証
-- コード品質の維持
-### 3. 検証フェーズ
-- 単体テスト
-- 統合テスト
-- パフォーマンステスト
-### 4. 最終確認
-- 要件との整合性
-- コード品質
-- ドキュメント完成度
+
+- **段階的実装**: 影響範囲を限定した小さな変更
+- **品質維持**: TypeScript型安全性、Biome品質チェック
+- **統合活用**: 定数管理、環境変数管理、統合コンポーネントの使用
+- **継続的検証**: 各段階での動作確認
+
+### 3. 完了時の確認
+
+- **品質チェック**: `npm run check` でコード品質確認
+- **ビルド確認**: エラーなしでのビルド成功
+- **動作確認**: 機能の正常動作とモバイル対応
+
+### 4. ドキュメント化
+
+- **作業ログ**: 大きな変更時は `docs/logs/` に記録
+- **コミット**: 論理的なステップに分けた適切なコミット
+
+## タスク分類と推奨アプローチ
+
+### 簡単なタスク
+
+- 単純なUI修正、テキスト変更
+- 既存機能の軽微な調整
+- 設定値の変更
+
+**アプローチ**: 直接実装、TodoWrite不要
+
+### 複雑なタスク
+
+- 新機能の追加
+- アーキテクチャの変更
+- 複数コンポーネントに影響する修正
+
+**アプローチ**: 
+1. TodoWriteでタスク分解
+2. 段階的実装
+3. 論理的なコミット分割
+
+### コンポーネント統合タスク
+
+**推奨手順**:
+1. Task toolで重複コンポーネント分析
+2. 機能差分の詳細比較
+3. 統合版コンポーネント作成
+4. 使用箇所の段階的更新
+5. 古いコンポーネントの削除
 
 ## エラー対応プロトコル
-1. **問題の特定**
-    - エラーメッセージの解析
-    - 影響範囲の特定
-    - 原因の切り分け
-2. **解決策の策定**
-    - 複数の対応案の検討
-    - リスク評価
-    - 最適解の選択
-3. **実装と検証**
-    - 解決策の実装
-    - テストによる検証
-    - 副作用の確認
-4. **文書化**
-    - 問題と解決策の記録
-    - 再発防止策の提案
-    - 学習点の共有
+
+### 1. 環境変数エラー
+
+```bash
+Error: 以下の環境変数が設定されていません: SERVICE, APIKEY
+
+対処法:
+1. .env.local ファイルを作成
+2. 必要な環境変数を設定
+3. サーバーを再起動
+```
+
+### 2. コンポーネント統合エラー
+
+```bash
+Module not found: Can't resolve './AppRouterFormattedDate'
+
+対処法:
+import FormattedDate from './FormattedDate'  # 統合版を使用
+```
+
+### 3. Tailwindスタイル未適用
+
+**確認事項**:
+1. app/ ディレクトリがtailwind.config.jsのcontentに含まれているか
+2. クラス名が正しく記述されているか
+3. ビルドキャッシュをクリアしてみる
+
+### 4. 問題解決の流れ
+
+1. **問題の特定**: エラーメッセージの解析、影響範囲の特定
+2. **解決策の策定**: 複数の対応案検討、リスク評価
+3. **実装と検証**: 解決策の実装、テストによる検証
+4. **文書化**: 問題と解決策の記録、再発防止策の提案
+
+## リソースとドキュメント
+
+- **プロジェクトガイド**: `CLAUDE.md` - 包括的な開発ガイド
+- **移行ガイド**: `docs/app-router-migration-guide.md`
+- **作業ログ**: `docs/logs/` - 改善履歴と知見
+- **定数定義**: `lib/constants.ts` - 設定値一覧
+- **環境変数**: `lib/env.ts` - 型安全なアクセス
 
 以上の指示に従い、確実で質の高い実装を行います。指示された範囲内でのみ処理を行い、不要な追加実装は行いません。不明点や重要な判断が必要な場合は、必ず確認を取ります。
+
+---
+
+**最終更新**: 2025-06-28 - App Router移行完了・包括的改善実施後
