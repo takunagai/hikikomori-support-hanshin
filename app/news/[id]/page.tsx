@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 
 import { newsApi } from '../../../lib/microcms-app-router'
 import type { NewsItem } from '../../../types/news'
-import AppRouterFormattedDate from '../../../components/AppRouterFormattedDate'
+import FormattedDate from '../../../components/FormattedDate'
 import AppRouterInquiryContent from '../../../components/AppRouterInquiryContent'
 import AppRouterLink from '../../../components/AppRouterLink'
 import AppRouterNewsContent from '../../../components/AppRouterNewsContent'
@@ -76,7 +76,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
 
   return (
     <AppRouterInquiryContent>
-      <div className="py-8">
+      <div className="pb-8">
         {/* ページヘッダー */}
         <header className="alignfull bg-dots3 py-12 text-center">
           <div className="container">
@@ -115,7 +115,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
             <div className="mt-4 flex items-center gap-4 text-sm text-gray-600">
               <div className="flex items-center gap-2">
                 <span>投稿日：</span>
-                <AppRouterFormattedDate 
+                <FormattedDate 
                   dateString={newsArticle.date}
                   className="font-medium"
                   showWeekday
