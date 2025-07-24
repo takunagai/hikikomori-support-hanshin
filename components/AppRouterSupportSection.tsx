@@ -34,7 +34,7 @@ export default function AppRouterSupportSection() {
       </p>
       
       <p className="mx-auto mt-4 max-w-xl text-center text-gray-700">
-        当事者の気持ちに十分な配慮を行い、社会参加へのはじめの一歩を踏み出せるよう支援いたします。お気軽にご相談ください。
+        当事者の気持ちに十分な配慮を行い、社会参加へのはじめの一歩を踏みだせるようサポートいたします。お気軽にご相談ください。
       </p>
 
       {/* 相談対象者 */}
