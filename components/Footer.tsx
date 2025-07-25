@@ -119,7 +119,7 @@ const Footer = () => {
                       href="/news"
                       className="border-b border-dotted border-primary-200 text-primary hover:text-primary-300"
                     >
-                      お知らせ
+                      活動報告
                     </Link>
                   </li>
                   <li>
