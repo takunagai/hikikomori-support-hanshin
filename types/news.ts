@@ -10,10 +10,12 @@ export type NewsItem = {
   revisedAt: string
   date: string
   title: string
+  status: string[]
   body: string
   postThumbnail?: {
     url: string
     width: number
     height: number
-  }
+  },
+  report: string
 }

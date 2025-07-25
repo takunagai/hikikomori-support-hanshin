@@ -74,6 +74,12 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
     notFound()
   }
 
+  let isReport = false;
+  const status = newsArticle.status; // string[]
+  if (status.includes("レポート")) {
+      isReport = true;
+  }
+
   return (
     <AppRouterInquiryContent>
       <div className="pb-8">
@@ -111,7 +117,6 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
             <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">
               {newsArticle.title}
             </h2>
-            
             <div className="mt-4 flex items-center gap-4 text-sm text-gray-600">
               <div className="flex items-center gap-2">
                 <span>投稿日：</span>
@@ -124,8 +129,16 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
             </div>
           </header>
 
-          {/* 記事本文 */}
-          {newsArticle.body && (
+          {(isReport && newsArticle.report) && (
+            <div className="mt-8">
+              <AppRouterNewsContent
+                content={newsArticle.report}
+                className="text-gray-800"
+              />
+            </div>
+          )}
+
+          {(!isReport && newsArticle.body) && (
             <div className="mt-8">
               <AppRouterNewsContent 
                 content={newsArticle.body}
