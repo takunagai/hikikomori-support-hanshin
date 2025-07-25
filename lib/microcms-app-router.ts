@@ -64,16 +64,21 @@ export const newsApi = {
   /**
    * ニュース一覧を取得
    */
-  async getAll(options: { limit?: number; offset?: number } = {}): Promise<{ contents: NewsItem[]; totalCount: number }> {
-    const { limit = 50, offset = 0 } = options
-    
+  async getAll(
+    options: { limit?: number; offset?: number; filters?: string } = {},
+  ): Promise<{ contents: NewsItem[]; totalCount: number }> {
+    const { limit, offset = 0, filters } = options
+
+    const queries: Record<string, string | number> = {
+      offset,
+      orders: '-date',
+    }
+    if (limit) queries.limit = limit
+    if (filters) queries.filters = filters
+
     return fetchFromMicroCMS('news', {
-      queries: {
-        limit,
-        offset,
-        orders: '-date',
-      },
-      revalidate: 1800, // 30分キャッシュ
+      queries,
+      revalidate: CACHE_CONFIG.NEWS_LIST_REVALIDATE, // 30分キャッシュ
       tags: ['news-list'],
     })
   },

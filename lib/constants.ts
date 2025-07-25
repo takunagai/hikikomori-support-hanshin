@@ -9,10 +9,14 @@
 export const NEWS_CONFIG = {
   /** トップページで取得するニュース件数 */
   FETCH_LIMIT: 20,
+  /** 活動報告ページで取得するニュース件数 */
+  NEWS_PAGE_FETCH_LIMIT: 50,
   /** トップページで表示するニュース件数 */
   DISPLAY_LIMIT: 5,
   /** トップページで表示するリーフレット件数 */
   LEAFLET_DISPLAY_LIMIT: 4,
+  /** 活動報告のステータス */
+  REPORT_STATUS: 'レポート',
 } as const
 
 // ==================================================
