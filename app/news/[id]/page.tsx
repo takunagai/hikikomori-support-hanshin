@@ -159,7 +159,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
               href="/news"
               className="btn btn-secondary px-7"
             >
-              お知らせ一覧へ
+              活動報告を見る
             </AppRouterLink>
           </div>
         </nav>
