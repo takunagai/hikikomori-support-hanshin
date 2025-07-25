@@ -13,6 +13,11 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
   const dropdownButtonRef = useRef<HTMLButtonElement>(null)
   const firstDropdownItemRef = useRef<HTMLAnchorElement>(null)
 
+  const [isReportDropdownOpen, setIsReportDropdownOpen] = useState(false)
+  const reportDropdownRef = useRef<HTMLDivElement>(null)
+  const reportDropdownButtonRef = useRef<HTMLButtonElement>(null)
+  const firstReportDropdownItemRef = useRef<HTMLAnchorElement>(null)
+
   // ドロップダウンメニューの外側をクリックした時に閉じる
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -23,6 +28,13 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
       ) {
         setIsDropdownOpen(false)
       }
+      if (
+        reportDropdownRef.current &&
+        !reportDropdownRef.current.contains(event.target as Node) &&
+        !reportDropdownButtonRef.current?.contains(event.target as Node)
+      ) {
+        setIsReportDropdownOpen(false)
+      }
     }
 
     document.addEventListener('mousedown', handleClickOutside)
@@ -32,15 +44,21 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
   // ESCキーでドロップダウンを閉じる
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && isDropdownOpen) {
-        setIsDropdownOpen(false)
-        dropdownButtonRef.current?.focus()
+      if (event.key === 'Escape') {
+        if (isDropdownOpen) {
+          setIsDropdownOpen(false)
+          dropdownButtonRef.current?.focus()
+        }
+        if (isReportDropdownOpen) {
+          setIsReportDropdownOpen(false)
+          reportDropdownButtonRef.current?.focus()
+        }
       }
     }
 
     document.addEventListener('keydown', handleEscape)
     return () => document.removeEventListener('keydown', handleEscape)
-  }, [isDropdownOpen])
+  }, [isDropdownOpen, isReportDropdownOpen])
 
   // ドロップダウンが開いた時に最初の項目にフォーカス
   useEffect(() => {
@@ -48,6 +66,12 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
       firstDropdownItemRef.current?.focus()
     }
   }, [isDropdownOpen])
+
+  useEffect(() => {
+    if (isReportDropdownOpen) {
+      firstReportDropdownItemRef.current?.focus()
+    }
+  }, [isReportDropdownOpen])
 
   return (
     <nav className="relative">
@@ -203,18 +227,90 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
               </div>
             </div>
           </div>
-          <Link
-            href="/user-comments"
-            className="group relative font-medium text-primary-700 dark:text-gray-400"
-            role="menuitem"
-          >
-            <span className="relative z-10">ご利用者様の声</span>
-            <motion.span
-              className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
-              whileHover={{ width: '100%' }}
-              transition={{ duration: 0.2 }}
-            />
-          </Link>
+          <div className="relative">
+            <div className="hidden lg:block">
+              <motion.button
+                ref={reportDropdownButtonRef}
+                onClick={() => setIsReportDropdownOpen(!isReportDropdownOpen)}
+                className="flex w-full items-center font-medium text-primary-700 dark:text-gray-400"
+                whileHover={{ color: '#846333' }}
+                whileTap={{ scale: 0.98 }}
+                aria-expanded={isReportDropdownOpen}
+                aria-haspopup="true"
+                aria-controls="report-dropdown-menu"
+                role="menuitem"
+              >
+                <span className="relative z-10">活動報告</span>
+                <motion.svg
+                  className="ml-2 h-2.5 w-2.5 text-secondary-400"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  animate={{ rotate: isReportDropdownOpen ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </motion.svg>
+              </motion.button>
+
+              <AnimatePresence>
+                {isReportDropdownOpen && (
+                  <motion.div
+                    ref={reportDropdownRef}
+                    id="report-dropdown-menu"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full right-0 z-10 mt-2 w-48 rounded-md bg-white p-2 shadow-lg dark:bg-gray-800"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="report-dropdown-button"
+                  >
+                    <Link
+                      ref={firstReportDropdownItemRef}
+                      href="/news"
+                      className="group flex items-center gap-x-3.5 rounded-md py-2 px-3 text-sm text-primary transition-colors hover:bg-tertiary-100 focus:ring-2 focus:ring-tertiary-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
+                      role="menuitem"
+                      tabIndex={0}
+                    >
+                      <span className="relative">
+                        活動報告
+                        <motion.span
+                          className="absolute bottom-0 left-0 h-[1px] w-0 bg-primary-400 dark:bg-gray-500"
+                          whileHover={{ width: '100%' }}
+                          transition={{ duration: 0.2 }}
+                        />
+                      </span>
+                    </Link>
+                    <Link
+                      href="/user-comments"
+                      className="group flex items-center gap-x-3.5 rounded-md py-2 px-3 text-sm text-primary transition-colors hover:bg-tertiary-100 focus:ring-2 focus:ring-tertiary-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
+                      role="menuitem"
+                      tabIndex={0}
+                    >
+                      <span className="relative">
+                        ご利用者様の声
+                        <motion.span
+                          className="absolute bottom-0 left-0 h-[1px] w-0 bg-primary-400 dark:bg-gray-500"
+                          whileHover={{ width: '100%' }}
+                          transition={{ duration: 0.2 }}
+                        />
+                      </span>
+                    </Link>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
           <Link
             href="/faq"
             className="group relative font-medium text-primary-700 dark:text-gray-400"
@@ -337,18 +433,45 @@ const Navbar = ({ isMenuOpen, onMenuOpenChange }: Props) => {
                 </Link>
               </div>
             </div>
-            <Link
-              href="/user-comments"
-              className="group relative font-medium text-primary-700 dark:text-gray-400"
-              role="menuitem"
-            >
-              <span className="relative z-10">ご利用者様の声</span>
-              <motion.span
-                className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary-400 dark:bg-gray-500"
-                whileHover={{ width: '100%' }}
-                transition={{ duration: 0.2 }}
-              />
-            </Link>
+            <div className="relative">
+              <div className="font-medium text-primary-700 dark:text-gray-400">
+                <span className="relative z-10">活動報告</span>
+              </div>
+              <div
+                className="mt-2 ml-4 flex flex-col gap-3"
+                role="menu"
+                aria-orientation="vertical"
+              >
+                <Link
+                  href="/news"
+                  className="group relative text-sm text-primary-600 transition-colors hover:text-primary-400 dark:text-gray-400 dark:hover:text-gray-300"
+                  role="menuitem"
+                >
+                  <span className="relative z-10">
+                    ├ 活動報告
+                    <motion.span
+                      className="absolute bottom-0 left-0 h-[1px] w-0 bg-primary-400 dark:bg-gray-500"
+                      whileHover={{ width: '100%' }}
+                      transition={{ duration: 0.2 }}
+                    />
+                  </span>
+                </Link>
+                <Link
+                  href="/user-comments"
+                  className="group relative text-sm text-primary-600 transition-colors hover:text-primary-400 dark:text-gray-400 dark:hover:text-gray-300"
+                  role="menuitem"
+                >
+                  <span className="relative z-10">
+                    └ ご利用者様の声
+                    <motion.span
+                      className="absolute bottom-0 left-0 h-[1px] w-0 bg-primary-400 dark:bg-gray-500"
+                      whileHover={{ width: '100%' }}
+                      transition={{ duration: 0.2 }}
+                    />
+                  </span>
+                </Link>
+              </div>
+            </div>
             <Link
               href="/faq"
               className="group relative font-medium text-primary-700 dark:text-gray-400"

@@ -21,6 +21,11 @@ export default function AppRouterNavbar({ isMenuOpen, onMenuOpenChange }: AppRou
   const dropdownButtonRef = useRef<HTMLButtonElement>(null)
   const firstDropdownItemRef = useRef<HTMLAnchorElement>(null)
 
+  const [isReportDropdownOpen, setIsReportDropdownOpen] = useState(false)
+  const reportDropdownRef = useRef<HTMLDivElement>(null)
+  const reportDropdownButtonRef = useRef<HTMLButtonElement>(null)
+  const firstReportDropdownItemRef = useRef<HTMLAnchorElement>(null)
+
   // ドロップダウンメニューの外側をクリックした時に閉じる
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -31,28 +36,41 @@ export default function AppRouterNavbar({ isMenuOpen, onMenuOpenChange }: AppRou
       ) {
         setIsDropdownOpen(false)
       }
+      if (
+        reportDropdownRef.current &&
+        !reportDropdownRef.current.contains(event.target as Node) &&
+        !reportDropdownButtonRef.current?.contains(event.target as Node)
+      ) {
+        setIsReportDropdownOpen(false)
+      }
     }
 
-    if (isDropdownOpen) {
+    if (isDropdownOpen || isReportDropdownOpen) {
       document.addEventListener('mousedown', handleClickOutside)
       return () => document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [isDropdownOpen])
+  }, [isDropdownOpen, isReportDropdownOpen])
 
   // ESCキーでドロップダウンを閉じる
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && isDropdownOpen) {
-        setIsDropdownOpen(false)
-        dropdownButtonRef.current?.focus()
+      if (event.key === 'Escape') {
+        if (isDropdownOpen) {
+          setIsDropdownOpen(false)
+          dropdownButtonRef.current?.focus()
+        }
+        if (isReportDropdownOpen) {
+          setIsReportDropdownOpen(false)
+          reportDropdownButtonRef.current?.focus()
+        }
       }
     }
 
-    if (isDropdownOpen) {
+    if (isDropdownOpen || isReportDropdownOpen) {
       document.addEventListener('keydown', handleEscape)
       return () => document.removeEventListener('keydown', handleEscape)
     }
-  }, [isDropdownOpen])
+  }, [isDropdownOpen, isReportDropdownOpen])
 
   // ドロップダウンが開いた時に最初の項目にフォーカス
   useEffect(() => {
@@ -64,10 +82,20 @@ export default function AppRouterNavbar({ isMenuOpen, onMenuOpenChange }: AppRou
     }
   }, [isDropdownOpen])
 
+  useEffect(() => {
+    if (isReportDropdownOpen && firstReportDropdownItemRef.current) {
+      // 少し遅延させてフォーカスを当てる（アニメーション完了後）
+      setTimeout(() => {
+        firstReportDropdownItemRef.current?.focus()
+      }, 150)
+    }
+  }, [isReportDropdownOpen])
+
   // メニュー項目のクリック時にモバイルメニューを閉じる
   const handleMenuItemClick = () => {
     onMenuOpenChange(false)
     setIsDropdownOpen(false)
+    setIsReportDropdownOpen(false)
   }
 
   return (
@@ -132,7 +160,7 @@ export default function AppRouterNavbar({ isMenuOpen, onMenuOpenChange }: AppRou
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -10, scale: 0.95 }}
                 transition={{ duration: 0.15, ease: 'easeOut' }}
-                className="absolute right-0 z-50 mt-2 w-48 origin-top-right rounded-md border bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none lg:left-0 lg:right-auto lg:origin-top-left dark:border-gray-700 dark:bg-gray-800"
+                className="mt-2 w-full rounded-md bg-gray-50 py-1 pl-4 lg:absolute lg:left-0 lg:right-auto lg:mt-2 lg:w-48 lg:origin-top-left lg:border lg:bg-white lg:pl-0 lg:shadow-lg lg:ring-1 lg:ring-black lg:ring-opacity-5 dark:bg-gray-800/50 lg:dark:border-gray-700 lg:dark:bg-gray-800"
                 role="menu"
                 aria-orientation="vertical"
               >
@@ -145,6 +173,67 @@ export default function AppRouterNavbar({ isMenuOpen, onMenuOpenChange }: AppRou
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary-600 focus:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-inset dark:text-gray-200 dark:hover:bg-gray-700 dark:hover:text-primary-400"
                     role="menuitem"
                     tabIndex={isDropdownOpen ? 0 : -1}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        {/* 活動報告ドロップダウンメニュー */}
+        <div className="relative" ref={reportDropdownRef}>
+          <button
+            ref={reportDropdownButtonRef}
+            type="button"
+            onClick={() => setIsReportDropdownOpen(!isReportDropdownOpen)}
+            className="flex items-center font-medium text-gray-800 hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 lg:text-sm dark:text-gray-200 dark:hover:text-primary-400"
+            aria-expanded={isReportDropdownOpen}
+            aria-haspopup="true"
+            aria-controls="report-dropdown-menu"
+          >
+            活動報告
+            <svg
+              className={`ml-1 h-3 w-3 transition-transform duration-200 ${
+                isReportDropdownOpen ? 'rotate-180' : ''
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+
+          {/* ドロップダウンメニュー */}
+          <AnimatePresence>
+            {isReportDropdownOpen && (
+              <motion.div
+                id="report-dropdown-menu"
+                initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                transition={{ duration: 0.15, ease: 'easeOut' }}
+                className="mt-2 w-full rounded-md bg-gray-50 py-1 pl-4 lg:absolute lg:left-0 lg:right-auto lg:mt-2 lg:w-48 lg:origin-top-left lg:border lg:bg-white lg:pl-0 lg:shadow-lg lg:ring-1 lg:ring-black lg:ring-opacity-5 dark:bg-gray-800/50 lg:dark:border-gray-700 lg:dark:bg-gray-800"
+                role="menu"
+                aria-orientation="vertical"
+              >
+                {reportDropdownItems.map((item, index) => (
+                  <Link
+                    key={item.href}
+                    ref={index === 0 ? firstReportDropdownItemRef : null}
+                    href={item.href}
+                    onClick={handleMenuItemClick}
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-primary-600 focus:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-inset dark:text-gray-200 dark:hover:bg-gray-700 dark:hover:text-primary-400"
+                    role="menuitem"
+                    tabIndex={isReportDropdownOpen ? 0 : -1}
                   >
                     {item.label}
                   </Link>
@@ -196,9 +285,14 @@ const dropdownItems = [
 ] as const
 
 /**
+ * ドロップダウンメニュー項目（活動報告）
+ */
+const reportDropdownItems = [
+  { href: '/news', label: '活動報告' },
+  { href: '/user-comments', label: 'ご利用者様の声' },
+] as const
+
+/**
  * その他のナビゲーション項目（ドロップダウンの後）
  */
-const additionalNavigationItems = [
-  { href: '/user-comments', label: 'ご利用者様の声' },
-  { href: '/faq', label: 'よくある質問' },
-] as const
+const additionalNavigationItems = [{ href: '/faq', label: 'よくある質問' }] as const
