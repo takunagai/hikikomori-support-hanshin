@@ -52,3 +52,7 @@ APP_ROUTER_MIGRATION_LOG.md
 *.swp
 *.swo
 *~
+
+# typescript
+tsconfig.tsbuildinfo
+*.tsbuildinfo
