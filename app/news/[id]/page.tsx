@@ -105,9 +105,6 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
                 お知らせ
               </AppRouterLink>
             </li>
-            <li className="before:content-['/'] before:mx-2 text-gray-900 font-medium">
-              {newsArticle.title}
-            </li>
           </ol>
         </nav>
 
