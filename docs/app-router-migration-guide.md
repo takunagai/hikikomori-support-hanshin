@@ -1,11 +1,20 @@
 # Pages Router から App Router への移行ガイド
 
+> **📦 アーカイブ — 移行完了済み (2026-05-18)**
+>
+> 本ガイドは 2025-06 時点で書かれた移行計画書です。Phase 1〜3 は 2025 年内に、Phase 4（`pages/places-and-groups.tsx` の移植と `pages/` の物理削除）は 2026-05-18 の Next.js 16 + React 19 アップグレードで完了しました。
+>
+> - 現状のプロジェクト構造は [README.md](../README.md) と [CLAUDE.md](../CLAUDE.md) を参照
+> - 2026-05 アップグレードの詳細は [docs/logs/2026-05-18_upgrade-next16-react19.md](./logs/2026-05-18_upgrade-next16-react19.md) を参照
+>
+> 以下は当時の計画書をそのまま残しています（実装パターン集は現在でもほぼ有効ですが、`params` は Promise 化された等の Next.js 16 仕様変更があります）。
+
 ## 概要
 
 このドキュメントは、hikikomori-support-hanshin プロジェクトを Pages Router から App Router へ移行するための詳細なガイドです。
 
 **作成日**: 2025-06-27  
-**対象バージョン**: Next.js 15.3.4  
+**対象バージョン**: Next.js 15.3.4（当時）  
 **プロジェクト**: 兵庫ひきこもり相談支援センター 阪神ブランチ
 
 ---
@@ -955,5 +964,5 @@ export default function NewsLoading() {
 
 ---
 
-**最終更新**: 2025-06-27  
-**次回見直し予定**: 移行完了後
+**最終更新**: 2025-06-27（当時の計画書としての最終更新）  
+**移行完了**: 2026-05-18（pages/ 物理削除をもって完了、[docs/logs/2026-05-18_upgrade-next16-react19.md](./logs/2026-05-18_upgrade-next16-react19.md) 参照）

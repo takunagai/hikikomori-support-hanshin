@@ -310,17 +310,31 @@ npm run start
 - 汎用 `DropdownMenu` コンポーネントを導入、活動報告メニューをドロップダウン化
 - OG画像の動的生成 (`app/api/og/`)
 
+#### ✅ Biome 2.4 lint クリーン化（2026-05）
+
+- biome.json `files.includes` に `!public, !.next, !out, !node_modules` 追加
+  （`public/js/hs-ui.bundle.js` のサードパーティ JS 由来 1046 件のエラーが対象外に）
+- 残った真のエラー 22 件 + 警告を個別修正（冗長 role 削除、button type 追加、装飾 SVG に aria-hidden、`Error` → `GlobalError` 等）
+- 最終: 0 errors / 0 warnings
+
+#### ✅ npm audit fix（2026-05）
+
+- safe な範囲で間接依存 5 件解消（brace-expansion, glob, minimatch, picomatch, yaml）
+- 残 1 件は `next` 内部の `postcss < 8.5.10`、Next.js のリリース待ち
+  （詳細は [docs/logs/2026-05-18_upgrade-next16-react19.md](./docs/logs/2026-05-18_upgrade-next16-react19.md) 参照）
+
 ### 進行中タスク
 
 - [ ] **Tailwind CSS v3 → v4 移行**（@apply 19 箇所の再構成、CSS-first 化、Safari 16.4+ 要件確認）
-- [ ] **Biome 2.4 残 lint エラー対応**（自動 fix で 41 ファイル整形済み、残 665 errors は個別対応）
 - [ ] **`lib/env.ts` に MICROCMS_WEBHOOK_SECRET ラッパ追加**（現状は API route で process.env 直接参照）
 - [ ] **`<Suspense>` 境界の追加**（`app/page.tsx` で PPR 対応）
+- [ ] **microCMS 管理画面で Webhook 登録**（URL `https://hanshin-branch.org/api/revalidate`、ヘッダ `x-microcms-signature`）
 - [ ] ダークモード実装の完了
 - [ ] パフォーマンス最適化（Lighthouse 計測 + バンドル解析）
 - [ ] テストの追加（Vitest + Testing Library）
 - [ ] アクセシビリティの向上
 - [ ] `types/news.ts` の microCMS API スキーマからの自動生成
+- [ ] `next` 内部 `postcss` 脆弱性の解消（Next.js リリース待ち）
 
 ## Claude Code効率化ガイド ✅
 
@@ -501,4 +515,4 @@ import Header from '../components/Header'
 
 ---
 
-**最終更新**: 2026-05-18 - Next.js 16 + React 19 への包括的アップグレード完了、pages/ 完全消滅、AppRouter プレフィックス除去、React Compiler 有効化
+**最終更新**: 2026-05-18 - Next.js 16 + React 19 アップグレード、pages/ 完全消滅、AppRouter プレフィックス除去、React Compiler 有効化、Biome lint 完全クリーン化、npm audit fix まで完了
