@@ -184,35 +184,6 @@ export const userCommentsApi = {
 }
 
 /**
- * キャッシュ無効化関数
- */
-export const revalidateCache = {
-  /**
-   * ニュース関連キャッシュを無効化
-   */
-  news: async () => {
-    // Webhook からの呼び出し用
-    // revalidateTag('news')
-  },
-
-  /**
-   * グループ関連キャッシュを無効化
-   */
-  groups: async () => {
-    // Webhook からの呼び出し用
-    // revalidateTag('groups')
-  },
-
-  /**
-   * ユーザーコメント関連キャッシュを無効化
-   */
-  userComments: async () => {
-    // Webhook からの呼び出し用
-    // revalidateTag('user-comments')
-  },
-}
-
-/**
  * エラーハンドリング用のヘルパー関数
  */
 export function handleMicroCMSError(error: unknown): Error {
