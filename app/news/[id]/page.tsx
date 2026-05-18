@@ -9,17 +9,16 @@ import AppRouterLink from '../../../components/AppRouterLink'
 import AppRouterNewsContent from '../../../components/AppRouterNewsContent'
 
 interface NewsDetailPageProps {
-  params: {
-    id: string
-  }
+  params: Promise<{ id: string }>
 }
 
 /**
  * 動的メタデータ生成
  */
 export async function generateMetadata({ params }: NewsDetailPageProps): Promise<Metadata> {
+  const { id } = await params
   try {
-    const newsArticle = await newsApi.getById(params.id)
+    const newsArticle = await newsApi.getById(id)
     const description = newsArticle.body
       ?.replace(/(<([^>]+)>)/gi, '')
       .slice(0, 160) || ''
@@ -65,12 +64,13 @@ export async function generateStaticParams() {
  * - SEO最適化
  */
 export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
+  const { id } = await params
   let newsArticle: NewsItem
 
   try {
-    newsArticle = await newsApi.getById(params.id)
+    newsArticle = await newsApi.getById(id)
   } catch (error) {
-    console.error(`Failed to fetch news article ${params.id}:`, error)
+    console.error(`Failed to fetch news article ${id}:`, error)
     notFound()
   }
 
