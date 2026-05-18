@@ -74,11 +74,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
     notFound()
   }
 
-  let isReport = false;
-  const status = newsArticle.status; // string[]
-  if (status.includes("レポート")) {
-      isReport = true;
-  }
+  const isReport = newsArticle.status?.includes('レポート') ?? false
 
   return (
     <AppRouterInquiryContent>
