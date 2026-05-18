@@ -1,7 +1,4 @@
-'use client'
-
-import DOMPurify from 'dompurify'
-import { useEffect, useState } from 'react'
+import DOMPurify from 'isomorphic-dompurify'
 
 interface NewsContentProps {
   content: string
@@ -9,29 +6,15 @@ interface NewsContentProps {
 }
 
 /**
- * App Router 対応 ニュースコンテンツ表示
- * - Client Component として実装（DOMPurify使用のため）
- * - HTMLサニタイズ機能
- * - セキュリティ対応
+ * ニュースコンテンツ表示 (Server Component)
+ * isomorphic-dompurify で SSR 時にサニタイズし、Client JS と FOUC を回避。
  */
-export default function NewsContent({
-  content,
-  className = '',
-}: NewsContentProps) {
-  const [sanitizedHtml, setSanitizedHtml] = useState(content)
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setSanitizedHtml(DOMPurify.sanitize(content))
-    }
-  }, [content])
-
+export default function NewsContent({ content, className = '' }: NewsContentProps) {
+  const sanitized = DOMPurify.sanitize(content)
   return (
     <div
       className={`prose prose-lg max-w-none ${className}`}
-      dangerouslySetInnerHTML={{
-        __html: sanitizedHtml,
-      }}
+      dangerouslySetInnerHTML={{ __html: sanitized }}
     />
   )
 }
