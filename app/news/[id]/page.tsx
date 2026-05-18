@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import AppRouterInquiryContent from '../../../components/AppRouterInquiryContent'
-import AppRouterLink from '../../../components/AppRouterLink'
-import AppRouterNewsContent from '../../../components/AppRouterNewsContent'
+import InquiryContent from '../../../components/InquiryContent'
+import Link from '../../../components/Link'
+import NewsContent from '../../../components/NewsContent'
 import FormattedDate from '../../../components/FormattedDate'
 import { newsApi } from '../../../lib/microcms-app-router'
 import type { NewsItem } from '../../../types/news'
@@ -74,7 +74,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
   const isReport = newsArticle.status?.includes('レポート') ?? false
 
   return (
-    <AppRouterInquiryContent>
+    <InquiryContent>
       <div className="pb-8">
         {/* ページヘッダー */}
         <header className="alignfull bg-dots3 py-12 text-center">
@@ -87,14 +87,14 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
         <nav className="mx-auto max-w-2xl px-4 py-4" aria-label="パンくずナビゲーション">
           <ol className="flex items-center space-x-2 text-sm text-gray-500">
             <li>
-              <AppRouterLink href="/" variant="default">
+              <Link href="/" variant="default">
                 ホーム
-              </AppRouterLink>
+              </Link>
             </li>
             <li className="before:content-['/'] before:mx-2">
-              <AppRouterLink href="/news" variant="default">
+              <Link href="/news" variant="default">
                 お知らせ
-              </AppRouterLink>
+              </Link>
             </li>
           </ol>
         </nav>
@@ -113,13 +113,13 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
 
           {isReport && newsArticle.report && (
             <div className="mt-8">
-              <AppRouterNewsContent content={newsArticle.report} className="text-gray-800" />
+              <NewsContent content={newsArticle.report} className="text-gray-800" />
             </div>
           )}
 
           {!isReport && newsArticle.body && (
             <div className="mt-8">
-              <AppRouterNewsContent content={newsArticle.body} className="text-gray-800" />
+              <NewsContent content={newsArticle.body} className="text-gray-800" />
             </div>
           )}
         </article>
@@ -127,16 +127,16 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
         {/* ナビゲーション */}
         <nav className="mx-auto max-w-2xl px-4 py-8" aria-label="記事ナビゲーション">
           <div className="text-center">
-            <AppRouterLink href="/" className="btn btn-primary px-16">
+            <Link href="/" className="btn btn-primary px-16">
               トップページへ
-            </AppRouterLink>
+            </Link>
 
-            <AppRouterLink href="/news" className="btn btn-secondary px-7">
+            <Link href="/news" className="btn btn-secondary px-7">
               活動報告を見る
-            </AppRouterLink>
+            </Link>
           </div>
         </nav>
       </div>
-    </AppRouterInquiryContent>
+    </InquiryContent>
   )
 }

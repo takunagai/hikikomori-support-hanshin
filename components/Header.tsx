@@ -2,11 +2,11 @@
 
 import { useTheme } from 'next-themes'
 import { useState } from 'react'
-import AppRouterNavbar from './AppRouterNavbar'
-import AppRouterNavbarCollapseButton from './AppRouterNavbarCollapseButton'
-import AppRouterSiteLogo from './AppRouterSiteLogo'
+import Navbar from './Navbar'
+import NavbarCollapseButton from './NavbarCollapseButton'
+import SiteLogo from './SiteLogo'
 
-interface AppRouterHeaderProps {
+interface HeaderProps {
   home?: boolean
 }
 
@@ -16,7 +16,7 @@ interface AppRouterHeaderProps {
  * - useTheme フックで theme 管理を統合
  * - シンプルな Props 設計
  */
-export default function AppRouterHeader({ home = false }: AppRouterHeaderProps) {
+export default function Header({ home = false }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { theme, setTheme } = useTheme()
 
@@ -33,14 +33,14 @@ export default function AppRouterHeader({ home = false }: AppRouterHeaderProps) 
       >
         {/* ロゴとモバイルメニュー制御 */}
         <div className="flex w-full items-center justify-between lg:w-auto">
-          <AppRouterSiteLogo home={home} siteTitle={siteTitle} />
+          <SiteLogo home={home} siteTitle={siteTitle} />
 
           {/* モバイル向けコントロール */}
           <div className="flex items-center gap-4 lg:hidden">
             {/* ダークモード切り替え（将来的に有効化） */}
             {/* <ModeSwitcher theme={theme} setTheme={setTheme} /> */}
 
-            <AppRouterNavbarCollapseButton
+            <NavbarCollapseButton
               isOpen={isMenuOpen}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             />
@@ -48,7 +48,7 @@ export default function AppRouterHeader({ home = false }: AppRouterHeaderProps) 
         </div>
 
         {/* メインナビゲーション */}
-        <AppRouterNavbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} />
+        <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} />
 
         {/* デスクトップ向けダークモード切り替え（将来的に有効化） */}
         {/* 

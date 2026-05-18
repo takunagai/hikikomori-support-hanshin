@@ -1,6 +1,6 @@
 import { FaHandHoldingHeart, FaHandshake, FaHorse, FaLock, FaUserFriends } from 'react-icons/fa'
 
-import AppRouterLink from './AppRouterLink'
+import Link from './Link'
 
 /**
  * App Router 対応 支援内容セクション
@@ -8,7 +8,7 @@ import AppRouterLink from './AppRouterLink'
  * - ひきこもり支援の詳細説明
  * - アクセシビリティ対応
  */
-export default function AppRouterSupportSection() {
+export default function SupportSection() {
   return (
     <section className="my-12 px-4" aria-labelledby="support-section">
       <h2
@@ -148,9 +148,9 @@ export default function AppRouterSupportSection() {
         </p>
 
         <div className="mt-6 text-center">
-          <AppRouterLink href="/flow" className="btn btn-primary px-10">
+          <Link href="/flow" className="btn btn-primary px-10">
             相談の流れ
-          </AppRouterLink>
+          </Link>
         </div>
       </div>
     </section>

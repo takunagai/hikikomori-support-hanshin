@@ -5,7 +5,7 @@ import Link from 'next/link'
  * - Server Component として実装
  * - CTAセクション（Call to Action）
  */
-export default function AppRouterAfterContentArea() {
+export default function AfterContentArea() {
   return (
     <div className="mx-auto mt-8 max-w-xl rounded-xl bg-tertiary-100 p-4 text-center shadow">
       <h3 className="mt-2 text-lg font-semibold text-gray-900">

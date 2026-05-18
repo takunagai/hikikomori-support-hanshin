@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import AppRouterInquiryContent from '../../components/AppRouterInquiryContent'
+import InquiryContent from '../../components/InquiryContent'
 
 export const metadata: Metadata = {
   title: '個人情報保護方針(プライバシーポリシー)',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
  */
 export default function PrivacyPolicyPage() {
   return (
-    <AppRouterInquiryContent>
+    <InquiryContent>
       <div className="pb-8">
         {/* ページヘッダー */}
         <h1 className="alignfull bg-dots3">個人情報保護方針</h1>
@@ -200,6 +200,6 @@ export default function PrivacyPolicyPage() {
           </div>
         </article>
       </div>
-    </AppRouterInquiryContent>
+    </InquiryContent>
   )
 }

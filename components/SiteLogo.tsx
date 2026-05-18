@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-interface AppRouterSiteLogoProps {
+interface SiteLogoProps {
   home?: boolean
   siteTitle: string
 }
@@ -10,7 +10,7 @@ interface AppRouterSiteLogoProps {
  * - Server Component として実装可能
  * - アクセシビリティ最適化
  */
-export default function AppRouterSiteLogo({ home = false, siteTitle }: AppRouterSiteLogoProps) {
+export default function SiteLogo({ home = false, siteTitle }: SiteLogoProps) {
   const commonClasses =
     'site-title flex-none text-xl font-bold text-primary dark:text-white transition-colors hover:text-primary-600 dark:hover:text-primary-400'
 

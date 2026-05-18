@@ -3,7 +3,7 @@
 import { motion } from 'motion/react'
 import type { ReactNode } from 'react'
 
-interface AppRouterInquiryContentProps {
+interface InquiryContentProps {
   children: ReactNode
 }
 
@@ -12,7 +12,7 @@ interface AppRouterInquiryContentProps {
  * - Client Component として実装
  * - Framer Motion アニメーション対応
  */
-export default function AppRouterInquiryContent({ children }: AppRouterInquiryContentProps) {
+export default function InquiryContent({ children }: InquiryContentProps) {
   return (
     <motion.div
       initial={{ opacity: 0 }}

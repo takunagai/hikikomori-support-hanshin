@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
-import AppRouterInquiryContent from '../../components/AppRouterInquiryContent'
-import AppRouterLink from '../../components/AppRouterLink'
+import InquiryContent from '../../components/InquiryContent'
+import Link from '../../components/Link'
 
 export const metadata: Metadata = {
   title: 'サイトマップ',
@@ -47,7 +47,7 @@ const sitePages = [
  */
 export default function SitemapPage() {
   return (
-    <AppRouterInquiryContent>
+    <InquiryContent>
       <div className="pb-8">
         {/* ページヘッダー */}
         <h1 className="alignfull bg-dots3">サイトマップ</h1>
@@ -78,7 +78,7 @@ export default function SitemapPage() {
                     </span>
 
                     <div className="flex-1 min-w-0">
-                      <AppRouterLink
+                      <Link
                         href={page.href}
                         className="block font-medium text-gray-900 hover:text-primary-600 focus:text-primary-600"
                       >
@@ -88,7 +88,7 @@ export default function SitemapPage() {
                             {page.description}
                           </span>
                         )}
-                      </AppRouterLink>
+                      </Link>
                     </div>
                   </div>
                 </li>
@@ -113,6 +113,6 @@ export default function SitemapPage() {
           </div>
         </section>
       </div>
-    </AppRouterInquiryContent>
+    </InquiryContent>
   )
 }

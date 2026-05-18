@@ -3,7 +3,7 @@
 import { motion } from 'motion/react'
 import type { UserComment } from '../types/user-comment'
 
-interface AppRouterUserCommentsGridProps {
+interface UserCommentsGridProps {
   userComments: UserComment[]
 }
 
@@ -13,9 +13,9 @@ interface AppRouterUserCommentsGridProps {
  * - アニメーション対応
  * - レスポンシブデザイン
  */
-export default function AppRouterUserCommentsGrid({
+export default function UserCommentsGrid({
   userComments,
-}: AppRouterUserCommentsGridProps) {
+}: UserCommentsGridProps) {
   return (
     <div className="mt-8">
       <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

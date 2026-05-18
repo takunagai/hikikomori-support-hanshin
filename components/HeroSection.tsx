@@ -3,7 +3,7 @@
 import { motion } from 'motion/react'
 import Image from 'next/image'
 
-import AppRouterLink from './AppRouterLink'
+import Link from './Link'
 
 /**
  * App Router 対応 ヒーローセクション
@@ -11,7 +11,7 @@ import AppRouterLink from './AppRouterLink'
  * - メインビジュアルとメッセージ表示
  * - レスポンシブデザイン
  */
-export default function AppRouterHeroSection() {
+export default function HeroSection() {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -50,12 +50,12 @@ export default function AppRouterHeroSection() {
           </p>
 
           <div className="mt-6">
-            <AppRouterLink href="/flow" className="btn btn-primary px-7 md:px-16">
+            <Link href="/flow" className="btn btn-primary px-7 md:px-16">
               相談する
-            </AppRouterLink>
-            <AppRouterLink href="/places-and-groups" className="btn btn-secondary lg:px-7">
+            </Link>
+            <Link href="/places-and-groups" className="btn btn-secondary lg:px-7">
               居場所情報を見る
-            </AppRouterLink>
+            </Link>
           </div>
         </motion.div>
 

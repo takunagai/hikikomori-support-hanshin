@@ -8,7 +8,7 @@ import { SocialLinks } from './SocialLinks'
  * - ソーシャルリンクのみ Client Component として分離
  * - Next.js Image コンポーネントでパフォーマンス最適化
  */
-export default function AppRouterFooter() {
+export default function Footer() {
   return (
     <footer className="mt-auto">
       <div className="container px-5 pt-12">

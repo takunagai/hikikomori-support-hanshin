@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 
-import AppRouterAfterContentArea from '../../components/AppRouterAfterContentArea'
-import AppRouterContactSection from '../../components/AppRouterContactSection'
-import AppRouterInquiryContent from '../../components/AppRouterInquiryContent'
-import AppRouterLink from '../../components/AppRouterLink'
+import AfterContentArea from '../../components/AfterContentArea'
+import ContactSection from '../../components/ContactSection'
+import InquiryContent from '../../components/InquiryContent'
+import Link from '../../components/Link'
 
 export const metadata: Metadata = {
   title: 'お問合せ',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
  */
 export default function InquiryPage() {
   return (
-    <AppRouterInquiryContent>
+    <InquiryContent>
       <div className="pb-8">
         {/* ページヘッダー */}
         <h1 className="alignfull bg-dots3">お問合せ</h1>
@@ -40,18 +40,18 @@ export default function InquiryPage() {
               className="mt-4 flex flex-wrap justify-center gap-4 text-center"
               aria-label="関連ページ"
             >
-              <AppRouterLink href="/flow" variant="primary" showArrow>
+              <Link href="/flow" variant="primary" showArrow>
                 相談の流れ
-              </AppRouterLink>
-              <AppRouterLink href="/faq" variant="primary" showArrow>
+              </Link>
+              <Link href="/faq" variant="primary" showArrow>
                 よくある質問を見る
-              </AppRouterLink>
+              </Link>
             </nav>
           </div>
         </section>
 
         {/* 連絡先セクション */}
-        <AppRouterContactSection />
+        <ContactSection />
 
         {/* お問い合わせフォーム（準備中） */}
         <section className="px-4" aria-labelledby="form-section">
@@ -72,9 +72,9 @@ export default function InquiryPage() {
           <h2 id="cta-section" className="sr-only">
             相談のご案内
           </h2>
-          <AppRouterAfterContentArea />
+          <AfterContentArea />
         </section>
       </div>
-    </AppRouterInquiryContent>
+    </InquiryContent>
   )
 }

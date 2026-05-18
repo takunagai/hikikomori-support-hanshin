@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { useState } from 'react'
 
-interface AppRouterAccordionProps {
+interface AccordionProps {
   title: React.ReactNode
   children: React.ReactNode
   defaultOpen?: boolean
@@ -15,11 +15,11 @@ interface AppRouterAccordionProps {
  * - Framer Motion アニメーション
  * - アクセシビリティ完全対応
  */
-export default function AppRouterAccordion({
+export default function Accordion({
   title,
   children,
   defaultOpen = false,
-}: AppRouterAccordionProps) {
+}: AccordionProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen)
 
   return (

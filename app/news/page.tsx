@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import AppRouterAfterContentArea from '../../components/AppRouterAfterContentArea'
-import AppRouterInquiryContent from '../../components/AppRouterInquiryContent'
-import AppRouterLink from '../../components/AppRouterLink'
+import AfterContentArea from '../../components/AfterContentArea'
+import InquiryContent from '../../components/InquiryContent'
+import Link from '../../components/Link'
 import FormattedDate from '../../components/FormattedDate'
 import { NEWS_CONFIG } from '../../lib/constants'
 import { newsApi } from '../../lib/microcms-app-router'
@@ -31,7 +31,7 @@ export default async function NewsPage() {
   })
 
   return (
-    <AppRouterInquiryContent>
+    <InquiryContent>
       <div className="pb-8">
         {/* ページヘッダー */}
         <h1 className="alignfull bg-dots3">活動報告</h1>
@@ -42,7 +42,7 @@ export default async function NewsPage() {
             <p className="text-lg text-gray-700">過去に行った活動のレポートです。</p>
             <p className="mt-0 text-gray-700">
               お知らせや今後のイベントは
-              <AppRouterLink href={'/'}>トップページ</AppRouterLink>でご覧ください。
+              <Link href={'/'}>トップページ</Link>でご覧ください。
             </p>
           </div>
         </section>
@@ -62,12 +62,12 @@ export default async function NewsPage() {
                 >
                   <article>
                     <h3 className="text-lg text-left">
-                      <AppRouterLink
+                      <Link
                         href={`/news/${newsItem.id}`}
                         className="!font-bold text-primary-600 hover:text-primary-700 focus:text-primary-700 !px-0"
                       >
                         {newsItem.title}
-                      </AppRouterLink>
+                      </Link>
                     </h3>
                     <p className="mt-2 flex items-center gap-2 text-sm text-gray-600">
                       <span>投稿日：</span>
@@ -89,9 +89,9 @@ export default async function NewsPage() {
           <h2 id="cta-section" className="sr-only">
             相談のご案内
           </h2>
-          <AppRouterAfterContentArea />
+          <AfterContentArea />
         </section>
       </div>
-    </AppRouterInquiryContent>
+    </InquiryContent>
   )
 }

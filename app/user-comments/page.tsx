@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import AppRouterAfterContentArea from '../../components/AppRouterAfterContentArea'
-import AppRouterInquiryContent from '../../components/AppRouterInquiryContent'
-import AppRouterUserCommentsGrid from '../../components/AppRouterUserCommentsGrid'
+import AfterContentArea from '../../components/AfterContentArea'
+import InquiryContent from '../../components/InquiryContent'
+import UserCommentsGrid from '../../components/UserCommentsGrid'
 import { userCommentsApi } from '../../lib/microcms-app-router'
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export default async function UserCommentsPage() {
   const userComments = await userCommentsApi.getAll()
 
   return (
-    <AppRouterInquiryContent>
+    <InquiryContent>
       <div className="pb-8">
         {/* ページヘッダー */}
         <h1 className="alignfull bg-dots3">ご利用者様の声</h1>
@@ -48,7 +48,7 @@ export default async function UserCommentsPage() {
           </h2>
 
           {userComments.length > 0 ? (
-            <AppRouterUserCommentsGrid userComments={userComments} />
+            <UserCommentsGrid userComments={userComments} />
           ) : (
             <div className="text-center py-12">
               <p className="text-gray-500">現在、表示できるご利用者様の声はありません。</p>
@@ -61,9 +61,9 @@ export default async function UserCommentsPage() {
           <h2 id="cta-section" className="sr-only">
             相談のご案内
           </h2>
-          <AppRouterAfterContentArea />
+          <AfterContentArea />
         </section>
       </div>
-    </AppRouterInquiryContent>
+    </InquiryContent>
   )
 }

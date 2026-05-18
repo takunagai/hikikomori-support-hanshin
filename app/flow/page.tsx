@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { FaCat, FaCrow, FaDemocrat, FaDove, FaPhoneAlt } from 'react-icons/fa'
 
-import AppRouterAccessMap from '../../components/AppRouterAccessMap'
-import AppRouterInquiryContent from '../../components/AppRouterInquiryContent'
+import AccessMap from '../../components/AccessMap'
+import InquiryContent from '../../components/InquiryContent'
 
 export const metadata: Metadata = {
   title: '相談の流れ',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
  */
 export default function FlowPage() {
   return (
-    <AppRouterInquiryContent>
+    <InquiryContent>
       <div className="pb-8">
         {/* ページヘッダー */}
         <h1 className="alignfull bg-dots3">相談する</h1>
@@ -206,9 +206,9 @@ export default function FlowPage() {
 
         {/* アクセスマップ */}
         <div className="mt-12 px-4">
-          <AppRouterAccessMap />
+          <AccessMap />
         </div>
       </div>
-    </AppRouterInquiryContent>
+    </InquiryContent>
   )
 }

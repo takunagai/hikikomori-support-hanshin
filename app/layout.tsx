@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from 'next'
 import { Yomogi } from 'next/font/google'
 
-import AppRouterFooter from '../components/AppRouterFooter'
-import AppRouterHeader from '../components/AppRouterHeader'
+import Footer from '../components/Footer'
+import Header from '../components/Header'
 import { ThemeProvider } from '../components/providers/ThemeProvider'
 
 import '../styles/globals.css'
@@ -137,13 +137,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
       >
         <ThemeProvider>
           <div className="flex h-full w-full flex-col">
-            <AppRouterHeader />
+            <Header />
             <div className="cover__main container flex-1">
               <main id="primary" role="main" aria-label="メインコンテンツ" className="min-h-[60vh]">
                 {children}
               </main>
             </div>
-            <AppRouterFooter />
+            <Footer />
           </div>
         </ThemeProvider>
       </body>

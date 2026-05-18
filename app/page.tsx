@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
-import AppRouterAccessMap from '../components/AppRouterAccessMap'
-import AppRouterHeroSection from '../components/AppRouterHeroSection'
-import AppRouterNewsSection from '../components/AppRouterNewsSection'
-import AppRouterPlacesSection from '../components/AppRouterPlacesSection'
-import AppRouterSupportSection from '../components/AppRouterSupportSection'
+import AccessMap from '../components/AccessMap'
+import HeroSection from '../components/HeroSection'
+import NewsSection from '../components/NewsSection'
+import PlacesSection from '../components/PlacesSection'
+import SupportSection from '../components/SupportSection'
 import { NEWS_CONFIG, SITE_CONFIG } from '../lib/constants'
 import { newsApi } from '../lib/microcms-app-router'
 
@@ -34,27 +34,27 @@ export default async function HomePage() {
   return (
     <div>
       {/* ヒーローセクション */}
-      <AppRouterHeroSection />
+      <HeroSection />
 
       {/* お知らせセクション */}
-      <AppRouterNewsSection newsItems={newsItems} />
+      <NewsSection newsItems={newsItems} />
 
       <hr />
 
       {/* ひきこもり支援セクション */}
-      <AppRouterSupportSection />
+      <SupportSection />
 
       <hr />
 
       {/* アクセスマップ */}
       <div className="py-12">
-        <AppRouterAccessMap />
+        <AccessMap />
       </div>
 
       <hr />
 
       {/* 居場所情報セクション */}
-      <AppRouterPlacesSection />
+      <PlacesSection />
     </div>
   )
 }

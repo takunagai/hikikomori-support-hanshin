@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react'
 
-interface AppRouterNavbarCollapseButtonProps {
+interface NavbarCollapseButtonProps {
   isOpen: boolean
   onClick: () => void
   'aria-label'?: string
@@ -14,11 +14,11 @@ interface AppRouterNavbarCollapseButtonProps {
  * - Framer Motion アニメーション
  * - アクセシビリティ完全対応
  */
-export default function AppRouterNavbarCollapseButton({
+export default function NavbarCollapseButton({
   isOpen,
   onClick,
   'aria-label': ariaLabel = isOpen ? 'メニューを閉じる' : 'メニューを開く',
-}: AppRouterNavbarCollapseButtonProps) {
+}: NavbarCollapseButtonProps) {
   return (
     <motion.button
       type="button"

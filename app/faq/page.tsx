@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
-import AppRouterAccordion from '../../components/AppRouterAccordion'
-import AppRouterAfterContentArea from '../../components/AppRouterAfterContentArea'
-import AppRouterLink from '../../components/AppRouterLink'
+import Accordion from '../../components/Accordion'
+import AfterContentArea from '../../components/AfterContentArea'
+import Link from '../../components/Link'
 
 export const metadata: Metadata = {
   title: 'よくある質問とその回答',
@@ -36,9 +36,9 @@ export default function FaqPage() {
           </p>
 
           <p className="mt-4">
-            <AppRouterLink href="/inquiry" variant="primary" showArrow>
+            <Link href="/inquiry" variant="primary" showArrow>
               お問合せはこちら
-            </AppRouterLink>
+            </Link>
           </p>
         </div>
       </section>
@@ -50,11 +50,11 @@ export default function FaqPage() {
         </h2>
 
         <div className="space-y-0">
-          <AppRouterAccordion title="Q. 相談料はかかりますか？" defaultOpen>
+          <Accordion title="Q. 相談料はかかりますか？" defaultOpen>
             <p className="text-gray-800 dark:text-gray-200">料金はかかりません。無料です。</p>
-          </AppRouterAccordion>
+          </Accordion>
 
-          <AppRouterAccordion title="Q. 対象の地域は？">
+          <Accordion title="Q. 対象の地域は？">
             <div className="space-y-4">
               <p className="text-gray-800 dark:text-gray-200">
                 神戸市以外の阪神地域の方が対象です。
@@ -84,63 +84,63 @@ export default function FaqPage() {
                       className="mr-2 h-2 w-2 rounded-full bg-secondary-400"
                       aria-hidden="true"
                     />
-                    <AppRouterLink href="https://harima-branch.com/" external variant="default">
+                    <Link href="https://harima-branch.com/" external variant="default">
                       播磨ブランチ
-                    </AppRouterLink>
+                    </Link>
                   </li>
                   <li className="flex items-center">
                     <span
                       className="mr-2 h-2 w-2 rounded-full bg-secondary-400"
                       aria-hidden="true"
                     />
-                    <AppRouterLink
+                    <Link
                       href="https://kounotori-inochinet.com/"
                       external
                       variant="default"
                     >
                       但馬ブランチ
-                    </AppRouterLink>
+                    </Link>
                   </li>
                   <li className="flex items-center">
                     <span
                       className="mr-2 h-2 w-2 rounded-full bg-secondary-400"
                       aria-hidden="true"
                     />
-                    <AppRouterLink
+                    <Link
                       href="https://web.pref.hyogo.lg.jp/kk16/ac12_000000034.html"
                       external
                       variant="default"
                     >
                       丹波ブランチ
-                    </AppRouterLink>
+                    </Link>
                   </li>
                   <li className="flex items-center">
                     <span
                       className="mr-2 h-2 w-2 rounded-full bg-secondary-400"
                       aria-hidden="true"
                     />
-                    <AppRouterLink
+                    <Link
                       href="https://web.pref.hyogo.lg.jp/kf09/hikikomori/awaji.html"
                       external
                       variant="default"
                     >
                       淡路ブランチ
-                    </AppRouterLink>
+                    </Link>
                   </li>
                 </ul>
               </div>
             </div>
-          </AppRouterAccordion>
+          </Accordion>
 
-          <AppRouterAccordion title="Q. 本人以外が相談してもよいですか？">
+          <Accordion title="Q. 本人以外が相談してもよいですか？">
             <p className="text-gray-800 dark:text-gray-200">
               ご本人・家族・兄弟・年齢などは問いません。
               <br />
               どなたでもお気軽にご相談ください。
             </p>
-          </AppRouterAccordion>
+          </Accordion>
 
-          <AppRouterAccordion title="Q. いつでも相談できるの？">
+          <Accordion title="Q. いつでも相談できるの？">
             <div className="space-y-3">
               <p className="text-gray-800 dark:text-gray-200">
                 まずはお電話ください。スタッフが相談予約日をご案内します。
@@ -162,12 +162,12 @@ export default function FaqPage() {
               </div>
 
               <p>
-                <AppRouterLink href="/flow" variant="primary" showArrow>
+                <Link href="/flow" variant="primary" showArrow>
                   相談する
-                </AppRouterLink>
+                </Link>
               </p>
             </div>
-          </AppRouterAccordion>
+          </Accordion>
         </div>
       </section>
 
@@ -176,7 +176,7 @@ export default function FaqPage() {
         <h2 id="cta-heading" className="sr-only">
           相談のご案内
         </h2>
-        <AppRouterAfterContentArea />
+        <AfterContentArea />
       </section>
     </div>
   )

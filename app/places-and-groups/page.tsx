@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import AppRouterAfterContentArea from '../../components/AppRouterAfterContentArea'
+import AfterContentArea from '../../components/AfterContentArea'
 import { groupsApi } from '../../lib/microcms-app-router'
 import PlacesAndGroupsClient from './PlacesAndGroupsClient'
 
@@ -20,7 +20,7 @@ export default async function PlacesAndGroupsPage() {
   return (
     <>
       <PlacesAndGroupsClient groups={groups} />
-      <AppRouterAfterContentArea />
+      <AfterContentArea />
     </>
   )
 }

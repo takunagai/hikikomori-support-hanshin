@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'motion/react'
 import Image from 'next/image'
 import { useState } from 'react'
 import { FaEnvelope, FaGlobe, FaInfoCircle, FaLine, FaPhoneAlt, FaPrint } from 'react-icons/fa'
-import AppRouterLink from '../../components/AppRouterLink'
+import Link from '../../components/Link'
 import DialogDemo from '../../components/Dialog'
 import InfiniteScroll from '../../components/InfiniteScroll'
 import RadioButton from '../../components/RadioButton'
@@ -82,9 +82,9 @@ export default function PlacesAndGroupsClient({ groups }: Props) {
                   当ページへの新規掲載を気希望の方や掲載情報変更を希望の方は、お問い合わせください。
                 </p>
                 <p className="mt-4 text-center">
-                  <AppRouterLink href="/inquiry" className="btn btn-secondary">
+                  <Link href="/inquiry" className="btn btn-secondary">
                     お問合せはこちら
-                  </AppRouterLink>
+                  </Link>
                 </p>
 
                 <div style={{ marginTop: '0.5em', textAlign: 'center' }}>
@@ -313,7 +313,7 @@ function GroupList({ groups, selectedCity }: { groups: Group[]; selectedCity: st
 
                         <div className="flex gap-4">
                           {group.contactEmail && (
-                            <AppRouterLink
+                            <Link
                               href={`mailto:${group.contactEmail}`}
                               external
                               variant="secondary"
@@ -321,11 +321,11 @@ function GroupList({ groups, selectedCity }: { groups: Group[]; selectedCity: st
                             >
                               <FaEnvelope className="h-4 w-4 mx-auto" />
                               <span className="font-bold">Email</span>
-                            </AppRouterLink>
+                            </Link>
                           )}
 
                           {group.contactLine && (
-                            <AppRouterLink
+                            <Link
                               href={`https://lin.ee/${group.contactLine}`}
                               external
                               variant="secondary"
@@ -333,11 +333,11 @@ function GroupList({ groups, selectedCity }: { groups: Group[]; selectedCity: st
                             >
                               <FaLine className="h-4 w-4 mx-auto" />
                               <span className="font-bold">LINE</span>
-                            </AppRouterLink>
+                            </Link>
                           )}
 
                           {group.webUrl && (
-                            <AppRouterLink
+                            <Link
                               href={group.webUrl}
                               external
                               variant="secondary"
@@ -345,7 +345,7 @@ function GroupList({ groups, selectedCity }: { groups: Group[]; selectedCity: st
                             >
                               <FaGlobe className="h-4 w-4 mx-auto" />
                               <span className="font-bold">Web</span>
-                            </AppRouterLink>
+                            </Link>
                           )}
                         </div>
                       </div>

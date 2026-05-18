@@ -1,12 +1,10 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import { FaDove } from 'react-icons/fa'
 import { NEWS_CONFIG } from '../lib/constants'
 import type { NewsItem } from '../types/news'
-import AppRouterLink from './AppRouterLink'
 import FormattedDate from './FormattedDate'
+import Link from './Link'
 
-interface AppRouterNewsSectionProps {
+interface NewsSectionProps {
   newsItems: NewsItem[]
 }
 
@@ -16,7 +14,7 @@ interface AppRouterNewsSectionProps {
  * - microCMS からのニュースデータ表示
  * - リーフレット表示機能
  */
-export default function AppRouterNewsSection({ newsItems }: AppRouterNewsSectionProps) {
+export default function NewsSection({ newsItems }: NewsSectionProps) {
   return (
     <section className="py-12" aria-labelledby="news-section">
       <h2
@@ -61,9 +59,9 @@ export default function AppRouterNewsSection({ newsItems }: AppRouterNewsSection
 
       {/* ニュース一覧へのリンク */}
       <div className="mt-8 text-center">
-        <AppRouterLink href="/news" variant="primary" showArrow className="text-lg">
+        <Link href="/news" variant="primary" showArrow className="text-lg">
           過去の活動報告
-        </AppRouterLink>
+        </Link>
       </div>
     </section>
   )

@@ -1,6 +1,6 @@
 import { FaFrog } from 'react-icons/fa'
 
-import AppRouterLink from './AppRouterLink'
+import Link from './Link'
 
 /**
  * App Router 対応 居場所情報セクション
@@ -8,7 +8,7 @@ import AppRouterLink from './AppRouterLink'
  * - 阪神地域の居場所情報案内
  * - アクセシビリティ対応
  */
-export default function AppRouterPlacesSection() {
+export default function PlacesSection() {
   return (
     <section className="py-12 px-4" aria-labelledby="places-section">
       <h2
@@ -28,9 +28,9 @@ export default function AppRouterPlacesSection() {
       </p>
 
       <div className="mt-8 text-center">
-        <AppRouterLink href="/places-and-groups" className="btn btn-secondary">
+        <Link href="/places-and-groups" className="btn btn-secondary">
           居場所情報を見る
-        </AppRouterLink>
+        </Link>
       </div>
     </section>
   )

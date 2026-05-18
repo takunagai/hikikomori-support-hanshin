@@ -6,7 +6,7 @@ import { FaMapMarkedAlt } from 'react-icons/fa'
  * - Google Maps 埋め込み地図
  * - アクセシビリティ対応
  */
-export default function AppRouterAccessMap() {
+export default function AccessMap() {
   return (
     <section aria-labelledby="access-map">
       <h2

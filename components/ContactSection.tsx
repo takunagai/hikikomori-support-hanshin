@@ -7,7 +7,7 @@ import { CONTACT_CONFIG } from '../lib/constants'
  * - Server Component として実装
  * - 電話とSNSの連絡先情報
  */
-export default function AppRouterContactSection() {
+export default function ContactSection() {
   return (
     <section className="py-8" aria-labelledby="contact-methods">
       <h2 id="contact-methods" className="sr-only">

@@ -3,7 +3,7 @@
 import DOMPurify from 'dompurify'
 import { useEffect, useState } from 'react'
 
-interface AppRouterNewsContentProps {
+interface NewsContentProps {
   content: string
   className?: string
 }
@@ -14,10 +14,10 @@ interface AppRouterNewsContentProps {
  * - HTMLサニタイズ機能
  * - セキュリティ対応
  */
-export default function AppRouterNewsContent({
+export default function NewsContent({
   content,
   className = '',
-}: AppRouterNewsContentProps) {
+}: NewsContentProps) {
   const [sanitizedHtml, setSanitizedHtml] = useState(content)
 
   useEffect(() => {

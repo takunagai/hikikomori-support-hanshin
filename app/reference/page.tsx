@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
-import AppRouterAfterContentArea from '../../components/AppRouterAfterContentArea'
-import AppRouterInquiryContent from '../../components/AppRouterInquiryContent'
-import AppRouterLink from '../../components/AppRouterLink'
+import AfterContentArea from '../../components/AfterContentArea'
+import InquiryContent from '../../components/InquiryContent'
+import Link from '../../components/Link'
 
 export const metadata: Metadata = {
   title: '相談窓口・教育支援センター',
@@ -158,7 +158,7 @@ const educationSupportCenters = [
  */
 export default function ReferencePage() {
   return (
-    <AppRouterInquiryContent>
+    <InquiryContent>
       <div className="pb-8">
         {/* ページヘッダー */}
         <h1 className="alignfull bg-dots3">相談窓口・教育支援センター</h1>
@@ -195,14 +195,14 @@ export default function ReferencePage() {
                 <ul className="mt-4 flex list-square flex-col gap-3 pl-5 marker:text-secondary-400">
                   {consultationServices.map((service) => (
                     <li key={service.name}>
-                      <AppRouterLink
+                      <Link
                         href={service.url}
                         external
                         variant="default"
                         className="text-gray-700 hover:text-primary-600 focus:text-primary-600"
                       >
                         {service.name}
-                      </AppRouterLink>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -238,7 +238,7 @@ export default function ReferencePage() {
                     <ul className="mt-3 flex list-square flex-col gap-2 pl-5 marker:text-secondary-400">
                       {cityData.centers.map((center) => (
                         <li key={center.name}>
-                          <AppRouterLink
+                          <Link
                             href={center.url}
                             external
                             variant="default"
@@ -248,7 +248,7 @@ export default function ReferencePage() {
                             {'note' in center && center.note && (
                               <small className="ml-1 text-gray-500">({center.note})</small>
                             )}
-                          </AppRouterLink>
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -264,9 +264,9 @@ export default function ReferencePage() {
           <h2 id="cta-section" className="sr-only">
             相談のご案内
           </h2>
-          <AppRouterAfterContentArea />
+          <AfterContentArea />
         </section>
       </div>
-    </AppRouterInquiryContent>
+    </InquiryContent>
   )
 }

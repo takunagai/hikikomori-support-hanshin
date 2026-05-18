@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import DropdownMenu from './DropdownMenu'
 
-interface AppRouterNavbarProps {
+interface NavbarProps {
   isMenuOpen: boolean
   onMenuOpenChange: (isOpen: boolean) => void
 }
@@ -13,7 +13,7 @@ interface AppRouterNavbarProps {
  * - DropdownMenu コンポーネントを利用してリファクタリング
  * - ナビゲーション構造を単一のデータソースで管理
  */
-export default function AppRouterNavbar({ isMenuOpen, onMenuOpenChange }: AppRouterNavbarProps) {
+export default function Navbar({ isMenuOpen, onMenuOpenChange }: NavbarProps) {
   // メニュー項目のクリック時にモバイルメニューを閉じる
   const handleMenuItemClick = () => {
     onMenuOpenChange(false)

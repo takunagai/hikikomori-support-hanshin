@@ -4,7 +4,7 @@ import { motion } from 'motion/react'
 import NextLink from 'next/link'
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 
-interface AppRouterLinkProps extends ComponentPropsWithoutRef<typeof NextLink> {
+interface LinkProps extends ComponentPropsWithoutRef<typeof NextLink> {
   children: ReactNode
   variant?: 'default' | 'primary' | 'secondary'
   showArrow?: boolean
@@ -18,14 +18,14 @@ interface AppRouterLinkProps extends ComponentPropsWithoutRef<typeof NextLink> {
  * - 外部リンク対応
  * - バリアント対応
  */
-export default function AppRouterLink({
+export default function Link({
   children,
   variant = 'default',
   showArrow = false,
   external = false,
   className = '',
   ...props
-}: AppRouterLinkProps) {
+}: LinkProps) {
   const baseStyles =
     'relative inline-flex items-center gap-1 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded'
 
