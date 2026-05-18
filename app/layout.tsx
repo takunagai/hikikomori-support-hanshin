@@ -1,9 +1,11 @@
+import { GoogleAnalytics } from '@next/third-parties/google'
 import type { Metadata, Viewport } from 'next'
 import { Yomogi } from 'next/font/google'
 
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { ThemeProvider } from '../components/providers/ThemeProvider'
+import { analyticsConfig } from '../lib/env'
 
 import '../styles/globals.css'
 
@@ -147,6 +149,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           </div>
         </ThemeProvider>
       </body>
+      {analyticsConfig.gaId ? <GoogleAnalytics gaId={analyticsConfig.gaId} /> : null}
     </html>
   )
 }

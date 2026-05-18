@@ -159,6 +159,46 @@ export default function PrivacyPolicyPage() {
               </p>
             </section>
 
+            <section aria-labelledby="analytics">
+              <h2
+                id="analytics"
+                className="border-b border-dashed border-primary-400 pb-1 text-lg font-semibold tracking-wide text-gray-900"
+              >
+                アクセス解析ツールの利用について
+              </h2>
+              <p className="mt-3 text-gray-700">
+                当センターでは、サイトの改善・運営の参考とするため、Google
+                が提供するアクセス解析ツール「Google アナリティクス（GA4）」を導入しています。
+              </p>
+              <ul className="mt-3 list-disc list-inside space-y-1 text-gray-700 ml-4">
+                <li>Cookie を用いて訪問者の閲覧履歴を匿名で収集します</li>
+                <li>個人を特定する情報は収集しません</li>
+                <li>IP アドレスは匿名化された状態で処理されます</li>
+                <li>収集データの Google 広告等への利用（Google シグナル）は無効に設定しています</li>
+              </ul>
+              <p className="mt-3 text-sm text-gray-700">
+                収集を希望されない場合は、ブラウザの拡張機能{' '}
+                <a
+                  href="https://tools.google.com/dlpage/gaoptout?hl=ja"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-600 hover:text-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded"
+                >
+                  Google アナリティクス オプトアウト アドオン
+                </a>{' '}
+                をご利用ください。Google が収集する情報の取り扱いについては、
+                <a
+                  href="https://policies.google.com/privacy?hl=ja"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-600 hover:text-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded"
+                >
+                  Google プライバシーポリシー
+                </a>{' '}
+                をご確認ください。
+              </p>
+            </section>
+
             <section aria-labelledby="contact-info">
               <h2
                 id="contact-info"
