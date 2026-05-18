@@ -161,6 +161,22 @@ Route (app)             Revalidate  Expire
 
 ---
 
+## 既知の残脆弱性 (npm audit)
+
+### postcss < 8.5.10 (moderate, GHSA-qx2v-qp2m-jg93)
+
+`next@16.2.6` 内部の `node_modules/next/node_modules/postcss` が `8.4.31` で固定されており、`overrides` での強制更新は npm から `invalid` 判定で拒否される（Next.js が許容するバージョン範囲外のため）。
+
+**評価**: 攻撃ベクトルは「攻撃者制御の CSS が PostCSS の Stringify を通る」場合の XSS。本プロジェクトでは microCMS の HTML はサニタイズ済み、CSS 流入経路は存在せず、PostCSS はビルド時のみ使用。**実用上のリスクは極めて低い**。
+
+**対応方針**: 次回 Next.js リリースで自然解消されるのを待つ。`npm audit fix --force` は `next@9.3.3` への破壊的ダウングレードを提案するため絶対に実行しない。
+
+### その他
+
+`npm audit fix` (safe) により 5 件解決済み: brace-expansion, glob, minimatch, picomatch, yaml。
+
+---
+
 ## ロールバック
 
 各 Phase で以下のタグを打っている:
