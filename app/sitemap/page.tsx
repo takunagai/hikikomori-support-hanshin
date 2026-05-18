@@ -65,7 +65,7 @@ export default function SitemapPage() {
             サイト内のページ一覧
           </h2>
 
-          <nav role="navigation" aria-label="サイトマップ">
+          <nav aria-label="サイトマップ">
             <ul className="mt-8 space-y-0">
               {sitePages.map((page, index) => (
                 <li

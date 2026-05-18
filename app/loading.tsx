@@ -70,8 +70,8 @@ export function DetailedLoading({ message = '読み込み中...' }: { message?: 
 export function SkeletonLoading() {
   return (
     <div className="space-y-4" role="status" aria-label="コンテンツを読み込み中">
-      {Array.from({ length: 3 }).map((_, index) => (
-        <div key={index} className="animate-pulse rounded-lg border p-4">
+      {['skeleton-1', 'skeleton-2', 'skeleton-3'].map((id) => (
+        <div key={id} className="animate-pulse rounded-lg border p-4">
           <div className="mb-3 h-4 w-3/4 rounded bg-gray-200" />
           <div className="mb-2 h-3 w-full rounded bg-gray-200" />
           <div className="h-3 w-2/3 rounded bg-gray-200" />

@@ -15,11 +15,7 @@ interface AccordionProps {
  * - Framer Motion アニメーション
  * - アクセシビリティ完全対応
  */
-export default function Accordion({
-  title,
-  children,
-  defaultOpen = false,
-}: AccordionProps) {
+export default function Accordion({ title, children, defaultOpen = false }: AccordionProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen)
 
   return (

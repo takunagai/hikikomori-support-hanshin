@@ -52,6 +52,7 @@ async function fetchFromMicroCMS<T>(
     const data = await response.json()
     return data
   } catch (error) {
+    // biome-ignore lint/suspicious/noConsole: fetch 失敗の調査用ログ
     console.error(`microCMS fetch エラー (${endpoint}):`, error)
     throw error
   }

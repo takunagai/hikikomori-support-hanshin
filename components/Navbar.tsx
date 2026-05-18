@@ -20,9 +20,8 @@ export default function Navbar({ isMenuOpen, onMenuOpenChange }: NavbarProps) {
   }
 
   return (
-    <div
+    <nav
       className={`${isMenuOpen ? 'block w-full' : 'hidden lg:block lg:w-auto'} lg:order-3 lg:ml-auto`}
-      role="navigation"
       aria-label="メインナビゲーション"
     >
       <div className="mt-5 flex flex-col gap-5 lg:mt-0 lg:flex-row lg:items-center lg:gap-8">
@@ -52,7 +51,7 @@ export default function Navbar({ isMenuOpen, onMenuOpenChange }: NavbarProps) {
           return null
         })}
       </div>
-    </div>
+    </nav>
   )
 }
 

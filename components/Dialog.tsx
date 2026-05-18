@@ -4,7 +4,7 @@ import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
  * Dialog Sample
  * @ref {https://www.radix-ui.com/docs/primitives/components/dialog}
  */
-import React, { type ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 type Props = {
   title?: string | null
@@ -28,13 +28,19 @@ const DialogDemo = ({
   <Dialog.Root>
     <Dialog.Trigger asChild {...(isStretchLink && { className: 'after:absolute after:inset-0' })}>
       {triggerType === 'button' ? (
-        <button className="rounded bg-primary-100 px-2 py-1 shadow data-[state=open]:bg-primary-200">
+        <button
+          type="button"
+          className="rounded bg-primary-100 px-2 py-1 shadow data-[state=open]:bg-primary-200"
+        >
           {triggerText}
         </button>
       ) : (
-        <a href="#" className="text-primary-500-700 underline data-[state=open]:text-gray-500">
+        <button
+          type="button"
+          className="text-primary-500-700 underline data-[state=open]:text-gray-500"
+        >
           {triggerText}
-        </a>
+        </button>
       )}
     </Dialog.Trigger>
     <Dialog.Portal>
@@ -60,11 +66,14 @@ const DialogDemo = ({
         {children}
         <p className="mt-6 text-center">
           <Dialog.Close asChild>
-            <button className="text-sm underline">閉じる</button>
+            <button type="button" className="text-sm underline">
+              閉じる
+            </button>
           </Dialog.Close>
         </p>
         <Dialog.Close asChild>
           <button
+            type="button"
             className="IconButton right-[10px] top-[10px] inline-flex h-[25px] w-[25px] items-center justify-center rounded-full hover:bg-gray-100 focus:shadow"
             aria-label="Close"
           >

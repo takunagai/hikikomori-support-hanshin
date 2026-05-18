@@ -191,7 +191,7 @@ export default function ReferencePage() {
                 ひきこもりや不登校に関する相談を受けている行政などの公共機関、民間の支援機関。
               </p>
 
-              <nav role="navigation" aria-label="相談窓口一覧">
+              <nav aria-label="相談窓口一覧">
                 <ul className="mt-4 flex list-square flex-col gap-3 pl-5 marker:text-secondary-400">
                   {consultationServices.map((service) => (
                     <li key={service.name}>

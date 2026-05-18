@@ -15,11 +15,7 @@ export default function SiteLogo({ home = false, siteTitle }: SiteLogoProps) {
     'site-title flex-none text-xl font-bold text-primary dark:text-white transition-colors hover:text-primary-600 dark:hover:text-primary-400'
 
   if (home) {
-    return (
-      <h1 className={commonClasses}>
-        <span aria-label={`${siteTitle} - ホームページ`}>{siteTitle}</span>
-      </h1>
-    )
+    return <h1 className={commonClasses}>{siteTitle}</h1>
   }
 
   return (

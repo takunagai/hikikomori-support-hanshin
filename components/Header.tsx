@@ -1,6 +1,5 @@
 'use client'
 
-import { useTheme } from 'next-themes'
 import { useState } from 'react'
 import Navbar from './Navbar'
 import NavbarCollapseButton from './NavbarCollapseButton'
@@ -11,14 +10,11 @@ interface HeaderProps {
 }
 
 /**
- * App Router 対応 Header コンポーネント
- * - Client Component として実装
- * - useTheme フックで theme 管理を統合
- * - シンプルな Props 設計
+ * Header コンポーネント
+ * ダークモード切替は実装保留中（コメントアウトされたボタンを将来的に有効化）
  */
 export default function Header({ home = false }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { theme, setTheme } = useTheme()
 
   // サイトタイトルは環境変数から取得
   const siteTitle =
@@ -29,7 +25,6 @@ export default function Header({ home = false }: HeaderProps) {
       <nav
         className="mx-auto flex w-full max-w-[85rem] flex-wrap items-center justify-between px-4 lg:px-8"
         aria-label="グローバルナビゲーション"
-        role="navigation"
       >
         {/* ロゴとモバイルメニュー制御 */}
         <div className="flex w-full items-center justify-between lg:w-auto">
@@ -40,10 +35,7 @@ export default function Header({ home = false }: HeaderProps) {
             {/* ダークモード切り替え（将来的に有効化） */}
             {/* <ModeSwitcher theme={theme} setTheme={setTheme} /> */}
 
-            <NavbarCollapseButton
-              isOpen={isMenuOpen}
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            />
+            <NavbarCollapseButton isOpen={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)} />
           </div>
         </div>
 

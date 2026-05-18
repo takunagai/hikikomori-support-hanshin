@@ -19,6 +19,7 @@ const TAG_MAP: Record<string, readonly string[]> = {
 export async function POST(request: Request) {
   const secret = process.env.MICROCMS_WEBHOOK_SECRET
   if (!secret) {
+    // biome-ignore lint/suspicious/noConsole: サーバー設定不備をログに残す
     console.error('MICROCMS_WEBHOOK_SECRET is not configured')
     return NextResponse.json({ message: 'server misconfigured' }, { status: 500 })
   }

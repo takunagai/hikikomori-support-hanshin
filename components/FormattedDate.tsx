@@ -34,14 +34,3 @@ export default function FormattedDate({
     </time>
   )
 }
-
-// 後方互換性のため、従来のPropsでもエクスポート
-export type DateProps = {
-  dateString: string
-}
-
-/**
- * 後方互換性を保つためのエイリアス
- * @deprecated 新しいコードでは FormattedDate を直接使用してください
- */
-export const Date = FormattedDate

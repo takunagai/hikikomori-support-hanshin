@@ -139,7 +139,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <div className="flex h-full w-full flex-col">
             <Header />
             <div className="cover__main container flex-1">
-              <main id="primary" role="main" aria-label="メインコンテンツ" className="min-h-[60vh]">
+              <main id="primary" aria-label="メインコンテンツ" className="min-h-[60vh]">
                 {children}
               </main>
             </div>

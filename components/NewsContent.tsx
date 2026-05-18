@@ -14,6 +14,7 @@ export default function NewsContent({ content, className = '' }: NewsContentProp
   return (
     <div
       className={`prose prose-lg max-w-none ${className}`}
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: isomorphic-dompurify で SSR 時にサニタイズ済み
       dangerouslySetInnerHTML={{ __html: sanitized }}
     />
   )

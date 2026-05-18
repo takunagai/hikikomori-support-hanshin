@@ -70,7 +70,7 @@ export default function FaqPage() {
                   ※リンクは運営している団体のホームページ
                 </p>
 
-                <ul className="space-y-2 text-sm" role="list">
+                <ul className="space-y-2 text-sm">
                   <li className="flex items-center">
                     <span
                       className="mr-2 h-2 w-2 rounded-full bg-secondary-400"
@@ -93,11 +93,7 @@ export default function FaqPage() {
                       className="mr-2 h-2 w-2 rounded-full bg-secondary-400"
                       aria-hidden="true"
                     />
-                    <Link
-                      href="https://kounotori-inochinet.com/"
-                      external
-                      variant="default"
-                    >
+                    <Link href="https://kounotori-inochinet.com/" external variant="default">
                       但馬ブランチ
                     </Link>
                   </li>

@@ -83,15 +83,16 @@ export default function Link({
     </>
   )
 
-  // 外部リンクの場合
+  // 外部リンクの場合 (NextLink の prefetch 等は不要、素の <a> で完結)
   if (external) {
+    const { href, ...anchorProps } = props
     return (
       <a
-        {...(props as any)}
+        href={typeof href === 'string' ? href : href.toString()}
+        {...anchorProps}
         className={combinedClassName}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`${children} (新しいタブで開く)`}
       >
         {content}
       </a>

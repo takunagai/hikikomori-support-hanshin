@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import FormattedDate from '../../../components/FormattedDate'
 import InquiryContent from '../../../components/InquiryContent'
 import Link from '../../../components/Link'
 import NewsContent from '../../../components/NewsContent'
-import FormattedDate from '../../../components/FormattedDate'
 import { newsApi } from '../../../lib/microcms-app-router'
 import type { NewsItem } from '../../../types/news'
 
@@ -48,6 +48,7 @@ export async function generateStaticParams() {
       id,
     }))
   } catch (error) {
+    // biome-ignore lint/suspicious/noConsole: SSG ビルド時のフェッチ失敗を可視化
     console.error('Failed to generate static params for news:', error)
     return []
   }
@@ -67,6 +68,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
   try {
     newsArticle = await newsApi.getById(id)
   } catch (error) {
+    // biome-ignore lint/suspicious/noConsole: 詳細ページ取得失敗の調査用
     console.error(`Failed to fetch news article ${id}:`, error)
     notFound()
   }

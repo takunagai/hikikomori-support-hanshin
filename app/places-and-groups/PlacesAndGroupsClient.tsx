@@ -5,9 +5,9 @@ import { AnimatePresence, motion } from 'motion/react'
 import Image from 'next/image'
 import { useState } from 'react'
 import { FaEnvelope, FaGlobe, FaInfoCircle, FaLine, FaPhoneAlt, FaPrint } from 'react-icons/fa'
-import Link from '../../components/Link'
 import DialogDemo from '../../components/Dialog'
 import InfiniteScroll from '../../components/InfiniteScroll'
+import Link from '../../components/Link'
 import RadioButton from '../../components/RadioButton'
 import type { Group } from '../../types/group'
 
@@ -115,10 +115,7 @@ export default function PlacesAndGroupsClient({ groups }: Props) {
       </div>
 
       <section className="mt-8">
-        <RadioButtonsForFilter
-          selectedCity={selectedCity}
-          setSelectedCity={setSelectedCity}
-        />
+        <RadioButtonsForFilter selectedCity={selectedCity} setSelectedCity={setSelectedCity} />
         <GroupList groups={groups} selectedCity={selectedCity} />
       </section>
     </div>

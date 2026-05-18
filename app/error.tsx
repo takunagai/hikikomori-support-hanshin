@@ -12,10 +12,11 @@ interface ErrorProps {
  * グローバルエラーページ
  * アプリケーション全体のエラーハンドリング
  */
-export default function Error({ error, reset }: ErrorProps) {
+export default function GlobalError({ error, reset }: ErrorProps) {
   useEffect(() => {
     // エラーをコンソールに記録（開発環境でのデバッグ用）
     if (process.env.NODE_ENV === 'development') {
+      // biome-ignore lint/suspicious/noConsole: 開発時のエラー確認用
       console.error('アプリケーションエラー:', error)
     }
 
@@ -83,6 +84,7 @@ export default function Error({ error, reset }: ErrorProps) {
       <div className="space-y-4">
         {/* 再試行ボタン */}
         <button
+          type="button"
           onClick={reset}
           className="inline-flex items-center rounded-lg bg-primary-600 px-6 py-3 font-medium text-white transition-colors hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
         >
@@ -92,6 +94,7 @@ export default function Error({ error, reset }: ErrorProps) {
             viewBox="0 0 24 24"
             strokeWidth={2}
             stroke="currentColor"
+            aria-hidden="true"
           >
             <path
               strokeLinecap="round"
@@ -114,6 +117,7 @@ export default function Error({ error, reset }: ErrorProps) {
               viewBox="0 0 24 24"
               strokeWidth={2}
               stroke="currentColor"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
