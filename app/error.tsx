@@ -18,7 +18,7 @@ export default function Error({ error, reset }: ErrorProps) {
     if (process.env.NODE_ENV === 'development') {
       console.error('アプリケーションエラー:', error)
     }
-    
+
     // 本番環境では、エラー監視サービスにレポート
     // 例: Sentry, LogRocket等への送信
   }, [error])
@@ -57,14 +57,10 @@ export default function Error({ error, reset }: ErrorProps) {
           </svg>
         </div>
 
-        <h1 className="mb-4 text-2xl font-bold text-gray-900">
-          エラーが発生しました
-        </h1>
-        
-        <p className="mb-6 text-gray-600">
-          {errorMessage}
-        </p>
-        
+        <h1 className="mb-4 text-2xl font-bold text-gray-900">エラーが発生しました</h1>
+
+        <p className="mb-6 text-gray-600">{errorMessage}</p>
+
         {/* 開発環境でのエラー詳細表示 */}
         {process.env.NODE_ENV === 'development' && (
           <details className="mb-6 rounded-lg bg-gray-50 p-4 text-left">
@@ -133,10 +129,7 @@ export default function Error({ error, reset }: ErrorProps) {
       {/* サポート情報 */}
       <div className="mt-8 border-t border-gray-200 pt-8 text-sm text-gray-500">
         <p className="mb-2">問題が解決しない場合は、以下からお問い合わせください。</p>
-        <Link
-          href="/inquiry"
-          className="text-primary-600 hover:text-primary-800 hover:underline"
-        >
+        <Link href="/inquiry" className="text-primary-600 hover:text-primary-800 hover:underline">
           お問い合わせページ
         </Link>
       </div>

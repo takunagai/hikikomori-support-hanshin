@@ -14,10 +14,10 @@ interface AppRouterNavbarCollapseButtonProps {
  * - Framer Motion アニメーション
  * - アクセシビリティ完全対応
  */
-export default function AppRouterNavbarCollapseButton({ 
-  isOpen, 
-  onClick, 
-  'aria-label': ariaLabel = isOpen ? 'メニューを閉じる' : 'メニューを開く'
+export default function AppRouterNavbarCollapseButton({
+  isOpen,
+  onClick,
+  'aria-label': ariaLabel = isOpen ? 'メニューを閉じる' : 'メニューを開く',
 }: AppRouterNavbarCollapseButtonProps) {
   return (
     <motion.button
@@ -47,7 +47,7 @@ export default function AppRouterNavbarCollapseButton({
           animate={isOpen ? 'open' : 'closed'}
           transition={{ duration: 0.2, ease: 'easeInOut' }}
         />
-        
+
         {/* 真ん中の線 */}
         <motion.span
           className="absolute top-2 block h-0.5 w-5 bg-current"
@@ -64,7 +64,7 @@ export default function AppRouterNavbarCollapseButton({
           animate={isOpen ? 'open' : 'closed'}
           transition={{ duration: 0.2, ease: 'easeInOut' }}
         />
-        
+
         {/* 下の線 */}
         <motion.span
           className="absolute top-2 block h-0.5 w-5 bg-current"
@@ -84,7 +84,7 @@ export default function AppRouterNavbarCollapseButton({
           transition={{ duration: 0.2, ease: 'easeInOut' }}
         />
       </div>
-      
+
       {/* スクリーンリーダー向けの状態テキスト */}
       <span className="sr-only">
         {isOpen ? 'ナビゲーションメニューが開いています' : 'ナビゲーションメニューが閉じています'}

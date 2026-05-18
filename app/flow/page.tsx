@@ -1,22 +1,18 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { 
-  FaCat, 
-  FaCrow, 
-  FaDemocrat, 
-  FaDove, 
-  FaPhoneAlt 
-} from 'react-icons/fa'
+import { FaCat, FaCrow, FaDemocrat, FaDove, FaPhoneAlt } from 'react-icons/fa'
 
 import AppRouterAccessMap from '../../components/AppRouterAccessMap'
 import AppRouterInquiryContent from '../../components/AppRouterInquiryContent'
 
 export const metadata: Metadata = {
   title: '相談の流れ',
-  description: '兵庫ひきこもり相談支援センター 阪神ブランチへの相談方法と流れについて説明します。電話相談、来所相談、訪問相談を行っています。',
+  description:
+    '兵庫ひきこもり相談支援センター 阪神ブランチへの相談方法と流れについて説明します。電話相談、来所相談、訪問相談を行っています。',
   openGraph: {
     title: '相談の流れ | 兵庫ひきこもり相談支援センター 阪神ブランチ',
-    description: '兵庫ひきこもり相談支援センター 阪神ブランチへの相談方法と流れについて説明します。',
+    description:
+      '兵庫ひきこもり相談支援センター 阪神ブランチへの相談方法と流れについて説明します。',
   },
 }
 
@@ -45,20 +41,20 @@ export default function FlowPage() {
 
         {/* 相談の流れセクション */}
         <section className="py-12 px-4" aria-labelledby="consultation-flow">
-          <h2 id="consultation-flow" className="flex items-center justify-center text-2xl font-semibold text-gray-900">
-            <FaDove 
-              className="mr-2 text-secondary-300" 
-              aria-hidden="true" 
-            />
+          <h2
+            id="consultation-flow"
+            className="flex items-center justify-center text-2xl font-semibold text-gray-900"
+          >
+            <FaDove className="mr-2 text-secondary-300" aria-hidden="true" />
             相談の流れ
           </h2>
-          
+
           <p className="mt-6 text-center text-gray-700 md:text-lg">
             専門の相談員による相談 (電話相談、来所相談、訪問相談) を行っています。
             <br className="hidden md:inline" />
             まずはお電話ください。スタッフが相談可能日をご案内します。
           </p>
-          
+
           <div className="mx-auto mt-8 max-w-2xl text-center">
             <Image
               src="/images/hanshin-branch/flow.png"
@@ -76,23 +72,23 @@ export default function FlowPage() {
           <h2 id="consultation-methods" className="sr-only">
             相談方法の詳細
           </h2>
-          
+
           <div className="lg:mx-auto lg:flex lg:max-w-4xl lg:gap-8">
             {/* 電話相談 */}
             <article className="lg:basis-1/3" aria-labelledby="telephone-counseling">
-              <h3 id="telephone-counseling" className="flex items-center text-xl font-semibold text-gray-900">
-                <FaCat 
-                  className="mr-2 text-secondary-300" 
-                  aria-hidden="true" 
-                />
+              <h3
+                id="telephone-counseling"
+                className="flex items-center text-xl font-semibold text-gray-900"
+              >
+                <FaCat className="mr-2 text-secondary-300" aria-hidden="true" />
                 電話相談
               </h3>
-              
+
               <div className="mx-auto mt-6 max-w-2xl text-center">
                 <p className="text-gray-700">
                   来所が難しい方には、専門の相談員による電話相談を行っています。
                 </p>
-                
+
                 <div className="mt-4">
                   <Image
                     src="/images/hanshin-branch/illust-telephone.png"
@@ -109,25 +105,25 @@ export default function FlowPage() {
 
             {/* 来所相談 */}
             <article className="lg:basis-1/3" aria-labelledby="office-counseling">
-              <h3 id="office-counseling" className="flex items-center text-xl font-semibold text-gray-900">
-                <FaDemocrat 
-                  className="mr-2 text-secondary-300" 
-                  aria-hidden="true" 
-                />
+              <h3
+                id="office-counseling"
+                className="flex items-center text-xl font-semibold text-gray-900"
+              >
+                <FaDemocrat className="mr-2 text-secondary-300" aria-hidden="true" />
                 来所相談
               </h3>
-              
+
               <div className="mx-auto mt-6 max-w-xl text-center">
                 <p className="text-gray-700">
                   西宮市名塩にある事務所で、専門の相談員による相談を行っています。{' '}
-                  <a 
-                    href="#access-map" 
+                  <a
+                    href="#access-map"
                     className="text-primary-600 hover:text-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded"
                   >
                     » アクセス地図
                   </a>
                 </p>
-                
+
                 <div className="mt-4">
                   <Image
                     src="/images/hanshin-branch/consultation.jpg"
@@ -144,19 +140,19 @@ export default function FlowPage() {
 
             {/* 訪問相談 */}
             <article className="lg:basis-1/3" aria-labelledby="home-visit-counseling">
-              <h3 id="home-visit-counseling" className="flex items-center text-xl font-semibold text-gray-900">
-                <FaCrow 
-                  className="mr-2 text-secondary-300" 
-                  aria-hidden="true" 
-                />
+              <h3
+                id="home-visit-counseling"
+                className="flex items-center text-xl font-semibold text-gray-900"
+              >
+                <FaCrow className="mr-2 text-secondary-300" aria-hidden="true" />
                 訪問相談
               </h3>
-              
+
               <div className="mx-auto mt-6 max-w-xl text-center">
                 <p className="text-gray-700">
                   来所が難しい方は、ご本人の同意を得て家庭訪問をします。
                 </p>
-                
+
                 <div className="mt-4">
                   <Image
                     src="/images/hanshin-branch/illust-house.png"
@@ -176,7 +172,7 @@ export default function FlowPage() {
           <h2 id="reservation-info" className="sr-only">
             予約のご案内
           </h2>
-          
+
           <div className="mx-auto max-w-lg rounded-2xl bg-tertiary-100 py-4 px-8 text-center shadow">
             <h3 className="text-lg">お気軽にご予約ください</h3>
             <p>

@@ -37,17 +37,15 @@ export default function AppRouterFooter() {
                   <br />
                   阪神ブランチ
                 </h2>
-                
-                <p className="mt-0 text-xs text-gray-600">
-                  (運営：一般社団法人いきがいさがし)
-                </p>
+
+                <p className="mt-0 text-xs text-gray-600">(運営：一般社団法人いきがいさがし)</p>
 
                 {/* 連絡先情報 */}
                 <address className="mt-3 not-italic">
                   <p>
                     電話番号：
                     <span className="font-bold">
-                      <a 
+                      <a
                         href="tel:050-3749-1227"
                         className="hover:text-primary-600 transition-colors"
                         aria-label="電話をかける: 050-3749-1227"
@@ -56,17 +54,13 @@ export default function AppRouterFooter() {
                       </a>
                     </span>
                   </p>
-                  
-                  <p className="mt-1">
-                    開所日時：火・水・木・金 10:00〜16:00
-                  </p>
-                  
+
+                  <p className="mt-1">開所日時：火・水・木・金 10:00〜16:00</p>
+
                   <p className="mt-1">
                     所在地：兵庫県西宮市名塩新町3-2
                     <br />
-                    <span className="text-sm text-gray-600">
-                      (JR西宮名塩駅西に出てすぐ)
-                    </span>
+                    <span className="text-sm text-gray-600">(JR西宮名塩駅西に出てすぐ)</span>
                   </p>
                 </address>
 
@@ -99,7 +93,7 @@ export default function AppRouterFooter() {
           </div>
         </footer>
       </div>
-      
+
       {/* コピーライト */}
       <FooterBar />
     </footer>
@@ -128,7 +122,7 @@ const footerLinks = [
  */
 function FooterBar() {
   const currentYear = new Date().getFullYear()
-  
+
   return (
     <div className="bg-primary py-4 text-primary-200">
       <div className="container">

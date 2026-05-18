@@ -1,12 +1,11 @@
 import type { Metadata } from 'next'
-
+import AppRouterAfterContentArea from '../../components/AppRouterAfterContentArea'
+import AppRouterInquiryContent from '../../components/AppRouterInquiryContent'
+import AppRouterLink from '../../components/AppRouterLink'
+import FormattedDate from '../../components/FormattedDate'
 import { NEWS_CONFIG } from '../../lib/constants'
 import { newsApi } from '../../lib/microcms-app-router'
 import type { NewsItem } from '../../types/news'
-import AppRouterAfterContentArea from '../../components/AppRouterAfterContentArea'
-import FormattedDate from '../../components/FormattedDate'
-import AppRouterInquiryContent from '../../components/AppRouterInquiryContent'
-import AppRouterLink from '../../components/AppRouterLink'
 
 export const metadata: Metadata = {
   title: '活動報告',
@@ -40,9 +39,7 @@ export default async function NewsPage() {
         {/* イントロダクション */}
         <section className="mx-auto max-w-2xl px-4">
           <div className="mt-8">
-            <p className="text-lg text-gray-700">
-              過去に行った活動のレポートです。
-            </p>
+            <p className="text-lg text-gray-700">過去に行った活動のレポートです。</p>
             <p className="mt-0 text-gray-700">
               お知らせや今後のイベントは
               <AppRouterLink href={'/'}>トップページ</AppRouterLink>でご覧ください。
@@ -74,10 +71,7 @@ export default async function NewsPage() {
                     </h3>
                     <p className="mt-2 flex items-center gap-2 text-sm text-gray-600">
                       <span>投稿日：</span>
-                      <FormattedDate
-                        dateString={newsItem.date}
-                        className="font-medium"
-                      />
+                      <FormattedDate dateString={newsItem.date} className="font-medium" />
                     </p>
                   </article>
                 </li>
@@ -85,9 +79,7 @@ export default async function NewsPage() {
             </ul>
           ) : (
             <div className="text-center py-12">
-              <p className="text-gray-500">
-                現在、表示できるお知らせはありません。
-              </p>
+              <p className="text-gray-500">現在、表示できるお知らせはありません。</p>
             </div>
           )}
         </section>

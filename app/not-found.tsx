@@ -3,7 +3,8 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'ページが見つかりません',
-  description: 'お探しのページは見つかりませんでした。トップページから目的のページをお探しください。',
+  description:
+    'お探しのページは見つかりませんでした。トップページから目的のページをお探しください。',
   robots: {
     index: false,
     follow: false,
@@ -19,9 +20,7 @@ export default function NotFound() {
     <div className="mx-auto max-w-2xl px-4 py-16 text-center">
       <div className="mb-8">
         <h1 className="mb-4 text-6xl font-bold text-primary-600">404</h1>
-        <h2 className="mb-6 text-2xl font-semibold text-gray-800">
-          ページが見つかりません
-        </h2>
+        <h2 className="mb-6 text-2xl font-semibold text-gray-800">ページが見つかりません</h2>
         <p className="mb-8 text-gray-600">
           申し訳ございません。お探しのページは削除されたか、
           <br />
@@ -39,9 +38,7 @@ export default function NotFound() {
       </div>
 
       <div className="border-t border-gray-200 pt-8">
-        <p className="mb-4 text-sm font-medium text-gray-700">
-          よくアクセスされるページ
-        </p>
+        <p className="mb-4 text-sm font-medium text-gray-700">よくアクセスされるページ</p>
         <nav className="space-y-2">
           <Link
             href="/faq"
@@ -73,10 +70,7 @@ export default function NotFound() {
       <div className="mt-8 text-sm text-gray-500">
         <p>
           お困りの場合は、
-          <Link
-            href="/inquiry"
-            className="text-primary-600 hover:text-primary-800 hover:underline"
-          >
+          <Link href="/inquiry" className="text-primary-600 hover:text-primary-800 hover:underline">
             お問い合わせページ
           </Link>
           からご連絡ください。

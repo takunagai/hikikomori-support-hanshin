@@ -26,12 +26,15 @@ export default function AppRouterLink({
   className = '',
   ...props
 }: AppRouterLinkProps) {
-  const baseStyles = 'relative inline-flex items-center gap-1 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded'
-  
+  const baseStyles =
+    'relative inline-flex items-center gap-1 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded'
+
   const variantStyles = {
     default: 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200',
-    primary: 'text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300',
-    secondary: 'text-secondary-600 hover:text-secondary-700 dark:text-secondary-400 dark:hover:text-secondary-300',
+    primary:
+      'text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300',
+    secondary:
+      'text-secondary-600 hover:text-secondary-700 dark:text-secondary-400 dark:hover:text-secondary-300',
   }
 
   const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${className}`
@@ -46,7 +49,7 @@ export default function AppRouterLink({
           transition={{ duration: 0.2, ease: 'easeInOut' }}
         />
       </span>
-      
+
       {showArrow && (
         <motion.svg
           className="h-4 w-4"
@@ -57,15 +60,10 @@ export default function AppRouterLink({
           stroke="currentColor"
           aria-hidden="true"
         >
-          <path 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            strokeWidth={2} 
-            d="M9 5l7 7-7 7" 
-          />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </motion.svg>
       )}
-      
+
       {external && (
         <svg
           className="h-3 w-3 opacity-70"

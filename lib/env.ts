@@ -27,16 +27,16 @@ function validateEnvVars(): RequiredEnvVars {
 
   // 必須環境変数のチェック
   const requiredVars: (keyof RequiredEnvVars)[] = ['SERVICE', 'APIKEY']
-  const missingVars = requiredVars.filter(key => !envVars[key])
+  const missingVars = requiredVars.filter((key) => !envVars[key])
 
   if (missingVars.length > 0) {
     throw new Error(
       `以下の環境変数が設定されていません: ${missingVars.join(', ')}\n` +
-      '設定方法：\n' +
-      '1. .env.local ファイルを作成\n' +
-      '2. 以下の形式で環境変数を設定:\n' +
-      '   SERVICE=your-microcms-service-domain\n' +
-      '   APIKEY=your-microcms-api-key'
+        '設定方法：\n' +
+        '1. .env.local ファイルを作成\n' +
+        '2. 以下の形式で環境変数を設定:\n' +
+        '   SERVICE=your-microcms-service-domain\n' +
+        '   APIKEY=your-microcms-api-key',
     )
   }
 

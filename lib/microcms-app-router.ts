@@ -3,8 +3,8 @@
  * Next.js 15.3.4 の新機能を活用したデータフェッチング
  */
 
-import type { NewsItem } from '../types/news'
 import type { Group } from '../types/group'
+import type { NewsItem } from '../types/news'
 import type { UserComment } from '../types/user-comment'
 import { CACHE_CONFIG } from './constants'
 import { microCMSConfig } from './env'
@@ -20,7 +20,7 @@ async function fetchFromMicroCMS<T>(
     revalidate?: number
     tags?: string[]
     next?: RequestInit['next']
-  } = {}
+  } = {},
 ): Promise<T> {
   const { queries = {}, revalidate = CACHE_CONFIG.DEFAULT_REVALIDATE, tags = [], next } = options
 
@@ -96,7 +96,7 @@ export const newsApi = {
   /**
    * 最新ニュースを取得（トップページ用）
    */
-  async getLatest(limit: number = 5): Promise<NewsItem[]> {
+  async getLatest(limit = 5): Promise<NewsItem[]> {
     const data = await fetchFromMicroCMS<{ contents: NewsItem[] }>('news', {
       queries: {
         limit,
@@ -105,7 +105,7 @@ export const newsApi = {
       revalidate: 900, // 15分キャッシュ
       tags: ['news-latest'],
     })
-    
+
     return data.contents
   },
 
@@ -121,8 +121,8 @@ export const newsApi = {
       revalidate: 86400, // 24時間キャッシュ
       tags: ['news-ids'],
     })
-    
-    return data.contents.map(item => item.id)
+
+    return data.contents.map((item) => item.id)
   },
 }
 
@@ -141,7 +141,7 @@ export const groupsApi = {
       revalidate: 7200, // 2時間キャッシュ
       tags: ['groups'],
     })
-    
+
     return data.contents
   },
 
@@ -157,7 +157,7 @@ export const groupsApi = {
       revalidate: 7200, // 2時間キャッシュ
       tags: ['groups', `groups-${city}`],
     })
-    
+
     return data.contents
   },
 }
@@ -178,7 +178,7 @@ export const userCommentsApi = {
       revalidate: 3600, // 1時間キャッシュ
       tags: ['user-comments'],
     })
-    
+
     return data.contents
   },
 }
@@ -224,6 +224,6 @@ export function handleMicroCMSError(error: unknown): Error {
   if (error instanceof Error) {
     return error
   }
-  
+
   return new Error('microCMS API で不明なエラーが発生しました')
 }

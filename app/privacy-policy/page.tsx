@@ -4,10 +4,12 @@ import AppRouterInquiryContent from '../../components/AppRouterInquiryContent'
 
 export const metadata: Metadata = {
   title: '個人情報保護方針(プライバシーポリシー)',
-  description: '兵庫ひきこもり相談支援センター 阪神ブランチの個人情報の取り扱いについて定めた方針です。個人情報の定義、収集目的、利用方法について詳しくご説明しています。',
+  description:
+    '兵庫ひきこもり相談支援センター 阪神ブランチの個人情報の取り扱いについて定めた方針です。個人情報の定義、収集目的、利用方法について詳しくご説明しています。',
   openGraph: {
     title: '個人情報保護方針(プライバシーポリシー) | 兵庫ひきこもり相談支援センター 阪神ブランチ',
-    description: '兵庫ひきこもり相談支援センター 阪神ブランチの個人情報の取り扱いについて定めた方針です。',
+    description:
+      '兵庫ひきこもり相談支援センター 阪神ブランチの個人情報の取り扱いについて定めた方針です。',
   },
 }
 
@@ -39,7 +41,10 @@ export default function PrivacyPolicyPage() {
           <div className="py-12 space-y-8">
             {/* セクション1: 個人情報の定義 */}
             <section aria-labelledby="definition">
-              <h2 id="definition" className="border-b border-dashed border-primary-400 pb-1 text-lg font-semibold tracking-wide text-gray-900">
+              <h2
+                id="definition"
+                className="border-b border-dashed border-primary-400 pb-1 text-lg font-semibold tracking-wide text-gray-900"
+              >
                 １. 個人情報の定義について
               </h2>
               <p className="mt-3 text-gray-700">
@@ -50,13 +55,16 @@ export default function PrivacyPolicyPage() {
 
             {/* セクション2: 収集目的 */}
             <section aria-labelledby="purpose">
-              <h2 id="purpose" className="border-b border-dashed border-primary-400 pb-1 text-lg font-semibold tracking-wide text-gray-900">
+              <h2
+                id="purpose"
+                className="border-b border-dashed border-primary-400 pb-1 text-lg font-semibold tracking-wide text-gray-900"
+              >
                 ２. 個人情報を収集する目的について
               </h2>
               <p className="mt-3 text-gray-700">
                 個人情報収集の目的は、ひきこもり当事者様並びに保護者様のひきこもりに関する相談を適切に進めることなど、ブランチで最適なサービスを提供するためです。より良い支援を行うために、登録の際に記入いただいた内容や相談内容等はスタッフ間で共有させて頂く場合があります。
               </p>
-              
+
               <div className="mt-4 space-y-2 rounded-lg bg-yellow-50 p-4 border-l-4 border-yellow-400">
                 <p className="text-sm text-gray-700">
                   ※個人情報の全部・または一部が不足している場合には、サービスを提供できない場合があります。
@@ -104,7 +112,10 @@ export default function PrivacyPolicyPage() {
 
             {/* その他のセクション */}
             <section aria-labelledby="purpose-change">
-              <h2 id="purpose-change" className="border-b border-dashed border-primary-400 pb-1 text-lg font-semibold tracking-wide text-gray-900">
+              <h2
+                id="purpose-change"
+                className="border-b border-dashed border-primary-400 pb-1 text-lg font-semibold tracking-wide text-gray-900"
+              >
                 個人情報の利用目的の変更
               </h2>
               <p className="mt-3 text-gray-700">
@@ -113,7 +124,10 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section aria-labelledby="third-party">
-              <h2 id="third-party" className="border-b border-dashed border-primary-400 pb-1 text-lg font-semibold tracking-wide text-gray-900">
+              <h2
+                id="third-party"
+                className="border-b border-dashed border-primary-400 pb-1 text-lg font-semibold tracking-wide text-gray-900"
+              >
                 個人情報の第三者提供
               </h2>
               <p className="mt-3 text-gray-700">
@@ -122,7 +136,10 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section aria-labelledby="improvement">
-              <h2 id="improvement" className="border-b border-dashed border-primary-400 pb-1 text-lg font-semibold tracking-wide text-gray-900">
+              <h2
+                id="improvement"
+                className="border-b border-dashed border-primary-400 pb-1 text-lg font-semibold tracking-wide text-gray-900"
+              >
                 個人情報の取扱いの改善・見直し
               </h2>
               <p className="mt-3 text-gray-700">
@@ -131,7 +148,10 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section aria-labelledby="disposal">
-              <h2 id="disposal" className="border-b border-dashed border-primary-400 pb-1 text-lg font-semibold tracking-wide text-gray-900">
+              <h2
+                id="disposal"
+                className="border-b border-dashed border-primary-400 pb-1 text-lg font-semibold tracking-wide text-gray-900"
+              >
                 個人情報の廃棄
               </h2>
               <p className="mt-3 text-gray-700">
@@ -140,7 +160,10 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section aria-labelledby="contact-info">
-              <h2 id="contact-info" className="border-b border-dashed border-primary-400 pb-1 text-lg font-semibold tracking-wide text-gray-900">
+              <h2
+                id="contact-info"
+                className="border-b border-dashed border-primary-400 pb-1 text-lg font-semibold tracking-wide text-gray-900"
+              >
                 苦情や相談の担当窓口
               </h2>
               <p className="mt-3 text-gray-700">
@@ -149,21 +172,17 @@ export default function PrivacyPolicyPage() {
 
               {/* 連絡先情報 */}
               <div className="mx-auto mt-8 max-w-fit border border-primary-100 bg-white p-4 text-center shadow md:px-8 rounded-lg">
-                <h3 className="text-lg font-semibold text-primary-600">
-                  個人情報に関する問合せ先
-                </h3>
+                <h3 className="text-lg font-semibold text-primary-600">個人情報に関する問合せ先</h3>
                 <div className="mt-4 space-y-2">
                   <p className="font-bold text-gray-900">
                     兵庫ひきこもり相談支援センター
                     <br className="md:hidden" />
                     阪神ブランチ
                   </p>
-                  <p className="text-sm text-gray-600">
-                    運営：一般社団法人 いきがいさがし
-                  </p>
+                  <p className="text-sm text-gray-600">運営：一般社団法人 いきがいさがし</p>
                   <p className="font-bold text-gray-900">
-                    TEL: 
-                    <a 
+                    TEL:
+                    <a
                       href="tel:079-240-6299"
                       className="ml-1 text-primary-600 hover:text-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded"
                     >

@@ -6,7 +6,8 @@ import AppRouterLink from '../../components/AppRouterLink'
 
 export const metadata: Metadata = {
   title: 'よくある質問とその回答',
-  description: 'ひきこもり相談に関してよくお寄せいただく質問とその回答をまとめました。料金、対象地域、相談方法について詳しくご説明しています。',
+  description:
+    'ひきこもり相談に関してよくお寄せいただく質問とその回答をまとめました。料金、対象地域、相談方法について詳しくご説明しています。',
   openGraph: {
     title: 'よくある質問とその回答 | 兵庫ひきこもり相談支援センター 阪神ブランチ',
     description: 'ひきこもり相談に関してよくお寄せいただく質問とその回答をまとめました。',
@@ -33,7 +34,7 @@ export default function FaqPage() {
             <br />
             これ以外にご不明な点や聞きたいことがございましたら、お問合せよりご連絡ください。
           </p>
-          
+
           <p className="mt-4">
             <AppRouterLink href="/inquiry" variant="primary" showArrow>
               お問合せはこちら
@@ -47,15 +48,10 @@ export default function FaqPage() {
         <h2 id="faq-heading" className="sr-only">
           よくある質問一覧
         </h2>
-        
+
         <div className="space-y-0">
-          <AppRouterAccordion 
-            title="Q. 相談料はかかりますか？" 
-            defaultOpen
-          >
-            <p className="text-gray-800 dark:text-gray-200">
-              料金はかかりません。無料です。
-            </p>
+          <AppRouterAccordion title="Q. 相談料はかかりますか？" defaultOpen>
+            <p className="text-gray-800 dark:text-gray-200">料金はかかりません。無料です。</p>
           </AppRouterAccordion>
 
           <AppRouterAccordion title="Q. 対象の地域は？">
@@ -65,7 +61,7 @@ export default function FaqPage() {
                 <br />
                 兵庫県の他の地域の方は、兵庫ひきこもり相談支援センターの地域のブランチをご利用ください。
               </p>
-              
+
               <div className="max-w-fit rounded border border-dashed border-primary-200 p-4 bg-primary-50">
                 <h3 className="font-bold text-primary text-lg mb-2">
                   兵庫ひきこもり相談支援センター
@@ -73,35 +69,43 @@ export default function FaqPage() {
                 <p className="text-xs text-gray-600 mb-3">
                   ※リンクは運営している団体のホームページ
                 </p>
-                
+
                 <ul className="space-y-2 text-sm" role="list">
                   <li className="flex items-center">
-                    <span className="mr-2 h-2 w-2 rounded-full bg-secondary-400" aria-hidden="true"></span>
+                    <span
+                      className="mr-2 h-2 w-2 rounded-full bg-secondary-400"
+                      aria-hidden="true"
+                    />
                     阪神ブランチ
                     <small className="ml-2 text-gray-500">(当サイト)</small>
                   </li>
                   <li className="flex items-center">
-                    <span className="mr-2 h-2 w-2 rounded-full bg-secondary-400" aria-hidden="true"></span>
-                    <AppRouterLink 
-                      href="https://harima-branch.com/" 
-                      external 
-                      variant="default"
-                    >
+                    <span
+                      className="mr-2 h-2 w-2 rounded-full bg-secondary-400"
+                      aria-hidden="true"
+                    />
+                    <AppRouterLink href="https://harima-branch.com/" external variant="default">
                       播磨ブランチ
                     </AppRouterLink>
                   </li>
                   <li className="flex items-center">
-                    <span className="mr-2 h-2 w-2 rounded-full bg-secondary-400" aria-hidden="true"></span>
-                    <AppRouterLink 
-                      href="https://kounotori-inochinet.com/" 
-                      external 
+                    <span
+                      className="mr-2 h-2 w-2 rounded-full bg-secondary-400"
+                      aria-hidden="true"
+                    />
+                    <AppRouterLink
+                      href="https://kounotori-inochinet.com/"
+                      external
                       variant="default"
                     >
                       但馬ブランチ
                     </AppRouterLink>
                   </li>
                   <li className="flex items-center">
-                    <span className="mr-2 h-2 w-2 rounded-full bg-secondary-400" aria-hidden="true"></span>
+                    <span
+                      className="mr-2 h-2 w-2 rounded-full bg-secondary-400"
+                      aria-hidden="true"
+                    />
                     <AppRouterLink
                       href="https://web.pref.hyogo.lg.jp/kk16/ac12_000000034.html"
                       external
@@ -111,7 +115,10 @@ export default function FaqPage() {
                     </AppRouterLink>
                   </li>
                   <li className="flex items-center">
-                    <span className="mr-2 h-2 w-2 rounded-full bg-secondary-400" aria-hidden="true"></span>
+                    <span
+                      className="mr-2 h-2 w-2 rounded-full bg-secondary-400"
+                      aria-hidden="true"
+                    />
                     <AppRouterLink
                       href="https://web.pref.hyogo.lg.jp/kf09/hikikomori/awaji.html"
                       external
@@ -138,14 +145,14 @@ export default function FaqPage() {
               <p className="text-gray-800 dark:text-gray-200">
                 まずはお電話ください。スタッフが相談予約日をご案内します。
               </p>
-              
+
               <div className="rounded-lg bg-gray-50 p-3">
                 <p className="text-sm text-gray-700 mb-2">
                   <strong>開所日時：</strong>火・水・木・金 10:00〜16:00
                 </p>
                 <p className="text-sm text-gray-700">
                   <strong>電話番号：</strong>
-                  <a 
+                  <a
                     href="tel:050-3749-1227"
                     className="font-bold text-primary-600 hover:text-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 rounded"
                   >
@@ -153,7 +160,7 @@ export default function FaqPage() {
                   </a>
                 </p>
               </div>
-              
+
               <p>
                 <AppRouterLink href="/flow" variant="primary" showArrow>
                   相談する

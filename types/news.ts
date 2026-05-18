@@ -16,6 +16,6 @@ export type NewsItem = {
     url: string
     width: number
     height: number
-  },
+  }
   report: string
 }

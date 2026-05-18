@@ -13,26 +13,19 @@ export default function AppRouterAfterContentArea() {
         <br />
         気軽に相談ください
       </h3>
-      
-      <p className="text-xs text-gray-600 mt-1">
-        (ご本人、ご家族)
-      </p>
-      
+
+      <p className="text-xs text-gray-600 mt-1">(ご本人、ご家族)</p>
+
       <p className="mt-3 text-gray-700">
         兵庫ひきこもり相談支援センターでは、
         <br />
         ひきこもりに悩むご本人やご家族からの相談を受け付けています。
       </p>
-      
+
       <p className="mt-4">
-        <Link 
-          href="/flow" 
-          className="btn btn-primary"
-        >
+        <Link href="/flow" className="btn btn-primary">
           相談する
-          <small className="block text-sm opacity-90 mt-1">
-            (電話、来所、訪問)
-          </small>
+          <small className="block text-sm opacity-90 mt-1">(電話、来所、訪問)</small>
         </Link>
       </p>
     </div>

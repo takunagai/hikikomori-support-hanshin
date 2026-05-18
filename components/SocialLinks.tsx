@@ -27,7 +27,7 @@ export function SocialLinks() {
     <ul className="flex justify-center gap-2 lg:justify-start list-none">
       {socialLinks.map((social) => {
         const IconComponent = social.icon
-        
+
         return (
           <li key={social.href}>
             <Link

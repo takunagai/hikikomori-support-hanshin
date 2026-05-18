@@ -15,10 +15,10 @@ interface AppRouterAccordionProps {
  * - Framer Motion アニメーション
  * - アクセシビリティ完全対応
  */
-export default function AppRouterAccordion({ 
-  title, 
-  children, 
-  defaultOpen = false 
+export default function AppRouterAccordion({
+  title,
+  children,
+  defaultOpen = false,
 }: AppRouterAccordionProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen)
 
@@ -54,7 +54,7 @@ export default function AppRouterAccordion({
             strokeLinecap="round"
           />
         </motion.svg>
-        
+
         <span className="flex-1">{title}</span>
       </motion.button>
 
@@ -65,19 +65,17 @@ export default function AppRouterAccordion({
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ 
-              duration: 0.3, 
+            transition={{
+              duration: 0.3,
               ease: 'easeInOut',
-              opacity: { duration: 0.2 }
+              opacity: { duration: 0.2 },
             }}
             className="overflow-hidden"
             id={`accordion-content-${title?.toString().replace(/\s+/g, '-').toLowerCase()}`}
             role="region"
             aria-labelledby={`accordion-button-${title?.toString().replace(/\s+/g, '-').toLowerCase()}`}
           >
-            <div className="px-5 pb-4">
-              {children}
-            </div>
+            <div className="px-5 pb-4">{children}</div>
           </motion.div>
         )}
       </AnimatePresence>

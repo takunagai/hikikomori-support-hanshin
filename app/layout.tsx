@@ -17,8 +17,10 @@ const yomogi = Yomogi({
 })
 
 // サイトの基本情報
-const siteTitle = process.env.NEXT_PUBLIC_SITE_TITLE || '兵庫ひきこもり相談支援センター 阪神ブランチ'
-const siteDescription = 'ひきこもりでお悩みの方やそのご家族の相談窓口です。兵庫県阪神地域（尼崎市、西宮市、芦屋市、伊丹市、宝塚市、川西市、三田市、川辺郡猪名川町）で無料の相談支援を行っています。'
+const siteTitle =
+  process.env.NEXT_PUBLIC_SITE_TITLE || '兵庫ひきこもり相談支援センター 阪神ブランチ'
+const siteDescription =
+  'ひきこもりでお悩みの方やそのご家族の相談窓口です。兵庫県阪神地域（尼崎市、西宮市、芦屋市、伊丹市、宝塚市、川西市、三田市、川辺郡猪名川町）で無料の相談支援を行っています。'
 const siteUrl = 'https://hanshin-branch.org'
 
 export const viewport: Viewport = {
@@ -128,12 +130,8 @@ interface RootLayoutProps {
  */
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html 
-      lang="ja" 
-      className={`${yomogi.variable} h-full scroll-smooth`}
-      suppressHydrationWarning
-    >
-      <body 
+    <html lang="ja" className={`${yomogi.variable} h-full scroll-smooth`} suppressHydrationWarning>
+      <body
         className="flex h-full flex-col leading-relaxed antialiased bg-white text-gray-900"
         suppressHydrationWarning
       >
@@ -141,12 +139,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <div className="flex h-full w-full flex-col">
             <AppRouterHeader />
             <div className="cover__main container flex-1">
-              <main 
-                id="primary" 
-                role="main"
-                aria-label="メインコンテンツ"
-                className="min-h-[60vh]"
-              >
+              <main id="primary" role="main" aria-label="メインコンテンツ" className="min-h-[60vh]">
                 {children}
               </main>
             </div>

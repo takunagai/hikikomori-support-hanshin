@@ -20,19 +20,16 @@ interface FormattedDateProps {
  * @param className 追加のCSSクラス
  * @param showWeekday 曜日表示の有無（デフォルト: false）
  */
-export default function FormattedDate({ 
-  dateString, 
+export default function FormattedDate({
+  dateString,
   className = '',
-  showWeekday = false 
+  showWeekday = false,
 }: FormattedDateProps) {
   const date = parseISO(dateString)
   const formatString = showWeekday ? 'yyyy年MM月dd日(eee)' : 'yyyy年MM月dd日'
-  
+
   return (
-    <time 
-      dateTime={dateString}
-      className={className}
-    >
+    <time dateTime={dateString} className={className}>
       {format(date, formatString, { locale: ja })}
     </time>
   )

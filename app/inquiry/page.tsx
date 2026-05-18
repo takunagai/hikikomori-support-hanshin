@@ -7,7 +7,8 @@ import AppRouterLink from '../../components/AppRouterLink'
 
 export const metadata: Metadata = {
   title: 'お問合せ',
-  description: 'ひきこもり相談に関するお問い合わせは、お電話またはSNSでお気軽にご連絡ください。火・水・木・金の10:00〜16:00に対応しております。',
+  description:
+    'ひきこもり相談に関するお問い合わせは、お電話またはSNSでお気軽にご連絡ください。火・水・木・金の10:00〜16:00に対応しております。',
   openGraph: {
     title: 'お問合せ | 兵庫ひきこもり相談支援センター 阪神ブランチ',
     description: 'ひきこもり相談に関するお問い合わせは、お電話またはSNSでお気軽にご連絡ください。',
@@ -34,8 +35,11 @@ export default function InquiryPage() {
             <p className="text-lg text-gray-700">
               ご不明な点や聞きたいことがございましたら、電話、メールフォームのいずれかでご連絡ください。
             </p>
-            
-            <nav className="mt-4 flex flex-wrap justify-center gap-4 text-center" aria-label="関連ページ">
+
+            <nav
+              className="mt-4 flex flex-wrap justify-center gap-4 text-center"
+              aria-label="関連ページ"
+            >
               <AppRouterLink href="/flow" variant="primary" showArrow>
                 相談の流れ
               </AppRouterLink>
@@ -55,14 +59,10 @@ export default function InquiryPage() {
             <h2 id="form-section" className="text-lg font-semibold text-primary-600">
               お問合せフォーム
             </h2>
-            <p className="text-center text-sm text-gray-600">
-              (24H受付)
-            </p>
-            
+            <p className="text-center text-sm text-gray-600">(24H受付)</p>
+
             <div className="mx-auto max-w-lg">
-              <p className="mt-3 text-gray-700">
-                準備中です。電話か Twitter でお問合せください。
-              </p>
+              <p className="mt-3 text-gray-700">準備中です。電話か Twitter でお問合せください。</p>
             </div>
           </div>
         </section>

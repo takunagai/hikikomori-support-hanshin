@@ -76,7 +76,7 @@ export const SITE_CONFIG = {
   /** サポート地域 */
   SUPPORTED_AREAS: [
     '尼崎市',
-    '西宮市', 
+    '西宮市',
     '芦屋市',
     '伊丹市',
     '宝塚市',

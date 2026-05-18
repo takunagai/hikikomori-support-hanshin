@@ -1,16 +1,17 @@
 import type { Metadata } from 'next'
-
-import { userCommentsApi } from '../../lib/microcms-app-router'
 import AppRouterAfterContentArea from '../../components/AppRouterAfterContentArea'
 import AppRouterInquiryContent from '../../components/AppRouterInquiryContent'
 import AppRouterUserCommentsGrid from '../../components/AppRouterUserCommentsGrid'
+import { userCommentsApi } from '../../lib/microcms-app-router'
 
 export const metadata: Metadata = {
   title: 'ご利用者様の声',
-  description: '兵庫ひきこもり相談支援センター 阪神ブランチをご利用いただいた方々からの声を紹介します。実際の体験談やメッセージをご覧ください。',
+  description:
+    '兵庫ひきこもり相談支援センター 阪神ブランチをご利用いただいた方々からの声を紹介します。実際の体験談やメッセージをご覧ください。',
   openGraph: {
     title: 'ご利用者様の声 | 兵庫ひきこもり相談支援センター 阪神ブランチ',
-    description: '兵庫ひきこもり相談支援センター 阪神ブランチをご利用いただいた方々からの声を紹介します。',
+    description:
+      '兵庫ひきこもり相談支援センター 阪神ブランチをご利用いただいた方々からの声を紹介します。',
   },
 }
 
@@ -45,14 +46,12 @@ export default async function UserCommentsPage() {
           <h2 id="user-comments-section" className="sr-only">
             利用者の体験談
           </h2>
-          
+
           {userComments.length > 0 ? (
             <AppRouterUserCommentsGrid userComments={userComments} />
           ) : (
             <div className="text-center py-12">
-              <p className="text-gray-500">
-                現在、表示できるご利用者様の声はありません。
-              </p>
+              <p className="text-gray-500">現在、表示できるご利用者様の声はありません。</p>
             </div>
           )}
         </section>

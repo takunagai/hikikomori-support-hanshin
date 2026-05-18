@@ -14,9 +14,9 @@ interface AppRouterNewsContentProps {
  * - HTMLサニタイズ機能
  * - セキュリティ対応
  */
-export default function AppRouterNewsContent({ 
-  content, 
-  className = '' 
+export default function AppRouterNewsContent({
+  content,
+  className = '',
 }: AppRouterNewsContentProps) {
   const [sanitizedHtml, setSanitizedHtml] = useState(content)
 

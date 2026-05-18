@@ -6,10 +6,12 @@ import AppRouterLink from '../../components/AppRouterLink'
 
 export const metadata: Metadata = {
   title: '相談窓口・教育支援センター',
-  description: '兵庫県内、阪神地域でひきこもりや不登校に関する悩みをもつ方の相談を受けている行政などの公共機関、民間の支援機関などをご紹介しています。',
+  description:
+    '兵庫県内、阪神地域でひきこもりや不登校に関する悩みをもつ方の相談を受けている行政などの公共機関、民間の支援機関などをご紹介しています。',
   openGraph: {
     title: '相談窓口・教育支援センター | 兵庫ひきこもり相談支援センター 阪神ブランチ',
-    description: '兵庫県内、阪神地域でひきこもりや不登校に関する悩みをもつ方の相談を受けている支援機関をご紹介しています。',
+    description:
+      '兵庫県内、阪神地域でひきこもりや不登校に関する悩みをもつ方の相談を受けている支援機関をご紹介しています。',
   },
 }
 
@@ -173,17 +175,22 @@ export default function ReferencePage() {
         {/* メインコンテンツ */}
         <section className="px-4 py-8">
           <div className="mx-auto max-w-4xl gap-8 lg:flex">
-            
             {/* 相談窓口セクション */}
-            <article className="mx-auto basis-1/2 rounded bg-base p-4 shadow" aria-labelledby="consultation-services">
-              <h2 id="consultation-services" className="mt-3 text-xl font-semibold text-primary-600">
+            <article
+              className="mx-auto basis-1/2 rounded bg-base p-4 shadow"
+              aria-labelledby="consultation-services"
+            >
+              <h2
+                id="consultation-services"
+                className="mt-3 text-xl font-semibold text-primary-600"
+              >
                 相談
               </h2>
-              
+
               <p className="mt-4 text-gray-700">
                 ひきこもりや不登校に関する相談を受けている行政などの公共機関、民間の支援機関。
               </p>
-              
+
               <nav role="navigation" aria-label="相談窓口一覧">
                 <ul className="mt-4 flex list-square flex-col gap-3 pl-5 marker:text-secondary-400">
                   {consultationServices.map((service) => (
@@ -203,25 +210,31 @@ export default function ReferencePage() {
             </article>
 
             {/* 教育支援センターセクション */}
-            <article className="mx-auto mt-8 basis-1/2 rounded bg-base p-4 shadow lg:mt-0" aria-labelledby="education-support-centers">
-              <h2 id="education-support-centers" className="mt-3 text-xl font-semibold text-primary-600">
+            <article
+              className="mx-auto mt-8 basis-1/2 rounded bg-base p-4 shadow lg:mt-0"
+              aria-labelledby="education-support-centers"
+            >
+              <h2
+                id="education-support-centers"
+                className="mt-3 text-xl font-semibold text-primary-600"
+              >
                 教育支援センター
               </h2>
-              
+
               <p className="mt-4 text-gray-700">
                 主に小中学校を長期で休んでいる子どものために、教育委員会が用意した公的機関。
               </p>
-              
+
               <div className="mt-6 space-y-6">
                 {educationSupportCenters.map((cityData) => (
                   <section key={cityData.city} aria-labelledby={`${cityData.city}-centers`}>
-                    <h3 
+                    <h3
                       id={`${cityData.city}-centers`}
                       className="border-b border-dashed border-primary-200 pb-1 text-base font-medium text-primary-600"
                     >
                       {cityData.city}
                     </h3>
-                    
+
                     <ul className="mt-3 flex list-square flex-col gap-2 pl-5 marker:text-secondary-400">
                       {cityData.centers.map((center) => (
                         <li key={center.name}>
@@ -233,9 +246,7 @@ export default function ReferencePage() {
                           >
                             {center.name}
                             {'note' in center && center.note && (
-                              <small className="ml-1 text-gray-500">
-                                ({center.note})
-                              </small>
+                              <small className="ml-1 text-gray-500">({center.note})</small>
                             )}
                           </AppRouterLink>
                         </li>

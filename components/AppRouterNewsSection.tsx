@@ -1,11 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaDove } from 'react-icons/fa'
-
-import type { NewsItem } from '../types/news'
 import { NEWS_CONFIG } from '../lib/constants'
-import FormattedDate from './FormattedDate'
+import type { NewsItem } from '../types/news'
 import AppRouterLink from './AppRouterLink'
+import FormattedDate from './FormattedDate'
 
 interface AppRouterNewsSectionProps {
   newsItems: NewsItem[]
@@ -20,46 +19,38 @@ interface AppRouterNewsSectionProps {
 export default function AppRouterNewsSection({ newsItems }: AppRouterNewsSectionProps) {
   return (
     <section className="py-12" aria-labelledby="news-section">
-      <h2 id="news-section" className="flex items-center justify-center text-2xl font-semibold text-gray-900">
-        <FaDove 
-          className="mr-2 text-secondary-300" 
-          aria-hidden="true" 
-        />
+      <h2
+        id="news-section"
+        className="flex items-center justify-center text-2xl font-semibold text-gray-900"
+      >
+        <FaDove className="mr-2 text-secondary-300" aria-hidden="true" />
         お知らせ
       </h2>
-      
+
       {/* ニュース一覧 */}
       <div className="mx-auto max-w-2xl px-4">
         {newsItems.length > 0 ? (
           <ul className="mt-8 list-square pl-5 marker:text-secondary-400 space-y-2">
-            {newsItems
-              .slice(0, NEWS_CONFIG.DISPLAY_LIMIT)
-              .map((newsItem: NewsItem) => {
-                if (newsItem.status.includes('告知')) {
-                  return (
-                    <li
-                      key={newsItem.id}
-                      className="border-b border-dashed border-primary-100 py-2 last:border-b-0"
-                    >
-                      <div className="flex flex-col gap-1 md:flex-row md:items-center md:gap-4">
-                        <span className="flex-shrink-0 text-xs text-gray-600 md:text-sm">
-                          <FormattedDate
-                            dateString={newsItem.date}
-                            className="font-medium"
-                          />
-                        </span>
-                        <Link
-                          href={`/news/${newsItem.id}`}
-                          className="text-primary"
-                        >
-                          {newsItem.title}
-                        </Link>
-                      </div>
-                    </li>
-                  )
-                }
-                return null
-              })}
+            {newsItems.slice(0, NEWS_CONFIG.DISPLAY_LIMIT).map((newsItem: NewsItem) => {
+              if (newsItem.status.includes('告知')) {
+                return (
+                  <li
+                    key={newsItem.id}
+                    className="border-b border-dashed border-primary-100 py-2 last:border-b-0"
+                  >
+                    <div className="flex flex-col gap-1 md:flex-row md:items-center md:gap-4">
+                      <span className="flex-shrink-0 text-xs text-gray-600 md:text-sm">
+                        <FormattedDate dateString={newsItem.date} className="font-medium" />
+                      </span>
+                      <Link href={`/news/${newsItem.id}`} className="text-primary">
+                        {newsItem.title}
+                      </Link>
+                    </div>
+                  </li>
+                )
+              }
+              return null
+            })}
           </ul>
         ) : (
           <div className="mt-8 text-center">
@@ -70,12 +61,7 @@ export default function AppRouterNewsSection({ newsItems }: AppRouterNewsSection
 
       {/* ニュース一覧へのリンク */}
       <div className="mt-8 text-center">
-        <AppRouterLink
-          href="/news"
-          variant="primary"
-          showArrow
-          className="text-lg"
-        >
+        <AppRouterLink href="/news" variant="primary" showArrow className="text-lg">
           過去の活動報告
         </AppRouterLink>
       </div>
