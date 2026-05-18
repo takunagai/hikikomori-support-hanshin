@@ -213,11 +213,6 @@ export const revalidateCache = {
 }
 
 /**
- * 従来のクライアント（互換性のため残す）
- */
-export { client } from './client'
-
-/**
  * エラーハンドリング用のヘルパー関数
  */
 export function handleMicroCMSError(error: unknown): Error {

@@ -1,187 +1,137 @@
-/**
- * microcms API からフェッチ
- * @ref https://document.microcms.io/tutorial/next/next-getting-started
- */
+'use client'
+
 import * as Dialog from '@radix-ui/react-dialog'
 import { AnimatePresence, motion } from 'motion/react'
-import type { GetStaticProps, NextPage } from 'next' // TypeScript の型データ
+import Image from 'next/image'
 import { useState } from 'react'
 import { FaEnvelope, FaGlobe, FaInfoCircle, FaLine, FaPhoneAlt, FaPrint } from 'react-icons/fa'
-import AfterContentArea from '../components/AfterContentArea'
-import DialogDemo from '../components/Dialog'
-import InfiniteScroll from '../components/InfiniteScroll'
-import Link from '../components/Link'
-import Layout from '../components/layout'
-import RadioButton from '../components/RadioButton'
-import { client } from '../lib/client' // microcms-js-sdkの初期化
+import AppRouterLink from '../../components/AppRouterLink'
+import DialogDemo from '../../components/Dialog'
+import InfiniteScroll from '../../components/InfiniteScroll'
+import RadioButton from '../../components/RadioButton'
+import type { Group } from '../../types/group'
 
-// コンポーネントのPropsの型定義
+const CITIES = [
+  { id: 'all', name: '全表示' },
+  { id: 'amagasaki', name: '尼崎市' },
+  { id: 'nishinomiya', name: '西宮市' },
+  { id: 'ashiya', name: '芦屋市' },
+  { id: 'itami', name: '伊丹市' },
+  { id: 'takarazuka', name: '宝塚市' },
+  { id: 'kawanishi', name: '川西市' },
+  { id: 'sanda', name: '三田市' },
+  { id: 'inagawa', name: '川辺郡猪名川町' },
+  { id: 'online', name: 'オンライン' },
+  { id: 'other', name: 'その他' },
+] as const
+
 type Props = {
   groups: Group[]
 }
 
-// microCMS - group
-import type { Group } from '../types/group'
-
-/**
- * getStaticProps (from microCMS API)
- *   getStaticProps は、実装者が大きな変更をしない限り Promise を返却する = 条件は必ず真に流れる
- */
-// ★★TODO: エラー消す (参考：https://zenn.dev/eitches/articles/2021-0424-getstaticprops-type)
-// export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext<{ slug: string }>) => {
-export const getStaticProps: GetStaticProps = async () =>
-  // context: GetStaticPropsContext,
-  {
-    const data = await client.get({
-      endpoint: 'group',
-      queries: {
-        // filters: "city[contains]宝塚市[or]city[contains]伊丹市",
-        limit: 100,
-      },
-    })
-
-    return {
-      props: {
-        groups: data.contents,
-      },
-    }
-  }
-
-/**
- * Main Component
- */
-const PlacesAndGroups: NextPage<Props> = ({ groups }) => {
-  const [selectedCity, setSelectedCity] = useState('全表示')
+export default function PlacesAndGroupsClient({ groups }: Props) {
+  const [selectedCity, setSelectedCity] = useState<string>('全表示')
 
   return (
-    <Layout
-      title="居場所・親の会の情報"
-      description="阪神地域でされているひきこもりの方の居場所、不登校の方の居場所、親の会、学習支援、教育支援センター、相談機関などの情報を集めました。"
-    >
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-        <h1 className="alignfull bg-dots3">居場所・親の会の情報</h1>
-        <div className="mx-auto mt-8 max-w-2xl">
-          <p className="font-bold text-primary">
-            なかなか探しにくい、阪神地域でされているひきこもりの方の居場所、不登校の方の居場所、親の会、学習支援、教育支援センター、相談機関などの情報を集めました。
-          </p>
+    <div>
+      <h1 className="alignfull bg-dots3">居場所・親の会の情報</h1>
+      <div className="mx-auto mt-8 max-w-2xl">
+        <p className="font-bold text-primary">
+          なかなか探しにくい、阪神地域でされているひきこもりの方の居場所、不登校の方の居場所、親の会、学習支援、教育支援センター、相談機関などの情報を集めました。
+        </p>
 
-          <div className="mt-4 rounded-md border border-yellow-200 bg-yellow-50 p-2" role="alert">
-            <div className="flex">
-              <div className="flex-shrink-0">
-                <FaInfoCircle className="inline align-baseline text-yellow-400" />
-              </div>
-              <div className="ml-2">
-                <div className="text-sm text-yellow-800">
-                  中には有償のものや、合わない所があるかもしれません。
-                  <br />
-                  ホームページやチラシに載っている情報や、説明をよく聞いてから利用する様にしてください。
-                </div>
-              </div>
+        <div className="mt-4 rounded-md border border-yellow-200 bg-yellow-50 p-2" role="alert">
+          <div className="flex">
+            <div className="flex-shrink-0">
+              <FaInfoCircle className="inline align-baseline text-yellow-400" />
             </div>
-            <div className="mt-3 flex">
-              <div className="flex-shrink-0">
-                <FaInfoCircle className="inline align-baseline text-yellow-400" />
-              </div>
-              <div className="ml-2">
-                <div className="text-sm text-yellow-800">
-                  イベント日程等は、各グループのホームページをご参照ください。
-                </div>
+            <div className="ml-2">
+              <div className="text-sm text-yellow-800">
+                中には有償のものや、合わない所があるかもしれません。
+                <br />
+                ホームページやチラシに載っている情報や、説明をよく聞いてから利用する様にしてください。
               </div>
             </div>
           </div>
-          <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <Dialog.Root>
-              <Dialog.Trigger asChild>
-                <button type="button" className="btn btn-primary">
-                  運営者の方へ<small> (掲載希望、情報変更)</small>
-                </button>
-              </Dialog.Trigger>
-              <Dialog.Portal>
-                <Dialog.Overlay className="DialogOverlay" />
-                <Dialog.Content className="DialogContent">
-                  <Dialog.Title className="DialogTitle">
-                    運営者の方へ<small> (掲載希望、情報変更)</small>
-                  </Dialog.Title>
-                  {/*<Dialog.Description className="DialogDescription">*/}
-                  {/*  Make changes to your profile here. Click save when you're*/}
-                  {/*  done.*/}
-                  {/*</Dialog.Description>*/}
-                  <p className="mt-4">
-                    当ページへの新規掲載を気希望の方や掲載情報変更を希望の方は、お問い合わせください。
-                  </p>
-                  <p className="mt-4 text-center">
-                    <Link href="/inquiry" type="button" className="btn btn-secondary">
-                      お問合せはこちら
-                    </Link>
-                  </p>
-
-                  <div
-                    style={{
-                      marginTop: '0.5em',
-                      textAlign: 'center',
-                    }}
-                  >
-                    <Dialog.Close asChild>
-                      <button type="button" className="text-sm text-primary underline">
-                        閉じる
-                      </button>
-                    </Dialog.Close>
-                  </div>
-                  <Dialog.Close asChild>
-                    <button type="button" className="IconButton" aria-label="Close">
-                      ×
-                    </button>
-                  </Dialog.Close>
-                </Dialog.Content>
-              </Dialog.Portal>
-            </Dialog.Root>
-            <a
-              href="https://www.dropbox.com/scl/fi/3oy65o0dh7ydd3v7ctfv1/whereabouts-summary-booklet.pdf?rlkey=kfsjeq59gpqbd4g9t7wwcel9l&st=kgadp0pw&dl=0"
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-secondary text-center"
-            >
-              阪神地域の居場所マップ <small>(PDF)</small>
-            </a>
+          <div className="mt-3 flex">
+            <div className="flex-shrink-0">
+              <FaInfoCircle className="inline align-baseline text-yellow-400" />
+            </div>
+            <div className="ml-2">
+              <div className="text-sm text-yellow-800">
+                イベント日程等は、各グループのホームページをご参照ください。
+              </div>
+            </div>
           </div>
         </div>
-        <section className="mt-8">
-          <RadioButtonsForFilter selectedCity={selectedCity} setSelectedCity={setSelectedCity} />
-          <GroupList groups={groups} selectedCity={selectedCity} />
-        </section>
 
-        <AfterContentArea />
-      </motion.div>
-    </Layout>
+        <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <Dialog.Root>
+            <Dialog.Trigger asChild>
+              <button type="button" className="btn btn-primary">
+                運営者の方へ<small> (掲載希望、情報変更)</small>
+              </button>
+            </Dialog.Trigger>
+            <Dialog.Portal>
+              <Dialog.Overlay className="DialogOverlay" />
+              <Dialog.Content className="DialogContent">
+                <Dialog.Title className="DialogTitle">
+                  運営者の方へ<small> (掲載希望、情報変更)</small>
+                </Dialog.Title>
+                <p className="mt-4">
+                  当ページへの新規掲載を気希望の方や掲載情報変更を希望の方は、お問い合わせください。
+                </p>
+                <p className="mt-4 text-center">
+                  <AppRouterLink href="/inquiry" className="btn btn-secondary">
+                    お問合せはこちら
+                  </AppRouterLink>
+                </p>
+
+                <div style={{ marginTop: '0.5em', textAlign: 'center' }}>
+                  <Dialog.Close asChild>
+                    <button type="button" className="text-sm text-primary underline">
+                      閉じる
+                    </button>
+                  </Dialog.Close>
+                </div>
+                <Dialog.Close asChild>
+                  <button type="button" className="IconButton" aria-label="Close">
+                    ×
+                  </button>
+                </Dialog.Close>
+              </Dialog.Content>
+            </Dialog.Portal>
+          </Dialog.Root>
+
+          <a
+            href="https://www.dropbox.com/scl/fi/3oy65o0dh7ydd3v7ctfv1/whereabouts-summary-booklet.pdf?rlkey=kfsjeq59gpqbd4g9t7wwcel9l&st=kgadp0pw&dl=0"
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-secondary text-center"
+          >
+            阪神地域の居場所マップ <small>(PDF)</small>
+          </a>
+        </div>
+      </div>
+
+      <section className="mt-8">
+        <RadioButtonsForFilter
+          selectedCity={selectedCity}
+          setSelectedCity={setSelectedCity}
+        />
+        <GroupList groups={groups} selectedCity={selectedCity} />
+      </section>
+    </div>
   )
 }
 
-export default PlacesAndGroups
-
-/**
- * ラジオボタンエリア
- */
-const RadioButtonsForFilter = ({
+function RadioButtonsForFilter({
   selectedCity,
   setSelectedCity,
 }: {
   selectedCity: string
   setSelectedCity: (selectedCity: string) => void
-}) => {
-  const CITIES = [
-    { id: 'all', name: '全表示' },
-    { id: 'amagasaki', name: '尼崎市' },
-    { id: 'nishinomiya', name: '西宮市' },
-    { id: 'ashiya', name: '芦屋市' },
-    { id: 'itami', name: '伊丹市' },
-    { id: 'takarazuka', name: '宝塚市' },
-    { id: 'kawanishi', name: '川西市' },
-    { id: 'sanda', name: '三田市' },
-    { id: 'inagawa', name: '川辺郡猪名川町' },
-    { id: 'online', name: 'オンライン' },
-    { id: 'other', name: 'その他' },
-  ]
-
+}) {
   return (
     <>
       <div className="mx-auto max-w-lg rounded-2xl bg-gray-100 p-4 dark:bg-gray-800">
@@ -214,10 +164,7 @@ const RadioButtonsForFilter = ({
   )
 }
 
-/**
- * 居場所&グループのリスト
- */
-const GroupList = ({ groups, selectedCity }: { groups: Group[]; selectedCity: string }) => {
+function GroupList({ groups, selectedCity }: { groups: Group[]; selectedCity: string }) {
   const extractCategoryMatches = (item: Group) => {
     if (selectedCity === '全表示') {
       return true
@@ -225,14 +172,16 @@ const GroupList = ({ groups, selectedCity }: { groups: Group[]; selectedCity: st
     return item.city[0] === selectedCity
   }
 
-  return Object.keys(groups).length === 0 ? (
-    <p>登録がありません。</p>
-  ) : (
+  if (groups.length === 0) {
+    return <p>登録がありません。</p>
+  }
+
+  return (
     <div className="mt-8">
       <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         <AnimatePresence mode="popLayout">
           <InfiniteScroll itemsPerPage={6}>
-            {groups.filter(extractCategoryMatches).map((group: Group, index: number) => (
+            {groups.filter(extractCategoryMatches).map((group, index) => (
               <motion.li
                 key={group.id}
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -364,7 +313,7 @@ const GroupList = ({ groups, selectedCity }: { groups: Group[]; selectedCity: st
 
                         <div className="flex gap-4">
                           {group.contactEmail && (
-                            <Link
+                            <AppRouterLink
                               href={`mailto:${group.contactEmail}`}
                               external
                               variant="secondary"
@@ -372,11 +321,11 @@ const GroupList = ({ groups, selectedCity }: { groups: Group[]; selectedCity: st
                             >
                               <FaEnvelope className="h-4 w-4 mx-auto" />
                               <span className="font-bold">Email</span>
-                            </Link>
+                            </AppRouterLink>
                           )}
 
                           {group.contactLine && (
-                            <Link
+                            <AppRouterLink
                               href={`https://lin.ee/${group.contactLine}`}
                               external
                               variant="secondary"
@@ -384,11 +333,11 @@ const GroupList = ({ groups, selectedCity }: { groups: Group[]; selectedCity: st
                             >
                               <FaLine className="h-4 w-4 mx-auto" />
                               <span className="font-bold">LINE</span>
-                            </Link>
+                            </AppRouterLink>
                           )}
 
                           {group.webUrl && (
-                            <Link
+                            <AppRouterLink
                               href={group.webUrl}
                               external
                               variant="secondary"
@@ -396,7 +345,7 @@ const GroupList = ({ groups, selectedCity }: { groups: Group[]; selectedCity: st
                             >
                               <FaGlobe className="h-4 w-4 mx-auto" />
                               <span className="font-bold">Web</span>
-                            </Link>
+                            </AppRouterLink>
                           )}
                         </div>
                       </div>
@@ -407,12 +356,13 @@ const GroupList = ({ groups, selectedCity }: { groups: Group[]; selectedCity: st
                     <div className="mt-4 grid gap-4">
                       {group.leafletImage1 && (
                         <div className="relative overflow-hidden rounded-lg">
-                          <img
+                          <Image
                             src={group.leafletImage1.url}
                             width={group.leafletImage1.width}
                             height={group.leafletImage1.height}
                             alt="リーフレット"
                             className="w-full object-cover"
+                            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                           />
                           <DialogDemo
                             title={group.title}
@@ -422,11 +372,12 @@ const GroupList = ({ groups, selectedCity }: { groups: Group[]; selectedCity: st
                             isStretchLink={true}
                             isPortrait={group.leafletImage1.height >= group.leafletImage1.width}
                           >
-                            <img
+                            <Image
                               src={group.leafletImage1.url}
                               width={group.leafletImage1.width}
                               height={group.leafletImage1.height}
                               alt="リーフレット"
+                              sizes="(min-width: 768px) 768px, 90vw"
                             />
                           </DialogDemo>
                         </div>
@@ -434,12 +385,13 @@ const GroupList = ({ groups, selectedCity }: { groups: Group[]; selectedCity: st
 
                       {group.leafletImage2 && (
                         <div className="relative overflow-hidden rounded-lg">
-                          <img
+                          <Image
                             src={group.leafletImage2.url}
                             width={group.leafletImage2.width}
                             height={group.leafletImage2.height}
                             alt="リーフレット"
                             className="w-full object-cover"
+                            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                           />
                           <DialogDemo
                             title={group.title}
@@ -449,11 +401,12 @@ const GroupList = ({ groups, selectedCity }: { groups: Group[]; selectedCity: st
                             isStretchLink={true}
                             isPortrait={group.leafletImage2.height >= group.leafletImage2.width}
                           >
-                            <img
+                            <Image
                               src={group.leafletImage2.url}
                               width={group.leafletImage2.width}
                               height={group.leafletImage2.height}
                               alt="リーフレット"
+                              sizes="(min-width: 768px) 768px, 90vw"
                             />
                           </DialogDemo>
                         </div>
