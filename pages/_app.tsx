@@ -1,4 +1,4 @@
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'motion/react'
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes' // for Dark mode
 import '../styles/globals.css'

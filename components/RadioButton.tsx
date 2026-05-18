@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import type { ComponentPropsWithoutRef } from 'react'
 
 type Props = Omit<ComponentPropsWithoutRef<'input'>, 'type'> & {

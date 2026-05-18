@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import NextLink from 'next/link'
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 
