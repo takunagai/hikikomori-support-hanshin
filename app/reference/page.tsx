@@ -51,7 +51,7 @@ const consultationServices = [
   },
   {
     name: '宝塚市せいかつ応援センター',
-    url: 'https://www.city.takarazuka.hyogo.jp/kenkofukushi/seikatsushien/1051449/',
+    url: 'https://www.city.takarazuka.hyogo.jp/1060682/1060706/seikatsushien/1051449/index.html',
   },
   {
     name: '西宮市ひきこもり地域支援センター',
